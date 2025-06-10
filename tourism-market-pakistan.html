@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinara Resorts - Interactive Market Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FDFBF7;
+            --text-dark: #2C3E50;
+            --primary-blue: #3498DB;
+            --accent-gold: #E1B168;
+            --card-bg: #FFFFFF;
+            --border-color: #EAEAEA;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-link {
+            color: var(--text-dark);
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+            padding: 1rem 0;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .stat-number {
+            font-family: 'Teko', sans-serif;
+            font-size: 4.5rem;
+            line-height: 1;
+            color: var(--primary-blue);
+        }
+        .stat-label {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .chart-container {
+            position: relative;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            width: 100%;
+            height: 400px;
+            max-height: 450px;
+        }
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            color: #444;
+            line-height: 1.6;
+        }
+        .swot-card {
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .swot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+        }
+        .swot-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .competitor-card.active {
+            border-color: var(--primary-blue) !important;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+        }
+        .roadmap-node {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .roadmap-node:hover {
+            border-color: var(--primary-blue);
+            transform: scale(1.03);
+        }
+        .roadmap-line {
+            height: 2px;
+            background-color: var(--border-color);
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="text-center py-10 bg-white border-b border-[--border-color]">
+        <h1 class="text-5xl font-bold tracking-wide text-[--text-dark]">KINARA RESORTS</h1>
+        <p class="text-xl text-gray-500 mt-2 font-light">Interactive Market Analysis Dashboard</p>
+    </header>
+    
+    <nav class="sticky-nav">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8">
+                <a href="#market-pulse" class="nav-link">Market Pulse</a>
+                <a href="#competitive-arena" class="nav-link">Competitive Arena</a>
+                <a href="#swot-matrix" class="nav-link">SWOT Matrix</a>
+                <a href="#growth-roadmap" class="nav-link">Growth Roadmap</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="market-pulse" class="mb-20">
+            <h2 class="section-title">Market Pulse</h2>
+            <p class="section-intro">This section provides a high-level overview of the Skardu tourism market's key metrics and trends. It highlights the significant growth in visitor numbers and the seasonal dynamics that shape the hospitality landscape, offering a foundation for strategic decisions.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="stat-card">
+                    <div id="stat1" class="stat-number">121%</div>
+                    <p class="stat-label">Increase in International Visitors (2024 vs 2023)</p>
+                </div>
+                <div class="stat-card">
+                    <div id="stat2" class="stat-number">6.56%</div>
+                    <p class="stat-label">Projected Hospitality CAGR (Pakistan, 2025-2033)</p>
+                </div>
+                <div class="stat-card">
+                    <div id="stat3" class="stat-number">102K+</div>
+                    <p class="stat-label">Domestic Tourists to Baltistan Division (2019)</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="chart-container">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Tourism Trends in Gilgit-Baltistan</h3>
+                    <canvas id="tourismTrendChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Average Hotel Occupancy in Skardu</h3>
+                    <canvas id="occupancyChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="competitive-arena" class="mb-20">
+            <h2 class="section-title">Competitive Arena</h2>
+            <p class="section-intro">Skardu's premium hospitality market is fragmented, featuring a mix of branded luxury, iconic heritage, and niche adventure properties. This section analyzes Kinara's positioning relative to its key competitors across multiple dimensions, revealing its unique strengths and market niche.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-3 chart-container" style="height: 500px; max-height: 550px;">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Competitor Positioning Matrix</h3>
+                     <p class="text-center text-sm text-gray-500 mb-4">Click on a competitor below to see their deep-dive analysis.</p>
+                    <canvas id="competitorRadarChart"></canvas>
+                </div>
+                <div id="competitor-details" class="lg:col-span-2 bg-white p-6 rounded-lg border border-[--border-color] shadow-sm">
+                    <h3 class="text-3xl font-bold mb-4" id="competitor-name">Select a Competitor</h3>
+                    <div id="competitor-content">
+                        <p class="text-gray-600">Click on a competitor name in the chart legend to view their detailed profile, including their unique selling propositions (USPs) and target audience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="swot-matrix" class="mb-20">
+            <h2 class="section-title">SWOT Matrix</h2>
+            <p class="section-intro">This interactive matrix outlines the core internal Strengths and Weaknesses of Kinara Resorts, alongside the external Opportunities and Threats present in the market. Click on any quadrant to explore the detailed analysis and understand the strategic factors influencing Kinara's future.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="swot-card bg-green-50 border-green-200" data-swot="strengths">
+                    <h3 class="text-green-800 flex items-center gap-3"><span class="text-4xl">💪</span> Strengths</h3>
+                    <p class="text-green-700">Internal positive attributes that give Kinara a competitive advantage. Click to see details.</p>
+                </div>
+                <div class="swot-card bg-red-50 border-red-200" data-swot="weaknesses">
+                    <h3 class="text-red-800 flex items-center gap-3"><span class="text-4xl">⚠️</span> Weaknesses</h3>
+                    <p class="text-red-700">Internal negative factors that could hinder performance. Click to see details.</p>
+                </div>
+                <div class="swot-card bg-blue-50 border-blue-200" data-swot="opportunities">
+                    <h3 class="text-blue-800 flex items-center gap-3"><span class="text-4xl">🚀</span> Opportunities</h3>
+                    <p class="text-blue-700">External factors that the resort can capitalize on for growth. Click to see details.</p>
+                </div>
+                <div class="swot-card bg-yellow-50 border-yellow-200" data-swot="threats">
+                    <h3 class="text-yellow-800 flex items-center gap-3"><span class="text-4xl">📉</span> Threats</h3>
+                    <p class="text-yellow-700">External challenges that could negatively impact the business. Click to see details.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="growth-roadmap" class="mb-12">
+            <h2 class="section-title">Strategic Growth Roadmap</h2>
+            <p class="section-intro">This roadmap visualizes the key business opportunities identified in the analysis. Each node represents a strategic initiative designed to enhance revenue, strengthen market position, and ensure long-term success. Click on each step to uncover the detailed action plan.</p>
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                <div class="roadmap-node text-center w-full md:w-1/4" data-roadmap="seo">
+                    <h4 class="text-xl font-semibold">1. Optimize Digital Presence</h4>
+                </div>
+                <div class="w-full md:w-auto md:flex-1 roadmap-line"></div>
+                <div class="roadmap-node text-center w-full md:w-1/4" data-roadmap="packages">
+                    <h4 class="text-xl font-semibold">2. Develop Off-Peak Packages</h4>
+                </div>
+                <div class="w-full md:w-auto md:flex-1 roadmap-line"></div>
+                <div class="roadmap-node text-center w-full md:w-1/4" data-roadmap="sustainability">
+                    <h4 class="text-xl font-semibold">3. Formalize Sustainability</h4>
+                </div>
+                <div class="w-full md:w-auto md:flex-1 roadmap-line"></div>
+                <div class="roadmap-node text-center w-full md:w-1/4" data-roadmap="adventure">
+                    <h4 class="text-xl font-semibold">4. Enhance Adventure Offerings</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-3xl font-bold"></h3>
+                <button id="modal-close" class="text-3xl font-light">&times;</button>
+            </div>
+            <div id="modal-body" class="text-gray-700 space-y-2"></div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white mt-16 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Market Analysis for Kinara Resorts. All data synthesized from the provided research report.</p>
+            <p class="text-sm text-gray-400 mt-2">This is an interactive web application created for data exploration. No SVG or Mermaid JS was used.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const data = {
+                tourism: {
+                    labels: ['2019', '2021', '2024 Proj.'],
+                    domestic: [1390000, 700000, null],
+                    international: [10829, null, 23932]
+                },
+                occupancy: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    levels: [2, 2, 1, 2, 3, 3, 3, 3, 2, 1, 1, 2], // 1 Low, 2 Avg, 3 High
+                },
+                competitors: {
+                    labels: ['Luxury', 'Wellness', 'Adventure', 'Heritage', 'Scenic Exp.', 'Price Point'],
+                    datasets: [
+                        { name: 'Kinara Resorts', data: [4, 5, 3, 2, 5, 4], color: '#3498DB' },
+                        { name: 'PC Legacy', data: [5, 2, 2, 1, 3, 5], color: '#E1B168' },
+                        { name: 'Shangrila Resort', data: [4, 2, 3, 4, 4, 4], color: '#2ECC71' },
+                        { name: 'Serena Shigar', data: [5, 3, 2, 5, 4, 5], color: '#E74C3C' },
+                        { name: 'Montagna Pods', data: [2, 2, 4, 1, 4, 2], color: '#9B59B6' }
+                    ],
+                    details: {
+                        'Kinara Resorts': { usp: 'Unparalleled 360° views, riverside location, and a comprehensive Spa & Wellness center with thermal baths.', audience: 'Luxury, family, wellness, and corporate travelers.'},
+                        'PC Legacy': { usp: 'Strong brand recognition as part of a prestigious hotel chain, offering modern luxury and top-notch services.', audience: 'Luxury and comfort-focused travelers seeking branded experiences.' },
+                        'Shangrila Resort': { usp: 'Iconic "Heaven on Earth" fairytale theme, a heart-shaped lake, and unique dining inside an old aircraft.', audience: 'Families, nature lovers, and those seeking picturesque, iconic stays.' },
+                        'Serena Shigar': { usp: 'Authentic heritage experience in a restored 17th-century fort with traditional Balti architecture.', audience: 'History enthusiasts, cultural travelers, and luxury heritage seekers.' },
+                        'Montagna Pods': { usp: 'Unique glamping experience in the Katpana Cold Desert, offering a budget-friendly way to connect with nature.', audience: 'Adventure seekers, glamping enthusiasts, and budget-conscious travelers.' },
+                    }
+                },
+                swot: {
+                    strengths: { title: '💪 Strengths', points: ['Premium positioning with comprehensive facilities', 'Unique 360° views & expansive riverside location', 'Specialized wellness offerings (thermal baths, spa)', 'Strategic accessibility (30 mins from airport)', 'Sound revenue management & No-GST tax advantage'] },
+                    weaknesses: { title: '⚠️ Weaknesses', points: ['Limited room inventory (21 rooms) restricts volume', 'Generic keyword optimization on current website', 'Newer brand recognition vs. established players', 'Reliance on seasonal peak for revenue generation'] },
+                    opportunities: { title: '🚀 Opportunities', points: ['Booming regional tourism (esp. international)', 'Improved accessibility via direct international flights', 'Growing demand for wellness & experiential travel', 'Lead the market with sustainable tourism practices', 'Develop and market specialized off-season packages'] },
+                    threats: { title: '📉 Threats', points: ['Risk of environmental degradation from over-tourism', 'Underdeveloped regional infrastructure', 'Intense competition from fragmented market players', 'Economic volatility and potential inflation'] }
+                },
+                roadmap: {
+                    seo: { title: 'Optimize Digital Presence', text: 'Refine SEO with high-intent, long-tail keywords (e.g., "Skardu thermal spa retreat"). Create a tailored content strategy for visual social media platforms like Instagram and TikTok to showcase the resort’s unique features and drive direct bookings.' },
+                    packages: { title: 'Develop Off-Peak Packages', text: 'Increase year-round revenue by creating specialized packages for non-summer months. Target segments include wellness retreats, corporate events (MICE), winter adventure tourism, and long-stay options for digital nomads.' },
+                    sustainability: { title: 'Formalize Sustainability', text: 'Differentiate the brand by actively adopting and promoting eco-friendly practices. Pursue eco-certifications, communicate sustainability efforts transparently, and emphasize local sourcing to attract environmentally conscious travelers.' },
+                    adventure: { title: 'Enhance Adventure Offerings', text: 'Capture a larger share of the adventure market by detailing existing guided tours and forming partnerships with local operators. Create all-inclusive adventure packages combining accommodation with activities like trekking, jeep safaris, and paragliding.' }
+                }
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { usePointStyle: true } } }
+            };
+
+            new Chart(document.getElementById('tourismTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: data.tourism.labels,
+                    datasets: [
+                        { label: 'Domestic Tourists', data: data.tourism.domestic, borderColor: '#3498DB', backgroundColor: 'rgba(52, 152, 219, 0.1)', fill: true, tension: 0.3, yAxisID: 'y' },
+                        { label: 'International Tourists', data: data.tourism.international, borderColor: '#E1B168', backgroundColor: 'rgba(225, 177, 104, 0.1)', fill: true, tension: 0.3, yAxisID: 'y1' }
+                    ]
+                },
+                options: { ...defaultChartOptions, scales: { y: { type: 'linear', display: true, position: 'left', title: {display: true, text: 'Domestic'} }, y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false }, title: {display: true, text: 'International'} } } }
+            });
+
+            new Chart(document.getElementById('occupancyChart'), {
+                type: 'bar',
+                data: {
+                    labels: data.occupancy.labels,
+                    datasets: [{
+                        label: 'Occupancy Level',
+                        data: data.occupancy.levels,
+                        backgroundColor: (context) => {
+                            const level = context.raw;
+                            if (level === 3) return '#3498DB'; // High
+                            if (level === 2) return '#E1B168'; // Average
+                            return '#BDC3C7'; // Low
+                        }
+                    }]
+                },
+                options: { ...defaultChartOptions, scales: { y: { beginAtZero: true, max: 4, ticks: { callback: (val) => ['','Low','Avg','High',''][val] } } } }
+            });
+
+            const radarChart = new Chart(document.getElementById('competitorRadarChart'), {
+                type: 'radar',
+                data: {
+                    labels: data.competitors.labels,
+                    datasets: data.competitors.datasets.map(d => ({
+                        label: d.name,
+                        data: d.data,
+                        borderColor: d.color,
+                        backgroundColor: `${d.color}33`,
+                        fill: true
+                    }))
+                },
+                options: {
+                    ...defaultChartOptions,
+                    scales: { r: { beginAtZero: true, max: 5, pointLabels: { font: {size: 14} } } },
+                    onClick: (evt, elements, chart) => {
+                        const legendItem = chart.legend.legendItems[elements[0].datasetIndex];
+                        updateCompetitorDetails(legendItem.text);
+                    }
+                }
+            });
+
+            function updateCompetitorDetails(name) {
+                const details = data.competitors.details[name];
+                if (!details) return;
+                
+                document.getElementById('competitor-name').textContent = name;
+                document.getElementById('competitor-content').innerHTML = `
+                    <h4 class="text-xl font-semibold text-gray-700 mb-2">Unique Selling Proposition</h4>
+                    <p class="text-gray-600 mb-4">${details.usp}</p>
+                    <h4 class="text-xl font-semibold text-gray-700 mb-2">Target Audience</h4>
+                    <p class="text-gray-600">${details.audience}</p>
+                `;
+            }
+            updateCompetitorDetails('Kinara Resorts');
+
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+
+            document.querySelectorAll('[data-swot]').forEach(card => {
+                card.addEventListener('click', () => {
+                    const type = card.dataset.swot;
+                    const swotData = data.swot[type];
+                    modalTitle.innerHTML = swotData.title;
+                    modalBody.innerHTML = `<ul class="list-disc list-inside space-y-2">${swotData.points.map(p => `<li>${p}</li>`).join('')}</ul>`;
+                    modal.classList.add('open');
+                });
+            });
+
+            document.querySelectorAll('[data-roadmap]').forEach(node => {
+                node.addEventListener('click', () => {
+                    const type = node.dataset.roadmap;
+                    const roadmapData = data.roadmap[type];
+                    modalTitle.innerHTML = roadmapData.title;
+                    modalBody.innerHTML = `<p>${roadmapData.text}</p>`;
+                    modal.classList.add('open');
+                });
+            });
+
+            document.getElementById('modal-close').addEventListener('click', () => modal.classList.remove('open'));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('open');
+                }
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

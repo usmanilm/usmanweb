@@ -1,1 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience Timeline</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Lighter background for more contrast */
+            color: #333;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light gray track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* Gray thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* Darker gray on hover */
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            width: 4px;
+            background-color: #4f46e5; /* Deeper Indigo-600 for the line */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px; /* Increased margin for better separation */
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px); /* Slightly more pronounced animation */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Slower transition */
+            cursor: pointer;
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden;
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item.left .timeline-date {
+            text-align: right;
+            justify-content: flex-end;
+            margin-right: 40px; /* Space from the content */
+        }
+
+        .timeline-item.right .timeline-date {
+            text-align: left;
+            justify-content: flex-start;
+            order: 2; /* Move date to the right for right items */
+            margin-left: 40px; /* Space from the content */
+        }
+
+        .timeline-date {
+            width: calc(50% - 20px);
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column; /* Stack date and location */
+            font-weight: 600;
+            color: #475569; /* Slate-700 */
+            align-items: flex-start; /* Default alignment */
+        }
+
+
+        .timeline-content {
+            width: calc(50% - 20px);
+            background-color: #ffffff; /* White background */
+            padding: 25px; /* Increased padding */
+            border-radius: 1rem; /* Slightly more rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Stronger shadow */
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #e2e8f0; /* Subtle border */
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-8px); /* More pronounced lift on hover */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger hover shadow */
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 24px; /* Slightly larger dot */
+            height: 24px;
+            background-color: #4f46e5; /* Indigo-600 */
+            border-radius: 50%;
+            left: 50%;
+            top: 15px; /* Adjust top to align better with the start of the content box */
+            transform: translate(-50%, 0); /* Only horizontal centering */
+            z-index: 1;
+            border: 4px solid #c7d2fe; /* Indigo-200 for border */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background-color: #4338ca; /* Darker indigo on hover */
+            transform: translate(-50%, 0) scale(1.2); /* More pronounced scale */
+        }
+
+        .timeline-description, .timeline-skills {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.6s ease-out; /* Slower transition */
+            opacity: 0;
+            padding-top: 0; /* Reset padding for smooth expansion */
+        }
+
+        .timeline-item.expanded .timeline-description,
+        .timeline-item.expanded .timeline-skills {
+            max-height: 600px; /* Increased max-height for longer content */
+            opacity: 1;
+            margin-top: 15px; /* Added margin for separation */
+        }
+        .timeline-item.expanded .timeline-skills {
+            margin-top: 20px; /* More space for skills section */
+            border-top: 1px solid #e0e7ff; /* Indigo-100 border */
+            padding-top: 20px;
+        }
+
+        .timeline-skills .skill-pill {
+            display: inline-block;
+            background-color: #e0e7ff; /* Indigo-100 */
+            color: #4338ca; /* Indigo-700 */
+            padding: 6px 12px; /* Larger pills */
+            border-radius: 9999px; /* rounded-full */
+            font-size: 0.8rem; /* Slightly larger text */
+            margin: 6px; /* More margin around pills */
+            font-weight: 500;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow on pills */
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 20px;
+                margin-bottom: 40px;
+            }
+
+            .timeline-date {
+                width: auto;
+                padding: 0;
+                justify-content: flex-start;
+                margin-bottom: 15px; /* More space below date */
+                font-size: 1rem; /* Adjust date size for mobile */
+                text-align: left; /* Align date left */
+            }
+            .timeline-item.right .timeline-date {
+                order: 0;
+            }
+
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px;
+                margin-right: 0;
+                border-radius: 1rem;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                top: 50px; /* Adjust top position to align with content box start */
+                transform: translate(-50%, 0);
+            }
+            .timeline-item.expanded .timeline-description,
+            .timeline-item.expanded .timeline-skills {
+                 max-height: 800px; /* Allow more height for content on mobile */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+    <div class="timeline-container relative">
+        <h1 class="text-4xl font-extrabold text-center text-indigo-700 mb-12">Professional Experience Timeline</h1>
+        <div class="timeline-line"></div>
+        <div id="timeline-events"></div>
+    </div>
+
+    <script>
+        const timelineData = [
+            {
+                title: "Chief IT Consultant",
+                company: "Gas Safety Manchester",
+                duration: "Apr 2025 - Present",
+                location: "Manchester, England, United Kingdom · Remote",
+                description: "As Chief IT Consultant for Gas Safety Manchester, a full-scale digital transformation was executed, including the development and implementation of a comprehensive marketing strategy across Google Ads, YouTube, and SEO. The website was restructured with a mobile-first, user-friendly design and optimized for Core Web Vitals, significantly improving performance. A new homepage was launched, resulting in a 36% increase in organic traffic and better local search visibility. Cross-functional teams were coordinated to maintain consistent branding across all digital platforms. A data-driven approach ensured improved lead generation, conversion rates, and overall online presence.",
+                skills: ["Google Workspace", "Google Cloud Platform", "Google Search Console", "Google Analytics", "Bing Webmaster", "Microsoft Clarity", "Google Ads", "Facebook Ads", "Social Media Consulting", "WordPress", "Google Cloud", "Web Development", "Digital Strategy", "Digital Marketing"],
+                imageUrl: "https://gassafetymanchester.co.uk/wp-content/uploads/2025/04/cropped-GasSafety-180x60-3.webp",
+                url: "https://gassafetymanchester.co.uk/",
+                startDate: new Date(2025, 3), // April 2025
+                endDate: new Date(), // Present
+            },
+            {
+                title: "Digital Marketing Consultant",
+                company: "Thingtrax",
+                duration: "Sep 2024 - Present",
+                location: "Lahore, Punjab, Pakistan · Hybrid",
+                description: "In my role as Digital Marketing Consultant for ThingTrax Ltd, I manage social media activation, content creation, and SEO optimization across multiple platforms. My responsibilities include enhancing ThingTrax’s online presence through strategic keyword research, content development, and analytics integration. I also provide performance insights and recommendations to optimize digital campaigns, aligning all activities with brand guidelines to ensure a consistent and professional digital presence.",
+                skills: ["Social Media Strategy", "Search Engine Optimization (SEO)", "Content Strategy", "Web Analytics", "Brand Alignment"],
+                imageUrl: "https://thingtrax.com/wp-content/uploads/2022/10/Frame.svg",
+                url: "https://thingtrax.com/",
+                startDate: new Date(2024, 8), // Sep 2024
+                endDate: new Date(), // Present
+            },
+            {
+                title: "Information Technology Consultant",
+                company: "3rd Planet",
+                duration: "Jul 2024 - Present",
+                location: "United Kingdom",
+                description: "As an Information Technology Consultant, I specialize in aligning business goals with innovative IT solutions. With a strong background in software development, network infrastructure, cybersecurity, and cloud computing, I help organizations optimize processes, enhance efficiency, and drive digital transformation. My approach involves understanding client needs, designing scalable solutions, and ensuring successful project delivery. I’m passionate about leveraging technology to solve complex problems, enabling businesses to stay competitive in a rapidly evolving market.",
+                skills: ["Google Workspace", "Google Cloud Platform", "WordPress", "Google Analytics", "Google Search Console", "Social Media Consulting", "Digital Strategy"],
+                imageUrl: "https://3rdplanet.uk/wp-content/uploads/2024/07/3rdplanet-logo-320x132-1.webp",
+                url: "https://3rdplanet.uk/",
+                startDate: new Date(2024, 6), // Jul 2024
+                endDate: new Date(), // Present
+            },
+            {
+                title: "Chief Technology Officer",
+                company: "Neon Nova",
+                duration: "Feb 2024 - Present",
+                location: "Kitchener, Ontario, Canada · Remote",
+                description: "As both the Chief Technology Officer (CTO) and Chief Marketing Officer (CMO) at Neon Nova, I oversee the strategic implementation of technology solutions to drive innovation and operational efficiency. This involves leading initiatives such as the development of an online design platform for custom neon signs. Simultaneously, in my role as CMO, I craft comprehensive marketing strategies to elevate brand awareness and engagement across various channels, solidifying Neon Nova's position as a leader in the custom neon sign industry. My dual role underscores my commitment to leveraging technology and creativity to propel Neon Nova's growth and success.",
+                skills: ["Technology Leadership", "Technology Management"],
+                imageUrl: "https://lh4.googleusercontent.com/eytoxPwnk3gHXlUpiWrDC9t6sX5yXV5O9hQPXk92Tsc4-X-Jtk2rF9nLPQOeWBnspQOb0gemSGx1ruDAK6mqHkLeaXT8QYnDxBTHpR0RXhZdiezuzgMwSRqCLCNNpGS7s3TECSKxSDc=w16383",
+                url: "https://www.neonnova.ca",
+                startDate: new Date(2024, 1), // Feb 2024
+                endDate: new Date(), // Present
+            },
+            {
+                title: "Chief Marketing Officer",
+                company: "BizTrax",
+                duration: "Jul 2023 - Present",
+                location: "United Kingdom · Hybrid",
+                description: "Crafting data-driven marketing strategies that boost brand visibility and drive ROI. Creating meaningful connections with customers through personalized digital experiences. Identifying growth opportunities and forging strategic partnerships. Leveraging analytics to make informed decisions and optimize marketing campaigns. Cultivating strong brand identities that resonate with target audiences. Inspiring and leading high-performing teams to achieve exceptional results.",
+                skills: ["Google Analytics", "Google Webmaster Tools", "Google Workspace", "Google Adwords", "Google Cloud Platform", "Data-driven Marketing", "Brand Visibility", "ROI Optimization", "Digital Experiences", "Growth Opportunity Identification", "Strategic Partnerships", "Campaign Optimization", "Brand Identity", "Team Leadership"],
+                imageUrl: "https://lh3.googleusercontent.com/q2PitNkULHNYPOP0UFLGmIN6IMw-wJCUOfFHqZLdDC3woTZuepaWitxCQBlBBOy9ps8PrnoCKJ1UaSRx4KYzrkE=w16383",
+                url: "https://www.biztrax.uk",
+                startDate: new Date(2023, 6), // Jul 2023
+                endDate: new Date(), // Present
+            },
+            {
+                title: "IT Consultant",
+                company: "Glamp Pakistan",
+                duration: "Jan 2021 - Present",
+                location: "Islamabad, Pakistan · Remote",
+                description: "Digital Development, Digital Assets Management, Determine digital requirements, Define the scope Digital fronts, Plan timescales and the resources needed, System specifications, understand their work practices, Travel to customer sites for digital augmentation and connect, Liaison with staff at all levels for digital digestion, Define software, hardware and network requirements, Analyse IT requirements within and give independent and objective advice on the use of IT, Develop agreed solutions and implement new systems, Present solutions in written or oral reports, Help with change-management activities, Purchase systems/tools where appropriate, Design, test, install and monitor new systems, Prepare documentation and present progress reports, Organise training for users and other organizational peers contributing the system",
+                skills: ["Digital Development", "Digital Assets Management", "IT Consulting", "Requirements Gathering", "Project Planning", "System Analysis", "Solution Design", "System Implementation", "Change Management", "IT Procurement", "System Monitoring", "Reporting", "User Training"],
+                imageUrl: "https://lh6.googleusercontent.com/NGjsbTSAjt5hM51fpVi9ktzbNDj3wcb6d76WrKsxiR81lEJjmvVgm049QMpHPIBp6QdATU6Fvg1m4y3JHZug91Q=w16383",
+                url: "https://www.glamp.pk",
+                startDate: new Date(2021, 0), // Jan 2021
+                endDate: new Date(), // Present
+            },
+            {
+                title: "Technical Lead",
+                company: "Mindcraft",
+                duration: "Dec 2017 - Present",
+                location: "Lahore, Pakistan",
+                description: "Technical Support on Google Cloud Platform | Google Compute Engine | G Suite, Google Adword Advertising Operational Support, Social Media Management and Marketing, Software Quality Assurance, Website Security (SSL), CMS Support (WordPress, Moodle, Drupal,), SEO",
+                skills: ["Google Cloud Platform", "Google Compute Engine", "G Suite", "Google Adwords", "Social Media Management", "Social Media Marketing", "Software Quality Assurance", "Website Security (SSL)", "CMS Support (WordPress, Moodle, Drupal)", "SEO"],
+                imageUrl: "https://www.mindcraft.com.pk/wp-content/uploads/2022/10/logo-mindcraft.png",
+                url: "https://www.mindcraft.com.pk/",
+                startDate: new Date(2017, 11), // Dec 2017
+                endDate: new Date(), // Present
+            },
+            {
+                title: "IT Consultant",
+                company: "Earthlink Real Estate",
+                duration: "Mar 2025 - Apr 2025",
+                location: "United Arab Emirates · Remote",
+                description: "As a Digital Strategy Consultant at Earthlink Real Estate (ERE Group), I led the end-to-end digital transformation of the group and its sub-brands, including Earthlink Real Estate, ERE Tech, and ERE Holiday Homes. My work focused on performance marketing, content systems, platform security, and international lead generation. I migrated the group's infrastructure to Google Cloud and Google Workspace, ensuring scalability and centralized access. I implemented secure governance using Meta Business Suite, Google Admin, and WordPress, and introduced protocols to protect digital assets following a critical account breach. Additionally, I developed SEO-driven content strategies using Google Trends, Google Keyword Planner, and YouTube Studio, while managing execution across platforms like Elementor, Canva, and Notion. These efforts resulted in measurable improvements in organic reach, ad performance, and lead acquisition.",
+                skills: ["Google Workspace", "Google Cloud Platform", "Google Ads", "Google Search Console", "Google Analytics", "Digital Transformation", "Performance Marketing", "Content Systems", "Platform Security", "Lead Generation", "Infrastructure Migration", "Secure Governance", "SEO Strategy"],
+                imageUrl: "https://earthlinkrealestate.com/wp-content/uploads/2023/11/logo.png",
+                url: "https://earthlinkrealestate.com/",
+                startDate: new Date(2025, 2), // Mar 2025
+                endDate: new Date(2025, 3), // Apr 2025
+            },
+            {
+                title: "Chief Marketing Officer",
+                company: "Hamza Marketing",
+                duration: "Jan 2025 - Feb 2025",
+                location: "Lahore, Punjab, Pakistan · Hybrid",
+                description: "As the Chief Marketing Officer at Hamza Marketing, a leading real estate firm in Lahore, I spearhead comprehensive digital marketing strategies to enhance our market presence and drive client engagement. Utilizing platforms such as Google Workspace, Google Cloud Platform, Google Ads, and Facebook Ads, I develop targeted campaigns that effectively reach our audience. My role encompasses: Digital Strategy Development: Crafting and implementing data-driven marketing plans to promote our real estate services and listings. Social Media Management: Overseeing our social media channels to build brand awareness and foster community engagement. Advertising Campaigns: Managing and optimizing advertising efforts across Google and Facebook to maximize ROI. Analytics and Reporting: Leveraging analytics tools to monitor campaign performance and inform strategic decisions. Through these initiatives, I aim to position Hamza Marketing as the premier choice for real estate solutions in Lahore, ensuring our clients receive unparalleled service and results.",
+                skills: ["CMO management", "Marketing Communications", "Strategic Marketing Management", "Google Workspace", "Google Cloud Platform", "Google Ads Editor", "Facebook Ads", "Social Media Consulting", "Digital Media Integration"],
+                imageUrl: "https://hamzamarketing.pk/wp-content/uploads/2023/11/Hamza-Marketing-Logo.png",
+                url: "https://hamzamarketing.pk/",
+                startDate: new Date(2025, 0), // Jan 2025
+                endDate: new Date(2025, 1), // Feb 2025
+            },
+            {
+                title: "Chief Technology Officer",
+                company: "Alviz",
+                duration: "Nov 2024 - Jan 2025",
+                location: "Lahore, Punjab, Pakistan · Hybrid",
+                description: "Driving technological innovation and operational excellence in the real estate sector, I lead the development and implementation of cutting-edge IT solutions tailored to Alviz's business objectives. My role encompasses strategic oversight of digital transformation initiatives, automation of processes, and integration of advanced property management systems. Collaborating closely with cross-functional teams, I ensure scalable and secure technology infrastructure, enhancing customer engagement and operational efficiency. From deploying data analytics platforms to enabling seamless digital transactions, I spearhead initiatives that position Alviz as a leader in Lahore’s real estate market.",
+                skills: ["Google Cloud Platform", "Google Workspace", "Social Media Consulting", "Digital Marketing", "Technological Innovation", "Operational Excellence", "IT Solutions", "Digital Transformation", "Process Automation", "Property Management Systems", "Data Analytics"],
+                imageUrl: "https://alviz.com.pk/wp-content/uploads/2024/02/Alviz-Logo-Website-Header.png",
+                url: "https://alviz.com.pk/",
+                startDate: new Date(2024, 10), // Nov 2024
+                endDate: new Date(2025, 0), // Jan 2025
+            },
+            {
+                title: "Chief Technology Officer",
+                company: "Ultimate Realty",
+                duration: "Apr 2024 - Jul 2024",
+                location: "United Arab Emirates · Hybrid",
+                description: "As the Chief Technology Officer at Ultimate Realty, I spearhead our digital transformation efforts, focusing on optimizing and expanding our digital assets to drive growth and enhance operational efficiency. My role involves the strategic oversight of our technology infrastructure, including the management of Google Workspace and Google Cloud platforms to ensure seamless collaboration and data management across our organization.",
+                skills: ["Technology Leadership", "Google Workspace", "Google Cloud Platform", "Google Analytics", "Google Ads", "Search Engine Optimization (SEO)", "Digital Transformation", "Digital Asset Optimization", "Technology Infrastructure Management", "Collaboration Tools Management", "Data Management"],
+                imageUrl: "https://ultimaterealty.ae/wp-content/uploads/2023/11/Ultimate-Realty-Logo.png",
+                url: "https://ultimaterealty.ae/",
+                startDate: new Date(2024, 3), // Apr 2024
+                endDate: new Date(2024, 6), // Jul 2024
+            },
+            {
+                title: "Digital Development Consultant",
+                company: "BeyondAds",
+                duration: "Sep 2023 - Mar 2024",
+                location: "Lahore, Punjab, Pakistan · Hybrid",
+                description: "As a Digital Development Consultant at Beyond Ads, I collaborate with a talented team to craft innovative digital solutions. My role entails providing expertise in web development, web applications, and digital tools, ensuring their alignment with clients' marketing goals. My skill set includes web development, digital strategy, agile methodologies, project management, and staying updated with emerging technologies. I'm dedicated to achieving digital excellence and consistently optimizing digital products to exceed user expectations. If you're seeking to elevate your brand's digital presence, feel free to connect with me. #DigitalDevelopment #BeyondAds",
+                skills: ["Google Analytics", "Google Webmaster Tools", "Google Workspace", "Google Adwords", "Google Cloud Platform", "Web Development", "Web Applications", "Digital Tools", "Digital Strategy", "Agile Methodologies", "Project Management", "Emerging Technologies"],
+                imageUrl: "https://beyondads.com.pk/wp-content/uploads/2023/11/logob.png",
+                url: "https://beyondads.com.pk/",
+                startDate: new Date(2023, 8), // Sep 2023
+                endDate: new Date(2024, 2), // Mar 2024
+            },
+            {
+                title: "Information Technology Consultant",
+                company: "Maxxam-V International",
+                duration: "Jun 2023 - Sep 2023",
+                location: "Lahore, Punjab, Pakistan · Hybrid",
+                description: "Google Workspace Setup and Support, Google Cloud Platform Support, SEO, Website",
+                skills: ["Google Analytics", "Google Workspace", "Google Adwords", "Google Cloud Platform", "Software Development", "SEO", "Website Development"],
+                imageUrl: "https://maxxamv.com/wp-content/uploads/2022/07/logo.png",
+                url: "https://maxxamv.com/",
+                startDate: new Date(2023, 5), // Jun 2023
+                endDate: new Date(2023, 8), // Sep 2023
+            },
+            {
+                title: "IT Consultant",
+                company: "ParkView City Lahore",
+                duration: "Apr 2021 - Jun 2023",
+                location: "Lahore, Punjab, Pakistan",
+                description: "Digital Development | Digital Advertising | Digital Assets Management. Park View City Lahore is a real estate project of Vision Group that emphasizes accessibility and comfort.",
+                skills: ["Digital Development", "Digital Advertising", "Digital Assets Management"],
+                imageUrl: "https://parkviewcity.com.pk/wp-content/uploads/2018/12/PVC_WHITE_1-e1699942472145.png",
+                url: "https://parkviewcity.com.pk/",
+                startDate: new Date(2021, 3), // Apr 2021
+                endDate: new Date(2023, 5), // Jun 2023
+            },
+            {
+                title: "IT Consultant",
+                company: "Park View City Islamabad",
+                duration: "Nov 2019 - Jun 2023",
+                location: "Pakistan",
+                description: "Digital Development | Digital Advertising | Digital Assets Management. Park View City Islamabad is a real estate project of Vision Group that emphasizes accessibility and comfort.",
+                skills: ["Digital Development", "Digital Advertising", "Digital Assets Management"],
+                imageUrl: "https://parkviewcity.com.pk/wp-content/uploads/2018/12/PVC_WHITE_1-e1699942472145.png",
+                url: "https://parkviewcity.com.pk/",
+                startDate: new Date(2019, 10), // Nov 2019
+                endDate: new Date(2023, 5), // Jun 2023
+            },
+            {
+                title: "IT Consultant",
+                company: "Abdul Aleem Khan Foundation",
+                duration: "May 2019 - Jun 2023",
+                location: "Pakistan",
+                description: "Digital Development, Digital Assets Management, Determine digital requirements, Define the scope Digital fronts, Plan timescales and the resources needed, System specifications, understand their work practices, Travel to customer sites for digital augmentation and connect, Liaison with staff at all levels for digital digestion, Define software, hardware and network requirements, Analyse IT requirements within and give independent and objective advice on the use of IT, Develop agreed solutions and implement new systems, Present solutions in written or oral reports, Help with change-management activities, Purchase systems/appropriate systems/tools where appropriate, Design, test, install and monitor new systems, Prepare documentation and present progress reports, Organise training for users and other organizational peers contributing the system",
+                skills: ["Digital Development", "Digital Assets Management", "IT Consulting", "Requirements Gathering", "Project Planning", "System Analysis", "Solution Design", "System Implementation", "Change Management", "IT Procurement", "System Monitoring", "Reporting", "User Training"],
+                imageUrl: "https://aakf.org.pk/wp-content/uploads/2024/03/Foundation-logo.png",
+                url: "https://aakf.org.pk/",
+                startDate: new Date(2019, 4), // May 2019
+                endDate: new Date(2023, 5), // Jun 2023
+            },
+            {
+                title: "IT Consultant",
+                company: "Abdul Aleem Khan Official Website",
+                duration: "May 2018 - Jun 2023",
+                location: "Pakistan", // Inferred from similar entries
+                description: "Digital Development, Digital Assets Management, Determine digital requirements, Define the scope Digital fronts, Plan timescales and the resources needed, System specifications, understand their work practices, Travel to customer sites for digital augmentation and connect, Liaison with staff at all levels for digital digestion, Define software, hardware and network requirements, Analyse IT requirements within and give independent and objective advice on the use of IT, Develop agreed solutions and implement new systems, Present solutions in written or oral reports, Help with change-management activities, Purchase systems/tools where appropriate, Design, test, install and monitor new systems, Prepare documentation and present progress reports, Organised training for users and other organizational peers contributing the system",
+                skills: ["Digital Development", "Digital Assets Management", "IT Consulting", "Requirements Gathering", "Project Planning", "System Analysis", "Solution Design", "System Implementation", "Change Management", "IT Procurement", "System Monitoring", "Reporting", "User Training"],
+                imageUrl: "https://aleemkhan.pk/wp-content/uploads/2023/12/logo.png",
+                url: "https://aleemkhan.pk/",
+                startDate: new Date(2018, 4), // May 2018
+                endDate: new Date(2023, 5), // Jun 2023
+            },
+            {
+                title: "IT Consultant",
+                company: "Quarks Pvt. Ltd",
+                duration: "Apr 2021 - Mar 2022",
+                location: "Lahore, Punjab, Pakistan",
+                description: "Digital Development, Digital Assets Management, Determine digital requirements, Define the scope Digital fronts, Plan timescales and the resources needed, System specifications, understand their work practices, Travel to customer sites for digital augmentation and connect, Liaison with staff at all levels for digital digestion, Define software, hardware and network requirements, Analyse IT requirements within and give independent and objective advice on the use of IT, Develop agreed solutions and implement new systems, Present solutions in written or oral reports, Help with change-management activities, Purchase systems/tools where appropriate, Design, test, install and monitor new systems, Prepare documentation and present progress reports, Organise training for users and other organizational peers contributing the system",
+                skills: ["Digital Development", "Digital Assets Management", "IT Consulting", "Requirements Gathering", "Project Planning", "System Analysis", "Solution Design", "System Implementation", "Change Management", "IT Procurement", "System Monitoring", "Reporting", "User Training"],
+                imageUrl: "https://quarkspk.com/wp-content/uploads/2023/07/logo.png",
+                url: "https://quarkspk.com/",
+                startDate: new Date(2021, 3), // Apr 2021
+                endDate: new Date(2022, 2), // Mar 2022
+            },
+            {
+                title: "IT Consultant",
+                company: "Boomerang Tours",
+                duration: "Apr 2017 - Apr 2018",
+                location: "Lahore District, Punjab, Pakistan",
+                description: "Boomerang Tours Pvt. Ltd. is a touring company organizing experiential trips to the diverse and remarkable scenic areas of Pakistan. Our basic focus remains on enhancing the travel experience by promoting adventurous, thrilling and worthwhile trips. The main goal of Boomerang Tours is to to explore the unexplored as well as promote environmental conservation tourism in Pakistan.",
+                skills: ["Tour Management", "Experiential Travel", "Adventure Tourism", "Environmental Conservation", "Digital Presence Enhancement"],
+                imageUrl: "https://boomerangtours.pk/wp-content/uploads/2022/10/logo.png",
+                url: "https://boomerangtours.pk/",
+                startDate: new Date(2017, 3), // Apr 2017
+                endDate: new Date(2018, 3), // Apr 2018
+            },
+            {
+                title: "Chief Executive Officer",
+                company: "MASS ENGINEERS",
+                duration: "Jul 2012 - Apr 2017",
+                location: "Lahore",
+                description: "Managing all the projects under MASS Engineers. Business development by earning new projects. Developing MASS Engineers billing and payroll management system. Development of electronic repositories of office files with indexed locations.",
+                skills: ["Project Management", "Business Development", "Billing System Development", "Payroll System Development", "Electronic Document Management", "Office Automation"],
+                imageUrl: "https://placehold.co/100x100/B2EBF2/0F172A?text=ME", // No specific URL found, using placeholder
+                url: "#", // No specific URL found
+                startDate: new Date(2012, 6), // Jul 2012
+                endDate: new Date(2017, 3), // Apr 2017
+            },
+            {
+                title: "IT Manager Anti Corruption & Security",
+                company: "Pakistan Cricket Board (PCB)",
+                duration: "Dec 2012 - Apr 2016",
+                location: "Lahore",
+                description: "Planning & Development of IT Security System, In house development of databases, Monitoring and Evaluation of databases, Research and development on computer data preservation and integration.",
+                skills: ["IT Security Planning", "Database Development", "Database Monitoring", "Data Preservation", "System Integration", "Research and Development"],
+                imageUrl: "https://www.pcb.com.pk/templates/frontend/pcb/images/logobeta7-2020.png",
+                url: "https://www.pcb.com.pk/",
+                startDate: new Date(2012, 11), // Dec 2012
+                endDate: new Date(2016, 3), // Apr 2016
+            },
+            {
+                title: "Managing Partner",
+                company: "Hybrid Research Corporation",
+                duration: "May 2009 - Jan 2012",
+                location: "Lahore",
+                description: "Supply of centrifugal pumps for industry. Supply of computer equipment. Networking solutions for local and country wide businesses. Website development. Research and development of business solution for distributors for managing big stocks and financial transactions (Implemented at one of the PHILIPS lights distributor). Research and development of FIMOSS(Fabric Inspection Monitoring and Optimize Splitting Solution). (Developed for US-Denim mills a project of US-Apparels) Research and development of customized Management Information System for PHA (Implemented for 2 months at Parks and Horticulture Authority, Lahore). Research and development of customized POS(Point of Sale) with advance features of on-line trading terminal. (4 stores in Lahore using this product)",
+                skills: ["Industrial Equipment Supply", "Computer Equipment Supply", "Networking Solutions", "Website Development", "Business Solution Development", "Financial Transaction Systems", "Inventory Management", "MIS Development", "POS Systems", "Research and Development"],
+                imageUrl: "https://placehold.co/100x100/D8C2FF/0F172A?text=HRC", // No specific logo found for HRC, keeping placeholder
+                url: "https://punjab.gov.pk/governors_house", // Associated with Governor's House URL in data
+                startDate: new Date(2009, 4), // May 2009
+                endDate: new Date(2012, 0), // Jan 2012
+            },
+            {
+                title: "IT Consultant",
+                company: "Governor's House Punjab",
+                duration: "Jan 2010 - May 2010",
+                location: "Pakistan",
+                description: "Handling Governor's Online Web Sites and Information Portals. Providing Technical Support for making Presentations and Meetings. Electronic web information development and technical support in the field of information technology. Suggesting development projects for empowerment of office management through information technology.",
+                skills: ["Website Management", "Information Portals", "Technical Support", "Presentation Development", "IT Strategy", "Office Automation", "Electronic Information Development"],
+                imageUrl: "https://punjab.gov.pk/sites/punjab.gov.pk/themes/bootstrap_subtheme/logo.png",
+                url: "https://punjab.gov.pk/governors_house",
+                startDate: new Date(2010, 0), // Jan 2010
+                endDate: new Date(2010, 4), // May 2010
+            },
+            {
+                title: "Research Officer",
+                company: "Governor's House Punjab",
+                duration: "Mar 2006 - Dec 2009",
+                location: "Punjab, Pakistan",
+                description: "Monitoring and Evaluation of Projects under Public Sector Development Program of Government of Pakistan. Analyzing PSDP budget for developing Universities. Providing technical support for Provincial level development programs.",
+                skills: ["Project Monitoring", "Project Evaluation", "Public Sector Development", "Budget Analysis", "University Development", "Technical Support", "Provincial Development Programs"],
+                imageUrl: "https://punjab.gov.pk/sites/punjab.gov.pk/themes/bootstrap_subtheme/logo.png", // Using same logo as above
+                url: "https://punjab.gov.pk/governors_house",
+                startDate: new Date(2006, 2), // Mar 2006
+                endDate: new Date(2009, 11), // Dec 2009
+            },
+            {
+                title: "Assistant Hardware Engineer (LAB Incharge DLD & Electronics)",
+                company: "University of the Punjab",
+                duration: "Jul 2003 - Apr 2006",
+                location: "Punjab University Old Campus Lahore",
+                description: "Conducting LAB for Digital Logic Design and Computer Architectures. Developing course outlines and course contents for DLD. Advising /Supervising Projects under DLD LABs. LAB manuals for Digital Systems LAB.",
+                skills: ["Digital Logic Design", "Computer Architecture", "Lab Instruction", "Curriculum Development", "Project Supervision", "Technical Documentation"],
+                imageUrl: "https://pucit.edu.pk/wp-content/uploads/2021/03/logo-new.png",
+                url: "https://pucit.edu.pk/",
+                startDate: new Date(2003, 6), // Jul 2003
+                endDate: new Date(2006, 3), // Apr 2006
+            },
+        ];
+
+        // Sort timeline data by start date in ascending order (oldest first)
+        timelineData.sort((a, b) => a.startDate - b.startDate);
+
+        const timelineEventsDiv = document.getElementById('timeline-events');
+
+        // Function to create a timeline item HTML
+        function createTimelineItem(item, index) {
+            const isEven = index % 2 === 0;
+            const itemClass = isEven ? 'left' : 'right';
+
+            // Ensure item.skills is an array before mapping
+            const skillsHtml = (item.skills && Array.isArray(item.skills) ? item.skills : [])
+                                .map(skill => `<span class="skill-pill">${skill}</span>`)
+                                .join('');
+
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('timeline-item', itemClass);
+            itemDiv.setAttribute('data-index', index); // Add data-index for Intersection Observer
+
+            itemDiv.innerHTML = `
+                <div class="timeline-date font-medium text-lg text-gray-700">
+                    ${item.duration}
+                    ${item.location ? `<span class="block text-sm text-gray-500 mt-1">${item.location}</span>` : ''}
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="flex items-center mb-3">
+                        <img src="${item.imageUrl}" alt="${item.company} logo" class="w-16 h-16 rounded-full mr-4 border-2 border-indigo-200 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x100/D1D5DB/0F172A?text=Logo'">
+                        <div>
+                            <h3 class="text-xl font-bold text-indigo-700">${item.title}</h3>
+                            ${item.url && item.url !== '#' ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 text-md font-semibold">${item.company}</a>` : `<span class="text-indigo-600 text-md font-semibold">${item.company}</span>`}
+                        </div>
+                    </div>
+                    <p class="timeline-description text-gray-600 leading-relaxed overflow-hidden transition-all duration-500">
+                        ${item.description}
+                    </p>
+                    <div class="timeline-skills mt-4 overflow-hidden transition-all duration-500">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-2">Skills:</h4>
+                        <div class="flex flex-wrap -m-1">
+                            ${skillsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add click listener to toggle expanded state
+            itemDiv.addEventListener('click', () => {
+                itemDiv.classList.toggle('expanded');
+            });
+
+            return itemDiv;
+        }
+
+        // Populate the timeline
+        timelineData.forEach((item, index) => {
+            timelineEventsDiv.appendChild(createTimelineItem(item, index));
+        });
+
+        // Intersection Observer for animations
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const observerOptions = {
+            root: null, /* viewport */
+            rootMargin: '0px',
+            threshold: 0.1 /* 10% of item visible to trigger */
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Ensure the line covers the entire height of the timeline events
+        function updateTimelineLineHeight() {
+            const lastItem = timelineEventsDiv.lastElementChild;
+            if (lastItem) {
+                const lastItemRect = lastItem.getBoundingClientRect();
+                const containerRect = timelineEventsDiv.getBoundingClientRect();
+                const line = document.querySelector('.timeline-line');
+
+                // Calculate the height from the top of the first item to the bottom of the last item
+                const newHeight = lastItemRect.bottom - containerRect.top + 20; // Add a little extra for buffer
+                line.style.height = `${newHeight}px`;
+                line.style.top = `${containerRect.top - timelineEventsDiv.getBoundingClientRect().top}px`; // Align line top with container top
+            }
+        }
+
+        // Call on initial load and window resize
+        window.onload = () => {
+            updateTimelineLineHeight();
+        };
+
+        window.addEventListener('resize', updateTimelineLineHeight);
+
+        // Also update when timeline items expand/collapse, as height changes
+        timelineEventsDiv.addEventListener('transitionend', (event) => {
+            if (event.propertyName === 'max-height') {
+                updateTimelineLineHeight();
+            }
+        });
+
+    </script>
+</body>
+</html>
 

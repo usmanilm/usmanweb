@@ -10,8 +10,18 @@
 <!-- Referrer policy: controls Referer header sent with requests -->
 <meta name="referrer" content="no-referrer">
 
-<!-- Content Security Policy (basic example) -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; object-src 'none';">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';
+  font-src 'self' https://fonts.gstatic.com;
+  script-src 'self' https://code.jquery.com https://stackpath.bootstrapcdn.com;
+  connect-src 'self';
+  img-src 'self' data:;
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+">
+
 
 <!-- X-UA-Compatible: forces latest IE rendering engine -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

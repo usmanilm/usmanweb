@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Studio - Lahore Market Insights</title>
+    <title>Coffee Studio - Hyper-Local Market Opportunity</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #FEFBF6;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
         }
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 320px;
+            max-height: 450px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 380px;
             }
         }
         .swot-card {
@@ -35,191 +35,224 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
         }
         .swot-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #F59E0B, #D97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="text-gray-800">
-    <!-- Palette: Brilliant Blues - #00A6A6, #F2A341, #F2762E, #D94436, #A62934 (Adapted) -->
-    <!-- Using a custom vibrant palette inspired by professional themes: Main: #4A5568 (Charcoal), Accent 1: #F59E0B (Amber), Accent 2: #10B981 (Emerald), Accent 3: #EF4444 (Red), BG: #FEFBF6 (Off-white) -->
+<body class="text-slate-800">
+    <!-- Palette: Energetic & Playful (Adapted) - Primary: #1e293b, Accent1: #F59E0B, Accent2: #10B981, Accent3: #3B82F6, Accent4: #EF4444 -->
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="text-2xl font-bold" style="color: #4A5568;">☕ Coffee Studio</span>
-                <span class="text-sm font-light text-gray-500 hidden md:block">Market Insights | Lahore</span>
+                <span class="text-2xl font-bold text-slate-800">☕ Coffee Studio</span>
+                <span class="text-sm font-light text-slate-500 hidden md:block">Hyper-Local Analysis</span>
             </div>
-            <div class="hidden md:flex space-x-6 text-gray-600">
-                <a href="#market-landscape" class="hover:text-amber-500">Market</a>
-                <a href="#consumer-insights" class="hover:text-amber-500">Consumers</a>
-                <a href="#swot-analysis" class="hover:text-amber-500">SWOT</a>
-                <a href="#digital-imperative" class="hover:text-amber-500">Digital Growth</a>
-                <a href="#strategic-path" class="hover:text-amber-500">Strategy</a>
+            <div class="hidden md:flex space-x-6 text-slate-600">
+                <a href="#market-potential" class="hover:text-amber-600">Potential</a>
+                <a href="#consumer-dna" class="hover:text-amber-600">Consumers</a>
+                <a href="#swot-analysis" class="hover:text-amber-600">SWOT</a>
+                <a href="#digital-budget" class="hover:text-amber-600">Budget</a>
+                <a href="#growth-strategy" class="hover:text-amber-600">Strategy</a>
             </div>
             <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                <button id="menu-btn" class="text-slate-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col space-y-2">
-             <a href="#market-landscape" class="block text-gray-600 hover:text-amber-500">Market</a>
-             <a href="#consumer-insights" class="block text-gray-600 hover:text-amber-500">Consumers</a>
-             <a href="#swot-analysis" class="block text-gray-600 hover:text-amber-500">SWOT</a>
-             <a href="#digital-imperative" class="block text-gray-600 hover:text-amber-500">Digital Growth</a>
-             <a href="#strategic-path" class="block text-gray-600 hover:text-amber-500">Strategy</a>
+             <a href="#market-potential" class="block text-slate-600 hover:text-amber-600">Potential</a>
+             <a href="#consumer-dna" class="block text-slate-600 hover:text-amber-600">Consumers</a>
+             <a href="#swot-analysis" class="block text-slate-600 hover:text-amber-600">SWOT</a>
+             <a href="#digital-budget" class="block text-slate-600 hover:text-amber-600">Budget</a>
+             <a href="#growth-strategy" class="block text-slate-600 hover:text-amber-600">Strategy</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <section class="text-center mb-20">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4" style="color: #4A5568;">Lahore's Cafe Scene: A Strategic Analysis for Coffee Studio</h1>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">An infographic detailing market dynamics, consumer preferences, and strategic pathways to success in Lahore's vibrant and competitive food & beverage industry.</p>
+        <section class="text-center mb-24">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-slate-900">Unlocking the Local Market Opportunity</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">A data-driven analysis of the F&B landscape near Riphah University, Lahore, and a strategic roadmap for Coffee Studio's growth.</p>
         </section>
 
-        <section id="market-landscape" class="mb-20 scroll-mt-20">
+        <section id="market-potential" class="mb-24 scroll-mt-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2" style="color: #4A5568;">The Pulse of Lahore's Food Culture</h2>
-                <p class="text-gray-600">Lahore's identity is inextricably linked to its food culture, creating a dynamic and opportunity-rich market for cafes and restaurants.</p>
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">The PKR 8.3 Billion Local Jackpot</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">The immediate area around Riphah University represents a substantial, concentrated F&B market, ripe for a unique, multi-cuisine offering like Coffee Studio.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card border-t-4 border-amber-400">
+                    <h3 class="text-xl font-semibold text-slate-700 mb-2">Local Annual F&B Market</h3>
+                    <p class="text-5xl lg:text-6xl font-extrabold gradient-text">PKR 8.3B</p>
+                    <p class="text-slate-500 mt-2">Estimated total annual food business volume in the immediate catchment area.</p>
+                </div>
+                <div class="stat-card border-t-4 border-emerald-400 md:col-span-2">
+                    <h3 class="text-xl font-semibold text-slate-700 mb-2">Coffee Studio's Projected Slice</h3>
+                    <div class="flex flex-col md:flex-row justify-around items-center mt-4">
+                        <div class="mb-6 md:mb-0">
+                            <p class="text-5xl lg:text-6xl font-extrabold text-emerald-600">PKR 167M</p>
+                            <p class="text-slate-500 mt-2">Projected Annual Revenue at 2% Market Share</p>
+                        </div>
+                        <div class="border-t md:border-t-0 md:border-l border-slate-200 h-16 w-full md:w-px md:h-24"></div>
+                        <div class="mt-6 md:mt-0">
+                            <p class="text-5xl lg:text-6xl font-extrabold text-emerald-600">~538</p>
+                            <p class="text-slate-500 mt-2">Estimated Daily Customers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consumer-dna" class="mb-24 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">The DNA of the Lahore Diner</h2>
+                <p class="text-slate-600">Success hinges on understanding what drives consumer choice, from flavor preferences to the value placed on ambiance.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Lahori Palate: Preferred Cuisine Types</h3>
-                    <p class="text-sm text-gray-600 mb-4 text-center">While international flavors are gaining traction, the heart of Lahore remains loyal to traditional Pakistani cuisine. A successful menu must cater to this diverse preference, balancing local heritage with global trends.</p>
-                    <div class="chart-container h-80 md:h-96">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Top Selection Attributes</h3>
+                    <p class="text-sm text-slate-600 mb-4 text-center">While food quality is paramount, the overall experience, defined by the environment and comfort, is what truly separates successful establishments in Lahore's competitive landscape.</p>
+                    <div class="chart-container h-96">
+                        <canvas id="selectionAttributeChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Preferred Cuisine Types</h3>
+                    <p class="text-sm text-slate-600 mb-4 text-center">Coffee Studio's diverse menu, blending local and international fare, is perfectly aligned with the eclectic palate of the Lahore consumer, creating a significant market advantage.</p>
+                    <div class="chart-container h-96">
                         <canvas id="foodPreferenceChart"></canvas>
                     </div>
                 </div>
-                <div class="space-y-6">
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <span class="text-6xl font-bold text-amber-500">60%</span>
-                        <h4 class="text-xl font-semibold mt-2">Environment is Key</h4>
-                        <p class="text-gray-600 mt-2">The majority of consumers choose an eatery based on its environment and surroundings, highlighting the importance of ambiance.</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                        <span class="text-6xl font-bold text-emerald-500">41%</span>
-                        <h4 class="text-xl font-semibold mt-2">Quality Over Everything</h4>
-                        <p class="text-gray-600 mt-2">Good food quality is the single most important factor for Lahore's diners, surpassing price and even hygiene in initial selection.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <section id="consumer-insights" class="mb-20 scroll-mt-20">
+        <section id="swot-analysis" class="mb-24 scroll-mt-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2" style="color: #4A5568;">Understanding the Diner's Choice</h2>
-                <p class="text-gray-600">Key attributes that influence a consumer's decision to choose one cafe over another.</p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6">
-                 <h3 class="text-xl font-semibold mb-4 text-center">Why They Choose You: Top Selection Attributes</h3>
-                 <p class="text-sm text-gray-600 mb-6 text-center">This chart breaks down the primary reasons consumers select a particular dining outlet. While quality is paramount, factors like hygiene and perceived value are significant and cannot be ignored. A successful strategy must address all three pillars.</p>
-                 <div class="chart-container h-80 md:h-96">
-                    <canvas id="selectionAttributeChart"></canvas>
-                </div>
-            </div>
-        </section>
-
-        <section id="swot-analysis" class="mb-20 scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2" style="color: #4A5568;">SWOT Analysis: Coffee Studio</h2>
-                <p class="text-gray-600">A strategic overview of the internal and external factors affecting Coffee Studio's market position.</p>
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Strategic SWOT Analysis</h2>
+                <p class="text-slate-600">A clear-eyed view of Coffee Studio's internal posture and the external market forces shaping its future.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="swot-card border-l-emerald-500">
                     <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-3">👍</span> Strengths</h4>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Extremely diverse menu</li>
-                        <li>Unique signature items (Tandoori Chai)</li>
-                        <li>Strong "Studio" brand concept</li>
-                        <li>Offers full dining options</li>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li>Highly Diverse Menu</li>
+                        <li>Strategic University Location</li>
+                        <li>Unique "Studio" Branding</li>
+                        <li>Strong Cultural Integration</li>
                     </ul>
                 </div>
                 <div class="swot-card border-l-red-500">
                     <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-3">👎</span> Weaknesses</h4>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Critically limited online presence</li>
-                        <li>No accessible customer reviews</li>
-                        <li>Lack of clear specialization</li>
-                        <li>Potential operational complexity</li>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li>Inaccessible Online Presence</li>
+                        <li>Lack of Public Reviews</li>
+                        <li>Potential Brand Dilution</li>
+                        <li>Operational Complexity</li>
                     </ul>
                 </div>
                 <div class="swot-card border-l-amber-500">
                     <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-3">💡</span> Opportunities</h4>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Tap into online delivery boom</li>
-                        <li>Develop a strong digital brand</li>
-                        <li>Introduce Hi-Tea/Buffet options</li>
-                        <li>Focus on the "Studio" experience</li>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li>Untapped Local Niche</li>
+                        <li>Booming Delivery Market</li>
+                        <li>Student-Focused Promotions</li>
+                        <li>Launch "Studio Hi-Tea"</li>
                     </ul>
                 </div>
-                <div class="swot-card border-l-gray-500">
+                <div class="swot-card border-l-slate-500">
                     <h4 class="text-xl font-bold mb-3 flex items-center"><span class="text-2xl mr-3">⚠️</span> Threats</h4>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Intense market competition</li>
-                        <li>Consumer price sensitivity</li>
-                        <li>Maintaining quality across menu</li>
-                        <li>Negative online perception (once online)</li>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2">
+                        <li>Intense Broader Competition</li>
+                        <li>Economic Inflation</li>
+                        <li>Negative Online Perception</li>
+                        <li>Maintaining Quality at Scale</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="digital-imperative" class="mb-20 scroll-mt-20">
+        <section id="digital-budget" class="mb-24 scroll-mt-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2" style="color: #4A5568;">The Digital Imperative</h2>
-                <p class="text-gray-600">The shift to online is not a trend; it's the new standard. A lack of digital presence is a critical revenue bottleneck.</p>
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Fueling Growth: The Digital Marketing Engine</h2>
+                <p class="text-slate-600">A proposed PKR 11.7M annual budget, representing 7% of projected revenue, is essential to build brand awareness and capture high-intent customers.</p>
             </div>
-             <div class="bg-white rounded-lg shadow-md p-6">
-                 <h3 class="text-xl font-semibold mb-4 text-center">Growth of Online Food Delivery</h3>
-                 <p class="text-sm text-gray-600 mb-6 text-center">The online food delivery market in Pakistan has seen explosive growth. For a business like Coffee Studio with no online presence, this chart represents the single largest and most immediate opportunity for revenue growth.</p>
-                <div class="chart-container h-80 md:h-96">
-                    <canvas id="onlineDeliveryChart"></canvas>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Proposed Budget Allocation</h3>
+                    <p class="text-sm text-slate-600 mb-4 text-center">The budget is strategically split to maximize both brand-building on social platforms and demand capture on search engines, ensuring a holistic digital approach.</p>
+                    <div class="chart-container h-72">
+                        <canvas id="budgetAllocationChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                     <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-blue-500">
+                        <h4 class="text-lg font-semibold text-slate-700">Facebook & Instagram</h4>
+                        <p class="text-3xl font-bold text-blue-600 mt-2">PKR 7.02M</p>
+                        <p class="text-slate-500 text-sm">Annually (60%)</p>
+                        <p class="text-slate-500 text-sm mt-1">(~PKR 585k/month)</p>
+                     </div>
+                     <div class="bg-white rounded-lg shadow-md p-6 text-center border-t-4 border-green-500">
+                        <h4 class="text-lg font-semibold text-slate-700">Google Ads</h4>
+                        <p class="text-3xl font-bold text-green-600 mt-2">PKR 4.68M</p>
+                        <p class="text-slate-500 text-sm">Annually (40%)</p>
+                        <p class="text-slate-500 text-sm mt-1">(~PKR 390k/month)</p>
+                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="strategic-path" class="mb-20 scroll-mt-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2" style="color: #4A5568;">Pathways to Growth</h2>
-                <p class="text-gray-600">A three-pronged strategy to build a resilient and profitable brand in Lahore.</p>
+        <section id="growth-strategy" class="scroll-mt-20">
+             <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">A Strategic Roadmap to Success</h2>
+                <p class="text-slate-600">A prioritized action plan to address weaknesses, seize opportunities, and build a dominant local brand.</p>
             </div>
-            <div class="relative">
-                <div class="hidden lg:block border-l-2 border-dashed border-gray-300 absolute h-full top-0 left-1/2 -ml-px"></div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8">
-                    
-                    <div class="lg:col-start-2">
-                        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-emerald-500">
-                            <h4 class="text-xl font-bold mb-3">1. Build a Robust Digital Presence</h4>
-                            <p class="text-gray-600">Immediately establish and optimize Google My Business & social media. Partner with major delivery platforms like Foodpanda. This is non-negotiable for visibility and reaching the modern consumer.</p>
-                        </div>
+            <div class="space-y-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full bg-amber-500 text-white text-3xl font-bold shadow-lg flex-shrink-0">1</div>
+                    <div class="md:ml-8 mt-6 md:mt-0 bg-white p-6 rounded-lg shadow-md w-full">
+                        <h4 class="text-xl font-bold text-slate-800">Establish Digital Foundations</h4>
+                        <p class="text-slate-600 mt-2">The absolute first priority. Immediately claim, verify, and fully optimize Google My Business and Facebook profiles. This is non-negotiable for online discoverability, trust-building, and enabling all other marketing efforts.</p>
                     </div>
-                    
-                    <div class="lg:text-right">
-                        <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-amber-500">
-                             <h4 class="text-xl font-bold mb-3">2. Curate the "Studio" Experience</h4>
-                             <p class="text-gray-600">Leverage the brand name. Host community events (art, music, workshops). Create an "Instagrammable" space. Differentiate on ambiance and experience, not just the menu.</p>
-                        </div>
+                </div>
+                 <div class="flex flex-col md:flex-row-reverse items-center">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500 text-white text-3xl font-bold shadow-lg flex-shrink-0">2</div>
+                    <div class="md:mr-8 mt-6 md:mt-0 bg-white p-6 rounded-lg shadow-md w-full">
+                        <h4 class="text-xl font-bold text-slate-800">Launch on Delivery Platforms</h4>
+                        <p class="text-slate-600 mt-2">Tap into the booming online delivery market. Partner with Foodpanda and other local services to instantly expand customer reach and create a major new revenue stream beyond dine-in traffic.</p>
                     </div>
-
-                    <div class="lg:col-start-2">
-                         <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-red-500">
-                             <h4 class="text-xl font-bold mb-3">3. Optimize the Menu Strategically</h4>
-                             <p class="text-gray-600">Analyze sales data to streamline offerings. Introduce a signature "Studio Hi-Tea" to capture afternoon traffic. Add and promote healthy options to cater to a growing market segment.</p>
-                        </div>
+                </div>
+                 <div class="flex flex-col md:flex-row items-center">
+                    <div class="flex items-center justify-center w-20 h-20 rounded-full bg-blue-500 text-white text-3xl font-bold shadow-lg flex-shrink-0">3</div>
+                    <div class="md:ml-8 mt-6 md:mt-0 bg-white p-6 rounded-lg shadow-md w-full">
+                        <h4 class="text-xl font-bold text-slate-800">Curate the "Studio" Experience & Brand</h4>
+                        <p class="text-slate-600 mt-2">Leverage the unique brand name. Host community events (art, music), create an "Instagrammable" ambiance, and launch a signature "Studio Hi-Tea" to differentiate on experience, not just menu diversity.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
     </main>
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-slate-800 text-white mt-24 py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Coffee Studio Market Analysis. All data synthesized from research report.</p>
-            <p class="text-sm text-gray-400 mt-2">This infographic is a strategic interpretation and visualization of market data.</p>
+            <p>&copy; 2025 Coffee Studio Market Analysis. All data synthesized from the provided research report.</p>
+            <p class="text-sm text-slate-400 mt-2">This infographic is a strategic interpretation and visualization of market data for planning purposes.</p>
         </div>
     </footer>
     <script>
@@ -229,29 +262,6 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        function wrapLabels(label, maxWidth) {
-            if (typeof label !== 'string' || label.length <= maxWidth) {
-                return label;
-            }
-            const words = label.split(' ');
-            const lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + ' ' + word).length > maxWidth && currentLine.length > 0) {
-                    lines.push(currentLine);
-                    currentLine = word;
-                } else {
-                    if (currentLine.length > 0) {
-                        currentLine += ' ' + word;
-                    } else {
-                        currentLine = word;
-                    }
-                }
-            });
-            lines.push(currentLine);
-            return lines;
-        }
 
         const chartTooltipConfig = {
             plugins: {
@@ -268,8 +278,11 @@
                     }
                 },
                 legend: {
+                    position: 'bottom',
                     labels: {
-                        color: '#4A5568'
+                        color: '#334155',
+                        padding: 20,
+                        font: { size: 12 }
                     }
                 }
             },
@@ -280,34 +293,20 @@
         const amberColor = '#F59E0B';
         const emeraldColor = '#10B981';
         const redColor = '#EF4444';
-        const grayColor = '#6B7280';
-        const charcoalColor = '#4A5568';
-        
-        const foodPreferenceData = {
-            labels: ['Pakistani Food', 'Fast Food', 'Continental', 'Chinese'],
-            datasets: [{
-                label: 'Preferred Cuisine Types',
-                data: [51, 24, 11, 9],
-                backgroundColor: [charcoalColor, amberColor, emeraldColor, grayColor],
-                hoverOffset: 4
-            }]
-        };
-
-        const foodPreferenceChartCtx = document.getElementById('foodPreferenceChart').getContext('2d');
-        new Chart(foodPreferenceChartCtx, {
-            type: 'doughnut',
-            data: foodPreferenceData,
-            options: { ...chartTooltipConfig }
-        });
+        const blueColor = '#3B82F6';
+        const slateColor = '#64748b';
+        const indigoColor = '#6366F1';
+        const textColor = '#1e293b';
 
         const selectionAttributeData = {
-            labels: ['Good Quality', 'Hygiene', 'Value for Price', 'Comfortable Sitting', 'Environment'],
+            labels: ['Environment', 'Good Quality', 'Comfortable Sitting', 'Value for Price', 'Hygiene'],
             datasets: [{
-                label: 'Selection Attribute Importance (%)',
-                data: [41, 15, 15, 22, 60],
-                backgroundColor: [emeraldColor, amberColor, charcoalColor, grayColor, redColor],
+                label: 'Importance (%)',
+                data: [60, 41, 22, 15, 15],
+                backgroundColor: [amberColor, emeraldColor, indigoColor, slateColor, redColor],
                 borderColor: 'rgba(255, 255, 255, 0)',
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 5
             }]
         };
 
@@ -318,70 +317,57 @@
             options: {
                 ...chartTooltipConfig,
                 indexAxis: 'y',
+                plugins: { ...chartTooltipConfig.plugins, legend: { display: false } },
                 scales: {
                     x: {
                         beginAtZero: true,
-                        ticks: {
-                           color: charcoalColor 
-                        },
-                        grid: {
-                            color: '#E5E7EB'
-                        }
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { color: '#e2e8f0' }
                     },
                     y: {
-                       ticks: {
-                           color: charcoalColor 
-                        },
-                         grid: {
-                            display: false
-                        }
+                       ticks: { color: textColor, font: { size: 12 } },
+                       grid: { display: false }
                     }
                 }
             }
         });
 
-        const onlineDeliveryData = {
-            labels: ['2019', '2020 (Actual)', '2021 (Projected)'],
+        const foodPreferenceData = {
+            labels: ['Pakistani Food', 'Fast Food', 'Continental', 'Chinese'],
             datasets: [{
-                label: 'Online Food Delivery Sales Growth (%)',
-                data: [0, 41, 71],
-                fill: true,
-                backgroundColor: 'rgba(245, 158, 11, 0.2)',
-                borderColor: amberColor,
-                tension: 0.1,
-                pointBackgroundColor: amberColor
+                label: 'Preferred Cuisine Types',
+                data: [51, 24, 11, 9],
+                backgroundColor: [emeraldColor, amberColor, indigoColor, slateColor],
+                hoverOffset: 8,
+                borderColor: '#f8fafc',
+                borderWidth: 4
             }]
         };
 
-        const onlineDeliveryChartCtx = document.getElementById('onlineDeliveryChart').getContext('2d');
-        new Chart(onlineDeliveryChartCtx, {
-            type: 'line',
-            data: onlineDeliveryData,
-            options: {
-                 ...chartTooltipConfig,
-                 scales: {
-                     y: {
-                         beginAtZero: true,
-                         ticks: {
-                             callback: function(value) {
-                                 return value + '%';
-                             },
-                             color: charcoalColor
-                         },
-                         grid: {
-                            color: '#E5E7EB'
-                         }
-                     },
-                     x: {
-                         ticks: {
-                            color: charcoalColor
-                         },
-                         grid: {
-                            display: false
-                         }
-                     }
-                 }
-            }
+        const foodPreferenceChartCtx = document.getElementById('foodPreferenceChart').getContext('2d');
+        new Chart(foodPreferenceChartCtx, {
+            type: 'doughnut',
+            data: foodPreferenceData,
+            options: { ...chartTooltipConfig, cutout: '60%' }
+        });
+
+        const budgetAllocationData = {
+            labels: ['Facebook / Instagram', 'Google Ads'],
+            datasets: [{
+                label: 'Budget Allocation',
+                data: [60, 40],
+                backgroundColor: [blueColor, emeraldColor],
+                hoverOffset: 8,
+                borderColor: '#ffffff',
+                borderWidth: 4
+            }]
+        };
+
+        const budgetAllocationChartCtx = document.getElementById('budgetAllocationChart').getContext('2d');
+        new Chart(budgetAllocationChartCtx, {
+            type: 'pie',
+            data: budgetAllocationData,
+            options: { ...chartTooltipConfig, cutout: '50%' }
         });
 
     </script>

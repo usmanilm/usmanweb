@@ -591,12 +591,7 @@
             options: { ...chartTooltipConfig, cutout: '50%' }
         });
 
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
         
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
 
         function wrapLabels(label, maxWidth) {
             if (typeof label !== 'string' || label.length <= maxWidth) {

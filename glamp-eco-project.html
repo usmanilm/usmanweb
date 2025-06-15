@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Proposal: Glamp Eco-Adventure Trail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Neutrals (Light Beige, Soft Greens, Warm Greys, Subtle Blues) -->
+    <!-- Application Structure Plan: A single-page, vertically scrolling interactive proposal. It features a sticky header for navigation to major sections: 'Executive Summary', 'Objectives', 'Scope', 'Execution Plan', 'Gamification Details', 'Eco-Tourism Integration', 'Requirements', 'Carbon Credits & Monetization', 'Expected Benefits', and 'Risk Assessment'. Each major section has an introductory paragraph. Detailed lists (like objectives, scope, and requirements) are presented clearly. The 'Execution Plan', 'Gamification Details', 'Eco-Tourism Integration', and 'Risk Assessment' sections use expandable accordion elements to manage content density and allow users to drill down into specifics only when desired. This structure was chosen to provide both a high-level overview and the ability to explore deep content, balancing readability with comprehensiveness, making the full proposal easily navigable and consumable. -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Overall project vision & intro. -> Goal: Inform -> Viz/Method: Header with descriptive text, followed by summary cards with emojis (animated on scroll). -> Interaction: Cards fade/slide in on scroll. -> Justification: Provides an inviting entry point and quick visual summary.
+        - Report Info: Executive Summary. -> Goal: Inform -> Viz/Method: Full text block. -> Interaction: Static text. -> Justification: Presents the official summary as written in the source document, providing immediate context.
+        - Report Info: Project objectives (quantitative targets). -> Goal: Highlight Targets -> Viz/Method: List items with animated percentage counters. -> Interaction: Numbers count up on scroll. -> Justification: Makes targets tangible and dynamic, emphasizing ambition.
+        - Report Info: Project Scope. -> Goal: Inform -> Viz/Method: Structured lists for 'In Scope' and 'Out of Scope'. -> Interaction: Static text. -> Justification: Clear delineation of project boundaries.
+        - Report Info: Detailed Execution Plan. -> Goal: Explain Process -> Viz/Method: Accordions for each phase with nested lists of tasks and deliverables. -> Interaction: Click to expand/collapse. -> Justification: Manages the high volume of detail, allowing users to focus on specific phases without overwhelming the view.
+        - Report Info: Gamification and Eco-Tourism Details. -> Goal: Elaborate -> Viz/Method: Accordions for each core element/initiative with detailed descriptions. -> Interaction: Click to expand/collapse. -> Justification: Provides necessary depth for each strategy component while keeping the main scroll path clean.
+        - Report Info: Requirements (Technical, Financial, HR, Operational). -> Goal: Detail Resources -> Viz/Method: Structured lists for each requirement type, with a note on financial estimates. -> Interaction: Static text, but clearly sectioned. -> Justification: Presents critical resource needs clearly.
+        - Report Info: Carbon Credit Strategy. -> Goal: Explain Process -> Viz/Method: Step-by-step animated flow diagram with connecting lines and descriptive text blocks. -> Interaction: Each step animates into view sequentially on scroll. -> Justification: Simplifies a complex process into an intuitive visual flow, reinforcing the new revenue stream concept.
+        - Report Info: Expected Outcomes & Benefits. -> Goal: Highlight Outcomes -> Viz/Method: Summary cards with key benefits and animated emojis. -> Interaction: Cards fade/slide in on scroll. -> Justification: Visually reinforces the positive impact and ROI.
+        - Report Info: Risk Assessment & Mitigation. -> Goal: Inform on Risks -> Viz/Method: Accordion for each risk category with a table/list of risks and mitigation strategies. -> Interaction: Click to expand/collapse. -> Justification: Allows users to explore potential challenges and solutions on demand.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FBF8F0; } /* Light Beige Background */
+        .header-bg { background-color: #FFFFFF; } /* White Header Background */
+        .section-container {
+            min-height: 50vh; /* Ensure sections have enough height to trigger scroll animations */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            background-color: #FBF8F0; /* Default section background */
+        }
+        .section-container:nth-of-type(even) {
+            background-color: #F3F0E6; /* Slightly darker beige for alternating sections */
+        }
+        .section-container.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .card-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .counter-animate {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .counter-animate.animate-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .flow-step {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .flow-step.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .flow-line {
+            width: 100%;
+            height: 2px;
+            background-color: #A0B9BA; /* Soft green-grey */
+            position: relative;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s ease-out;
+        }
+        .flow-line.animate-in {
+            transform: scaleX(1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in-animation { animation: fadeIn 1s ease-out forwards; }
+
+        .accordion-button {
+            background-color: #FFFFFF; /* White for accordion buttons */
+            border-bottom: 1px solid #E0E0E0;
+            transition: background-color 0.3s;
+        }
+        .accordion-button:hover { background-color: #F9F9F9; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            background-color: #FFFFFF; /* White for accordion content */
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .accordion-content.open {
+            max-height: 1000px; /* Adjust as needed for content */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .nav-link { transition: color 0.3s, border-bottom-color 0.3s; }
+        .nav-link.active { color: #2563eb; border-bottom-color: #2563eb; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="header-bg shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-gray-800">Glamp Eco-Adventure Proposal</h1>
+            <div class="hidden lg:flex space-x-6">
+                <a href="#executive-summary" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Summary</a>
+                <a href="#objectives" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Objectives</a>
+                <a href="#execution-plan" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Execution</a>
+                <a href="#gamification-details" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Gamification</a>
+                <a href="#eco-tourism" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Eco-Tourism</a>
+                <a href="#requirements" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Requirements</a>
+                <a href="#carbon-credits" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Carbon Credits</a>
+                <a href="#benefits" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Benefits</a>
+                <a href="#risk-assessment" class="nav-link text-gray-600 hover:text-blue-600 border-b-2 border-transparent pb-1">Risks</a>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg">
+            <a href="#executive-summary" class="block py-2 px-6 text-sm hover:bg-gray-100">Executive Summary</a>
+            <a href="#objectives" class="block py-2 px-6 text-sm hover:bg-gray-100">Objectives</a>
+            <a href="#scope" class="block py-2 px-6 text-sm hover:bg-gray-100">Scope</a>
+            <a href="#execution-plan" class="block py-2 px-6 text-sm hover:bg-gray-100">Execution Plan</a>
+            <a href="#gamification-details" class="block py-2 px-6 text-sm hover:bg-gray-100">Gamification Details</a>
+            <a href="#eco-tourism" class="block py-2 px-6 text-sm hover:bg-gray-100">Eco-Tourism Integration</a>
+            <a href="#requirements" class="block py-2 px-6 text-sm hover:bg-gray-100">Requirements</a>
+            <a href="#carbon-credits" class="block py-2 px-6 text-sm hover:bg-gray-100">Carbon Credits</a>
+            <a href="#benefits" class="block py-2 px-6 text-sm hover:bg-gray-100">Expected Benefits</a>
+            <a href="#risk-assessment" class="block py-2 px-6 text-sm hover:bg-gray-100">Risk Assessment</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Introduction -->
+        <section id="introduction" class="section-container bg-gray-100/70 py-20 px-4 md:px-0">
+            <div class="container mx-auto max-w-4xl text-center fade-in-animation">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">A Transformative Vision for Glamp</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+                    This proposal details an enterprise-wide initiative to integrate **immersive guest gamification** with **robust eco-tourism practices** across all Glamp sites. Furthermore, it outlines a strategy to **monetize our positive environmental impact through carbon credits.**
+                </p>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                    Explore how Glamp is set to redefine luxury glamping through unparalleled experiences and a profound commitment to sustainability.
+                </p>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">Executive Summary</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    This revised proposal outlines a comprehensive and scalable plan to strategically integrate immersive gamification and robust eco-tourism practices across **all existing and future Glamp locations**. Building upon the successful framework designed for Murree/Nathia Gali, the "Eco-Adventure Trail" project aims to standardize and elevate guest engagement, foster profound environmental stewardship, and significantly reduce the collective operational carbon footprint of the entire Glamp portfolio.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    A critical new dimension of this proposal is the detailed strategy for **quantifying, verifying, and monetizing carbon credit savings** generated through Glamp's sustainability initiatives, transforming environmental responsibility into a tangible revenue stream. By actively involving guests in conservation through gamified challenges and implementing cutting-edge sustainable infrastructure across all sites, Glamp will cement its position as a national leader in responsible, luxury eco-tourism, enhancing brand value, and creating a truly impactful business model.
+                </p>
+            </div>
+        </section>
+
+        <!-- Project Objectives -->
+        <section id="objectives" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Project Objectives: Ambitious Targets for a Sustainable Future</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Our goals are clear: to enhance guest experience, minimize environmental impact, strengthen our brand, and generate new value. Here are our key objectives with their targets.
+            </p>
+            <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center counter-animate" style="transition-delay: 0.1s;">
+                    <div class="text-6xl text-blue-600 mb-4">
+                        <span id="obj1-counter">0</span>%
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Elevate System-Wide Guest Engagement</h3>
+                    <p class="text-gray-600">Achieve a minimum 30% increase in average guest participation rates in on-site eco-gamification activities across all operational Glamp sites within the first year of each site's program implementation.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center counter-animate" style="transition-delay: 0.3s;">
+                    <div class="text-6xl text-green-600 mb-4">
+                        <span id="obj2-counter">0</span>%
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Minimize Collective Carbon Footprint</h3>
+                    <p class="text-gray-600">Implement standardized sustainable infrastructure and operational methodologies across all sites, targeting a cumulative 25% reduction in Glamp's total operational carbon footprint within three years.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center counter-animate" style="transition-delay: 0.5s;">
+                    <div class="text-6xl text-yellow-600 mb-4">
+                        <span id="obj3-counter">0</span>%
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Foster Local Community Integration</h3>
+                    <p class="text-gray-600">Standardize and increase direct procurement from local suppliers by 20% and actively engage local talent in the guest experience across all Glamp locations.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center counter-animate" style="transition-delay: 0.7s;">
+                    <div class="text-6xl text-purple-600 mb-4">
+                        <span id="obj4-counter">0</span>%
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Instill Universal Environmental Stewardship</h3>
+                    <p class="text-gray-600">Aim for a measurable 15% reduction in average water consumption per guest and a 20% increase in waste segregation compliance rates across the entire Glamp portfolio within two years.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center text-center counter-animate" style="transition-delay: 0.9s;">
+                    <div class="text-6xl text-red-600 mb-4">
+                        💲
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Generate New Revenue Streams</h3>
+                    <p class="text-gray-600">Establish a new revenue stream through the generation and sale of verified carbon credits, alongside increased bookings from enhanced satisfaction.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Scope -->
+        <section id="scope" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">Project Scope: What's Included & What's Not</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    This project focuses on enhancing Glamp's core offering with sustainability and guest engagement across all locations.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700">In Scope <span class="ml-2 text-3xl">✔</span></h3>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li>Standardized Gamification System Design & Implementation.</li>
+                            <li>Scalable Sustainable Infrastructure Development (Solar, Water, Waste).</li>
+                            <li>Unified Eco-Education & Awareness Program.</li>
+                            <li>Framework for Local Community & Biodiversity Integration.</li>
+                            <li>Centralized Staff Training & Development Program.</li>
+                            <li>Centralized Performance Monitoring & Reporting.</li>
+                            <li>Carbon Credit Strategy Development & Implementation.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-700">Out of Scope <span class="ml-2 text-3xl">✖</span></h3>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li>General Glamp operational management (unrelated to specific initiatives).</li>
+                            <li>Major new construction or expansion beyond sustainable upgrades.</li>
+                            <li>Company-wide marketing campaigns outside Eco-Adventure/carbon credit themes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Execution Plan (Methodology) -->
+        <section id="execution-plan" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Detailed Execution Plan: Bringing the Vision to Life</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                The project will be executed in five distinct phases, employing a phased and iterative approach for initial implementation and subsequent rollout to new sites. Click each phase to reveal the detailed tasks.
+            </p>
+            <div class="container mx-auto max-w-5xl space-y-4">
+                <!-- Phase 1 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Phase 1: Strategic Planning & Centralized Design (Months 1-3)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700 pb-4">
+                            <li>**Task 1.1: Enterprise Concept Validation & Standardization:** Finalize and standardize gamification challenges and rewards.</li>
+                            <li>**Task 1.2: System-Wide Environmental Baseline Audit & Target Setting:** Conduct comprehensive audits for all existing sites and establish KPIs.</li>
+                            <li>**Task 1.3: Scalable Technical Architecture & Infrastructure Design:** Develop modular engineering designs for solar, water, waste, and the app.</li>
+                            <li>**Task 1.4: Universal Content & Reward System Development:** Develop core content modules and design standardized eco-friendly rewards.</li>
+                            <li>**Task 1.5: Master Vendor Selection & Framework Agreements:** Issue RFPs and negotiate contracts with multi-site vendors.</li>
+                            <li>**Task 1.6: Regulatory Compliance & Permitting Framework:** Identify and develop a standardized process for permit acquisition.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Phase 2 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Phase 2: Pilot Development & Procurement (Months 4-7)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700 pb-4">
+                            <li>**Task 2.1: Pilot Sustainable Infrastructure Implementation (Selected Site):** Install solar, water, waste systems at a pilot location.</li>
+                            <li>**Task 2.2: Centralized Digital Gamification Platform Development:** Develop the scalable web/mobile application.</li>
+                            <li>**Task 2.3: Initial Physical Asset Production & Procurement:** Produce guest-facing materials and eco-friendly rewards.</li>
+                            <li>**Task 2.4: Pilot Trail Setup & Geo-Cache Placement:** Mark trails and place geocaches at the pilot site.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Phase 3 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Phase 3: Integration & Centralized Training (Month 8)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700 pb-4">
+                            <li>**Task 3.1: Comprehensive "Train the Trainer" Program:** Deliver centralized training for key personnel.</li>
+                            <li>**Task 3.2: Pilot Program & Refinement (Pilot Site):** Conduct a full-scale pilot with actual guests and refine operations.</li>
+                            <li>**Task 3.3: Enterprise Readiness Check:** Thorough inspection of pilot site and materials for readiness.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Phase 4 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Phase 4: Phased Rollout & Ongoing Monitoring (Month 9 onwards)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700 pb-4">
+                            <li>**Task 4.1: Phased Site Launch:** Systematic rollout of "Eco-Adventure Trail" to additional sites.</li>
+                            <li>**Task 4.2: Centralized Performance Monitoring:** Daily and weekly tracking of engagement, energy, water, and waste.</li>
+                            <li>**Task 4.3: Stakeholder Communication:** Regular updates to management and public reporting.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Phase 5 -->
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Phase 5: Evaluation, Iteration & Carbon Credit Management (Quarterly, Ongoing)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="list-disc list-inside space-y-3 text-gray-700 pb-4">
+                            <li>**Task 5.1: Quarterly Enterprise Performance Review & Impact Assessment:** Comprehensive reviews of objectives and impact.</li>
+                            <li>**Task 5.2: Iterative Enhancement & New Initiative Planning:** Identify improvements and plan new initiatives.</li>
+                            <li>**Task 5.3: Carbon Credit Quantification & Verification:** Regularly quantify and engage third-party verifiers for carbon savings.</li>
+                            <li>**Task 5.4: Carbon Credit Monetization:** Explore brokers and platforms to sell verified carbon credits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gamification Details -->
+        <section id="gamification-details" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Gamification Details: Engaging Guests, Inspiring Action</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Our gamification strategy is designed to be accessible, enjoyable, and impactful, encouraging active participation and learning at every Glamp location. Expand each section to learn more.
+            </p>
+            <div class="container mx-auto max-w-5xl space-y-4">
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        1. The "Explorer" Challenge (Contextualized)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p>Guests receive a physical "Explorer Passport" (e.g., "Jungle Explorer" for Murree, "Desert Explorer" for a desert Glamp, "Mountain Explorer" for northern areas). The passport outlines a series of open-ended and structured challenges unique to each location's ecosystem and culture.</p>
+                            <p>Challenges include identifying local flora and fauna pertinent to the site, photographic missions (site-specific vistas, wildlife), learning local folklore from staff/guides, and basic wilderness skills demonstrations (e.g., knot-tying, navigation basics).</p>
+                            <p>Completion earns "Glamp Credits," redeemable for discounts on future stays, exclusive site-specific experiences, complimentary local artisan products, or a personalized "Chief Explorer" certificate relevant to the location.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        2. "Eco-Warrior" Leaderboard (Centralized & Site-Specific)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p>A prominent digital display in common areas at each site, linked to a centralized database, showcases a real-time leaderboard of guests (identified anonymously or by initials).</p>
+                            <p>Points awarded for standardized actions like using refillable water bottles (tracked via RFID/QR scans at refill stations), proper waste segregation (verified by staff), opting out of daily linen/towel changes, active energy conservation (e.g., minimal use of heating/cooling, turning off lights), and participation in organized eco-activities (e.g., tree planting, site clean-ups).</p>
+                            <p>Daily/weekly top "Eco-Warriors" at each site receive special recognition, a small eco-friendly gift, or a donation made in their name to a local conservation project relevant to their stay. Annual recognition for top system-wide "Eco-Warriors."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        3. "Pathfinder" Geocaching/Orienteering Adventure (Site-Specific Trails)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p>Guests use the Glamp web application (accessible via QR code or direct URL) on their smartphones, or provided ruggedized GPS devices, to navigate pre-defined, site-specific trails. The app provides GPS coordinates, clues, and riddles unique to the local environment.</p>
+                            <p>Each cache contains information about the local ecosystem, a historical fact, or a mini-challenge relevant to that specific Glamp location.</p>
+                            <p>Completion leads to a scenic viewpoint or a small, symbolic eco-friendly prize. Points are awarded, contributing to their "Explorer" score.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        4. "Glamp Storyteller" Creative Challenge (Unified Platform)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p>Guests are encouraged to capture and share their eco-friendly glamping experience through creative mediums on a unified platform.</p>
+                            <p>Submissions include high-quality nature photography, short video reels highlighting sustainable practices, nature journaling entries, or poetry inspired by the surroundings of their specific Glamp site.</p>
+                            <p>Selected submissions are featured prominently on Glamp's official website and social media channels. Vouchers for future stays or bespoke local artisan crafts are awarded to top entries.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        5. "Seed to Sapling" Growth Tracker (Centralized Registry)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p>For guests participating in tree planting initiatives (a core eco-activity), they name their planted sapling. Glamp maintains a centralized digital registry with photos, details, and location of each planted tree across all sites.</p>
+                            <p>Guests receive periodic email updates (e.g., quarterly) with photos and growth metrics of "their" tree, fostering a continued connection to Glamp's collective conservation efforts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eco-Tourism Integration Details -->
+        <section id="eco-tourism" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Eco-Tourism Integration: Standardized Sustainable Practices</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Glamp's commitment to eco-tourism will be embedded throughout its operations across all sites, from infrastructure to daily guest interactions, following standardized guidelines with local adaptations.
+            </p>
+            <div class="container mx-auto max-w-5xl space-y-4">
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.1. Sustainable Infrastructure (Modular Design)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Solar Power Systems:</strong> Standardized models for grid-tied or hybrid solar PV systems (e.g., 20-50kW based on site load) with high-efficiency panels and scalable battery storage. Emphasis on smart energy monitoring for optimal performance and carbon accounting.</p>
+                            <p><strong>Rainwater Harvesting:</strong> Modular systems for collecting rainwater from glamp tent roofs and common area structures, adaptable to varying rainfall patterns. Collection, filtration, and storage systems for non-potable uses.</p>
+                            <p><strong>Advanced Waste Management:</strong> Standardized "reduce, reuse, recycle, compost" hierarchy across all sites. Dedicated multi-stream recycling bins and centralized organic waste composting facilities. Framework agreements with certified local recycling partners.</p>
+                            <p><strong>Water-Saving Fixtures:</strong> Mandatory installation of low-flow showerheads (targeting 5-7 liters/min), dual-flush toilets, and aerators on all taps.</p>
+                            <p><strong>Eco-Friendly Building Materials:</strong> Prioritization of regionally sourced, sustainable, and recycled materials for any construction or renovation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.2. Energy & Water Conservation (Operational Standards)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Smart & Efficient Lighting:</strong> Mandatory use of energy-efficient LED lighting, coupled with motion sensors and timers/photocells.</p>
+                            <p><strong>Natural Design Principles:</strong> Glamp tent designs and common area structures will maximize natural airflow and ventilation to reduce the need for artificial cooling, and incorporate passive solar design for heating.</p>
+                            <p><strong>Guest Engagement for Conservation:</strong> Standardized signage, welcome packet information, and staff briefings encouraging guests to conserve energy and water.</p>
+                            <p><strong>Renewable Energy Awareness:</strong> Informative displays at each site explaining Glamp's local solar power generation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.3. Waste Reduction & Elimination of Single-Use Plastics
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Enterprise-Wide Plastic-Free Policy:</strong> Strict ban on single-use plastics across all Glamp operations.</p>
+                            <p><strong>Reusable Amenities Program:</strong> Provision of high-quality, branded reusable water bottles for guests, with complimentary filtered water refill stations. Universal implementation of refillable dispensers for toiletries.</p>
+                            <p><strong>Sustainable Sourcing:</strong> Centralized guidelines for bulk purchasing of supplies to minimize packaging waste.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.4. Biodiversity Conservation & Local Ecosystem Protection
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>"Leave No Trace" Principles:</strong> Strict adherence universally across all Glamp sites. Guests and staff educated on minimizing impact.</p>
+                            <p><strong>Native Plant Landscaping:</strong> Standardized guidelines for using indigenous plant species for all landscaping.</p>
+                            <p><strong>Wildlife Awareness & Protection:</strong> Mandatory educational briefings for guests on local wildlife, emphasizing respectful observation and non-disturbance.</p>
+                            <p><strong>Trail Management:</strong> Regular maintenance of designated trails to prevent erosion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.5. Carbon Footprint Reduction & Offsetting
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Local Sourcing Initiative:</strong> Prioritize procurement of food, beverages, and supplies from local businesses to reduce transportation emissions.</p>
+                            <p><strong>Sustainable Transportation Promotion:</strong> Encourage guests to utilize shared transport or Glamp's shuttle services.</p>
+                            <p><strong>Carbon Offsetting Program (Optional for Guests):</strong> Standardized program allowing guests to contribute to verified carbon reduction projects.</p>
+                            <p><strong>Enterprise Tree Planting Initiatives:</strong> Regular organization of tree planting events involving guests and staff across all sites.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        7.6. Education and Awareness (Standardized & Localized)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Interpretive Signage & Trails:</strong> Implementation of clear, engaging signage explaining local ecology, cultural heritage, and Glamp's sustainability initiatives.</p>
+                            <p><strong>Guided Nature Walks & Workshops:</strong> Standardized framework for offering guided nature walks led by trained local naturalists. Workshops on composting, local craft-making, etc.</p>
+                            <p><strong>Pre-Arrival Information:</strong> Provide guests with digital resources outlining Glamp's commitment to sustainability and how they can contribute.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section id="requirements" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Requirements: Resources for Success</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Successful implementation of this enterprise-wide initiative requires robust technical, financial, human, and operational resources.
+            </p>
+            <div class="container mx-auto grid md:grid-cols-2 gap-8 max-w-6xl">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">8.1. Technical Requirements</h3>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li>**Centralized Digital Gamification Platform:** Robust, scalable, cloud-based Responsive Web App (React.js/Vue.js, Node.js/Python backend, PostgreSQL/MongoDB/Firestore DB).</li>
+                        <li>**Sustainable Infrastructure Systems:** Modular Solar PV (20-50kW), Rainwater Harvesting (10k-30k L capacity), Advanced Waste Management, Water-Saving Fixtures.</li>
+                        <li>**Connectivity & Hardware:** High-speed internet at each site, Digital Leaderboard Displays, Ruggedized Tablets/GPS Devices (5-10/site), RFID/QR Scanners.</li>
+                        <li>**Software & Tools:** Enterprise CRM integration, Centralized Energy/Water Monitoring, GIS software, Carbon Accounting software.</li>
+                        <li>**Expertise:** Certified Solar Installers, Water Engineers, Environmental/Carbon Consultants, Full-stack Web Devs, UI/UX Designers, Network Specialists.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">8.2. Financial Requirements (Estimated CAPEX)</h3>
+                    <p class="text-gray-600 mb-4">
+                        *All figures are indicative estimates. A detailed financial plan will require precise vendor quotations and site-specific feasibility studies.*
+                    </p>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li>**Centralized CAPEX:** PKR 6,600,000 - 13,100,000 (e.g., App Dev, Central Consultancy).</li>
+                        <li>**Per Site CAPEX:** PKR 7,150,000 - 12,800,000 (e.g., Solar, Water, Site-specific Hardware).</li>
+                        <li>**Ongoing OPEX (Monthly):** Centralized: PKR 350,000 - 650,000. Per Site: PKR 250,000 - 550,000.</li>
+                        <li>**Carbon Credit Verification Fees:** ~PKR 500,000 - 1,000,000 annually (variable).</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">8.3. Human Resources</h3>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li>**Enterprise Project Manager (Lead):** Overall program strategy and multi-site rollout.</li>
+                        <li>**Enterprise Sustainability Manager (New Role):** Oversees all eco-initiatives, carbon accounting, compliance.</li>
+                        <li>**Central IT/App Administrator (New Role):** Manages centralized gamification platform and data.</li>
+                        <li>**Site Sustainability Coordinators (New Role, one per site):** Manages on-site eco-initiatives and local KPIs.</li>
+                        <li>**Local Naturalists/Guides (Contractual):** For nature walks and site-specific content.</li>
+                        <li>**Existing Glamp Staff:** Comprehensive training and active participation required.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700">8.4. Operational Requirements</h3>
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li>**Centralized Project Management Office (PMO):** To drive enterprise-wide project consistency.</li>
+                        <li>**Robust Internal Communication Platform:** Seamless information flow.</li>
+                        <li>**Standardized Operating Procedures (SOPs):** Clear, enterprise-wide SOPs for new practices.</li>
+                        <li>**Unified Marketing & Guest Communication Strategy:** Consistent messaging across all brand touchpoints.</li>
+                        <li>**Strong Local Partnerships (Framework):** Guidelines for cultivating relationships at each site.</li>
+                        <li>**Centralized Reporting Mechanism:** Consistent system for data collection, analysis, and reporting.</li>
+                        <li>**Legal & Regulatory Compliance:** Ongoing monitoring of environmental and carbon market regulations.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carbon Credit Journey -->
+        <section id="carbon-credits" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Carbon Credit Journey: Monetizing Our Impact</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+                Our sustainability initiatives don't just save the planet; they generate verifiable carbon credits. Here's how we'll turn environmental action into a new revenue stream.
+            </p>
+            <div class="container mx-auto max-w-6xl flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8">
+                <div class="flex flex-col items-center flow-step" style="transition-delay: 0.1s;">
+                    <div class="bg-lime-200 text-lime-800 text-3xl p-6 rounded-full shadow-md mb-4">📈</div>
+                    <p class="font-semibold text-center">1. Baseline & Design</p>
+                    <p class="text-sm text-gray-600 text-center max-w-[150px]">Measure current emissions & design reduction projects.</p>
+                </div>
+                <div class="hidden lg:block w-32 relative">
+                    <div class="flow-line animate-in" style="transition-delay: 0.3s;"></div>
+                </div>
+                <div class="flex flex-col items-center flow-step" style="transition-delay: 0.5s;">
+                    <div class="bg-lime-200 text-lime-800 text-3xl p-6 rounded-full shadow-md mb-4">📊</div>
+                    <p class="font-semibold text-center">2. Monitor & Quantify</p>
+                    <p class="text-sm text-gray-600 text-center max-w-[150px]">Track actual reductions from our green initiatives.</p>
+                </div>
+                <div class="hidden lg:block w-32 relative">
+                    <div class="flow-line animate-in" style="transition-delay: 0.7s;"></div>
+                </div>
+                <div class="flex flex-col items-center flow-step" style="transition-delay: 0.9s;">
+                    <div class="bg-lime-200 text-lime-800 text-3xl p-6 rounded-full shadow-md mb-4">✅</div>
+                    <p class="font-semibold text-center">3. Verify & Register</p>
+                    <p class="text-sm text-gray-600 text-center max-w-[150px]">Third-party audit and formal registration of credits.</p>
+                </div>
+                <div class="hidden lg:block w-32 relative">
+                    <div class="flow-line animate-in" style="transition-delay: 1.1s;"></div>
+                </div>
+                <div class="flex flex-col items-center flow-step" style="transition-delay: 1.3s;">
+                    <div class="bg-lime-200 text-lime-800 text-3xl p-6 rounded-full shadow-md mb-4">💲</div>
+                    <p class="font-sm text-gray-600 text-center max-w-[150px]">4. Monetize & Reinvest</p>
+                    <p class="text-sm text-gray-600 text-center max-w-[150px]">Sell verified credits to generate revenue & fund future green projects.</p>
+                </div>
+            </div>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mt-10">
+                **Strategic Considerations:** Ensure transparency, integrate into branding, diversify sales channels, reinvest revenue, and pursue eco-certifications to enhance credibility and value.
+            </p>
+        </section>
+
+        <!-- Projected Benefits -->
+        <section id="benefits" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Projected Benefits: A Win-Win for All</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                The successful implementation of this project is expected to yield unprecedented, multi-faceted benefits for Glamp, our guests, and the environment.
+            </p>
+            <div class="container mx-auto grid md:grid-cols-2 gap-8 max-w-5xl">
+                <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 0.1s;">
+                    <div class="text-6xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Revolutionized Guest Experience & Loyalty</h3>
+                    <p class="text-gray-600">Standardized, unique, and memorable stays that foster deeper connections with nature, leading to higher satisfaction, repeat visits, and strong word-of-mouth referrals.</p>
+                </div>
+                <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 0.3s;">
+                    <div class="text-6xl mb-4">🥇</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Unrivaled Brand Leadership & Market Share</h3>
+                    <p class="text-gray-600">Positioning Glamp as the pioneer and leader in sustainable, experiential luxury glamping, attracting a growing and high-value segment of eco-conscious travelers globally.</p>
+                </div>
+                <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 0.5s;">
+                    <div class="text-6xl mb-4">🌎</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Profound Collective Environmental Impact</h3>
+                    <p class="text-gray-600">Tangible and verifiable reduction in the ecological footprint of the entire Glamp operation, contributing significantly to climate action.</p>
+                </div>
+                <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 0.7s;">
+                    <div class="text-6xl mb-4">💰</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Substantial Operational Cost Savings & Diversified Revenue</h3>
+                    <p class="text-gray-600">Long-term, cumulative reduction in utility bills and waste disposal costs, complemented by new, direct revenue from the sale of verified carbon credits.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 0.9s;">
+                    <div class="text-6xl mb-4">🌐</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Global Recognition & Media Acclaim</h3>
+                    <p class="text-gray-600">The innovative and impactful nature of the integrated program will likely attract significant national and international media attention, boosting Glamp's global visibility.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center card-animate" style="transition-delay: 1.1s;">
+                    <div class="text-6xl mb-4">🏘️</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-700">Strengthened Community Development</h3>
+                    <p class="text-gray-600">Consistent and expanded direct and indirect economic benefits to local communities through increased local procurement and employment opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Assessment & Mitigation -->
+        <section id="risk-assessment" class="section-container py-20 px-4 md:px-0 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Risk Assessment & Mitigation: Proactive Strategies</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                Every ambitious project has risks. Here's a breakdown of potential challenges and our strategies to mitigate them. Expand each risk category to view details.
+            </p>
+            <div class="container mx-auto max-w-5xl space-y-4">
+                <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Low Guest Adoption/Participation (across sites)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Reduced ROI, diluted engagement metrics.</p>
+                            <p><strong>Mitigation Strategy:</strong> Comprehensive & Consistent Marketing; Diverse & Adaptable Activities; Attractive & Tangible Rewards; Centralized Staff Training; Continuous Feedback Loop for refinement.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Technical Failures (Platform, Solar, Water systems)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Operational disruption, negative guest experience, increased costs, data integrity issues.</p>
+                            <p><strong>Mitigation Strategy:</strong> Robust Centralized Architecture; Master Vendor Agreements; Phased Rollout; Thorough QA & Testing; Comprehensive Monitoring & Alerting; Dedicated IT/Sustainability Support; Backup & Disaster Recovery Plans.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Cost Overruns / Budget Exceedance (multi-site)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Financial strain, project delay/stoppage, reduced scope.</p>
+                            <p><strong>Mitigation Strategy:</strong> Detailed Enterprise-Level Budgeting; Master Vendor Contracts; Phased Rollout with Budget Gates; Value Engineering; Adequate Contingency Fund.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Regulatory & Permitting Delays (diverse regions)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Project timeline extension, potential fines, legal issues.</p>
+                            <p><strong>Mitigation Strategy:</strong> Early & Proactive Engagement with authorities; Local Legal & Environmental Consultants; Standardized Documentation; Strong Relationships with local authorities.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Inconsistent Staff Engagement / Training Quality
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Poor guest experience, operational inefficiencies, diluted brand image.</p>
+                            <p><strong>Mitigation Strategy:</strong> Centralized "Train the Trainer" Program; Mandatory & Ongoing Training; Incentive Programs; Strong Leadership by Example; Clear Roles & Responsibilities; Performance Monitoring & Feedback.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Negative Environmental Impact / Inaccurate Carbon Reporting
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Brand damage, regulatory non-compliance, devalued carbon credits.</p>
+                            <p><strong>Mitigation Strategy:</strong> Strict Enterprise-Wide SOPs; Centralized Monitoring & Auditing; Third-Party Verification for carbon credit generation; Staff Accountability; Continuous Improvement Cycles.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Volatile Carbon Credit Market / Low Prices
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Reduced revenue from carbon credit sales.</p>
+                            <p><strong>Mitigation Strategy:</strong> Diversification of Initiatives (solar, waste, reforestation); Long-Term Strategy for sales; Focus on Quality & Certification (Gold Standard, Verra); Strategic Sales timings; Highlight Co-Benefits to increase credit value.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="accordion-button w-full p-6 text-left font-semibold text-xl flex justify-between items-center text-gray-800">
+                        Adverse Weather Conditions (site-specific)
+                        <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="text-gray-700 py-4 space-y-3">
+                            <p><strong>Potential Impact:</strong> Outdoor activity disruption, infrastructure stress.</p>
+                            <p><strong>Mitigation Strategy:</strong> Contingency Plans for Activities (indoor alternatives); Robust Infrastructure Design (weather-resistant); Site-Specific Weather Monitoring; Adequate Insurance Coverage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-gray-800 text-white mt-16 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Glamp Pakistan. Eco-Adventure Trail Project Proposal.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section-container');
+            const counters = {
+                'obj1-counter': { target: 30, started: false },
+                'obj2-counter': { target: 25, started: false },
+                'obj3-counter': { target: 20, started: false },
+                'obj4-counter': { target: 15, started: false }
+            };
+
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetSection = entry.target;
+                        targetSection.classList.add('animate-in');
+
+                        targetSection.querySelectorAll('.card-animate').forEach(card => {
+                            card.classList.add('animate-in');
+                        });
+
+                        targetSection.querySelectorAll('.counter-animate').forEach(counterElem => {
+                            const counterId = counterElem.querySelector('span')?.id;
+                            if (counterId && !counters[counterId].started) {
+                                counters[counterId].started = true;
+                                animateValue(counterElem.querySelector('span'), 0, counters[counterId].target, 2000);
+                                counterElem.classList.add('animate-in');
+                            }
+                        });
+
+                        targetSection.querySelectorAll('.flow-step').forEach((step, index) => {
+                            setTimeout(() => {
+                                step.classList.add('animate-in');
+                            }, index * 200);
+                        });
+                        targetSection.querySelectorAll('.flow-line').forEach((line, index) => {
+                            setTimeout(() => {
+                                line.classList.add('animate-in');
+                            }, (index * 200) + 100);
+                        });
+
+                        // Only unobserve if the section has completed all its specific animations.
+                        // For a general section, just entering and fading in is enough.
+                        // For sections with staggered animations, might need a deeper check or let them re-trigger.
+                        // For simplicity, we unobserve after the main section animation starts.
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2 // Trigger when 20% of the section is visible for longer sections
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('svg');
+
+                    // Close other open accordions in the same container (optional, but good for UX)
+                    button.closest('.space-y-4').querySelectorAll('.accordion-content.open').forEach(otherContent => {
+                        if (otherContent !== content) {
+                            otherContent.classList.remove('open');
+                            otherContent.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                        }
+                    });
+
+                    content.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden'); // Close menu on link click
+                });
+            });
+
+            const navLinks = document.querySelectorAll('header nav .nav-link');
+            const mainSections = document.querySelectorAll('main section[id]');
+
+            window.addEventListener('scroll', () => {
+                let currentActiveSectionId = '';
+                mainSections.forEach(section => {
+                    const sectionTop = section.offsetTop - document.querySelector('header').offsetHeight; // Adjust for sticky header
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        currentActiveSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentActiveSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

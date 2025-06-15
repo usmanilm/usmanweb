@@ -537,6 +537,142 @@
             options: { ...chartTooltipConfig, cutout: '50%' }
         });
 
+        // Johar Town Demographics Chart
+        const joharTownDemographicsData = {
+            labels: ['Students (Riphah/UOL)', 'Families & Residents'],
+            datasets: [{
+                label: 'Population Segment',
+                data: [40, 60], // Placeholder percentages
+                backgroundColor: [blueColor, amberColor],
+                hoverOffset: 8,
+                borderColor: '#f8fafc',
+                borderWidth: 4
+            }]
+        };
+
+        const joharTownDemographicsCtx = document.getElementById('joharTownDemographicsChart').getContext('2d');
+        new Chart(joharTownDemographicsCtx, {
+            type: 'doughnut',
+            data: joharTownDemographicsData,
+            options: { ...chartTooltipConfig, cutout: '60%' }
+        });
+
+        // Gulberg Market Dynamics Chart
+        const gulbergMarketData = {
+            labels: ['High Foot Traffic', 'Affluent Residents', 'Corporate Professionals'],
+            datasets: [{
+                label: 'Key Market Segments',
+                data: [40, 30, 30], // Placeholder percentages
+                backgroundColor: [emeraldColor, indigoColor, redColor],
+                hoverOffset: 8,
+                borderColor: '#f8fafc',
+                borderWidth: 4
+            }]
+        };
+
+        const gulbergMarketCtx = document.getElementById('gulbergMarketChart').getContext('2d');
+        new Chart(gulbergMarketCtx, {
+            type: 'pie',
+            data: gulbergMarketData,
+            options: { ...chartTooltipConfig, cutout: '50%' }
+        });
+
+        // DHA Growth Chart
+        const dhaGrowthData = {
+            labels: ['Residential Growth', 'Commercial Expansion', 'High-Income Families'],
+            datasets: [{
+                label: 'Growth Drivers',
+                data: [35, 30, 35], // Placeholder percentages
+                backgroundColor: [amberColor, blueColor, emeraldColor],
+                hoverOffset: 8,
+                borderColor: '#f8fafc',
+                borderWidth: 4
+            }]
+        };
+
+        const dhaGrowthCtx = document.getElementById('dhaGrowthChart').getContext('2d');
+        new Chart(dhaGrowthCtx, {
+            type: 'doughnut',
+            data: dhaGrowthData,
+            options: { ...chartTooltipConfig, cutout: '60%' }
+        });
+
+        // Revenue Comparison Chart
+        const revenueComparisonData = {
+            labels: [
+                wrapLabels('Johar Town (Riphah Area)', 16),
+                wrapLabels('Gulberg (MM Alam Road)', 16),
+                wrapLabels('DHA (Phases 6,7,8)', 16)
+            ],
+            datasets: [{
+                label: 'Projected Annual Revenue (PKR Million)',
+                data: [167, 225, 200], // Mid-point of ranges
+                backgroundColor: [amberColor, emeraldColor, blueColor],
+                borderColor: 'rgba(255, 255, 255, 0)',
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        };
+
+        const revenueComparisonCtx = document.getElementById('revenueComparisonChart').getContext('2d');
+        new Chart(revenueComparisonCtx, {
+            type: 'bar',
+            data: revenueComparisonData,
+            options: {
+                ...chartTooltipConfig,
+                plugins: { ...chartTooltipConfig.plugins, legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: textColor, font: { size: 12 }, callback: function(value) { return 'PKR ' + value + 'M'; } },
+                        grid: { color: '#e2e8f0' }
+                    }
+                }
+            }
+        });
+
+        // Customer Comparison Chart
+        const customerComparisonData = {
+            labels: [
+                wrapLabels('Johar Town (Riphah Area)', 16),
+                wrapLabels('Gulberg (MM Alam Road)', 16),
+                wrapLabels('DHA (Phases 6,7,8)', 16)
+            ],
+            datasets: [{
+                label: 'Estimated Daily Customers',
+                data: [538, 450, 400], // Mid-point of ranges
+                backgroundColor: [redColor, indigoColor, slateColor],
+                borderColor: 'rgba(255, 255, 255, 0)',
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        };
+
+        const customerComparisonCtx = document.getElementById('customerComparisonChart').getContext('2d');
+        new Chart(customerComparisonCtx, {
+            type: 'bar',
+            data: customerComparisonData,
+            options: {
+                ...chartTooltipConfig,
+                plugins: { ...chartTooltipConfig.plugins, legend: { display: false } },
+                scales: {
+                    x: {
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: textColor, font: { size: 12 } },
+                        grid: { color: '#e2e8f0' }
+                    }
+                }
+            }
+        });
+
     </script>
 </body>
 </html>

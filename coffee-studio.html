@@ -616,40 +616,6 @@
             return lines;
         }
 
-        const chartTooltipConfig = {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: function(tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            }
-                            return label;
-                        }
-                    }
-                },
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#334155',
-                        padding: 20,
-                        font: { size: 12 }
-                    }
-                }
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-        };
-
-        const amberColor = '#F59E0B';
-        const emeraldColor = '#10B981';
-        const redColor = '#EF4444';
-        const blueColor = '#3B82F6';
-        const slateColor = '#64748b';
-        const indigoColor = '#6366F1';
-        const textColor = '#1e293b';
 
         // Johar Town Demographics Chart
         const joharTownDemographicsData = {

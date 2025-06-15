@@ -591,6 +591,71 @@
             options: { ...chartTooltipConfig, cutout: '50%' }
         });
 
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function wrapLabels(label, maxWidth) {
+            if (typeof label !== 'string' || label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    if (currentLine.length > 0) {
+                        currentLine += ' ' + word;
+                    } else {
+                        currentLine = word;
+                    }
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const chartTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#334155',
+                        padding: 20,
+                        font: { size: 12 }
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+        };
+
+        const amberColor = '#F59E0B';
+        const emeraldColor = '#10B981';
+        const redColor = '#EF4444';
+        const blueColor = '#3B82F6';
+        const slateColor = '#64748b';
+        const indigoColor = '#6366F1';
+        const textColor = '#1e293b';
+
         // Johar Town Demographics Chart
         const joharTownDemographicsData = {
             labels: ['Students (Riphah/UOL)', 'Families & Residents'],

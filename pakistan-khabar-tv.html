@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistan Khabar TV: Digital Strategy Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- 
+        Narrative Plan:
+        1.  Header: Title and a brief introduction to the analysis.
+        2.  Section 1 - The Digital Arena: An overview of Pakistan's digital landscape with key metrics (Internet Penetration, Social Media Demographics, Top News Platforms).
+        3.  Section 2 - Digital Health Check: A critical look at Pakistan Khabar TV's technical issues (PageSpeed, Security, Email Deliverability, YouTube Engagement).
+        4.  Section 3 - The Competitive Battlefield: A comparison of market share against established competitors like Geo News and ARY News.
+        5.  Section 4 - Strategic Roadmap for Growth: A visual flowchart outlining the key steps for improvement (Technical Fixes -> Content Strategy -> Monetization -> Brand Building).
+
+        Visualization Choices:
+        -   Internet Penetration: Goal: Inform. Chosen Visualization: Donut Chart (Chart.js) & Big Number. Justification: Clearly shows a simple proportion.
+        -   Social Media Demographics: Goal: Compare. Chosen Visualization: Donut Chart (Chart.js). Justification: Ideal for showing composition of a whole.
+        -   Top Social News Sources: Goal: Compare/Rank. Chosen Visualization: Horizontal Bar Chart (Chart.js). Justification: Effectively compares values across categories.
+        -   PageSpeed & LCP: Goal: Inform. Chosen Visualization: Big Number & custom HTML bar. Justification: Emphasizes the severity of the performance issue against a benchmark.
+        -   Security & Email Status: Goal: Organize. Chosen Visualization: Styled HTML list with Unicode icons. Justification: Simple, clear representation of status.
+        -   YouTube Engagement Gap: Goal: Reveal Relationships. Chosen Visualization: Custom HTML card. Justification: Juxtaposes two related but disparate numbers for high impact.
+        -   Competitor Market Share: Goal: Compare/Rank. Chosen Visualization: Ordered Bar Chart (Chart.js). Justification: Classic choice for ranking competitors.
+        -   Strategic Roadmap: Goal: Organize. Chosen Visualization: Flowchart using structured HTML/CSS with Tailwind. Justification: Clearly illustrates a multi-step process.
+
+        Constraint Confirmation: NEITHER Mermaid JS NOR SVG were used in this output. All visuals are rendered via Canvas (Chart.js) or implemented with styled HTML and Unicode characters.
+
+        Color Palette Used: "Energetic & Playful" (#004FFF, #87D3F2, #00FFD1, #FBFBFF, #272727)
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #FBFBFF;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .flowchart-step {
+            background-color: #FBFBFF;
+            border: 2px solid #87D3F2;
+            color: #272727;
+        }
+        .flowchart-arrow {
+            color: #004FFF;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#004FFF] mb-2">Pakistan Khabar TV</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-[#272727]">A Strategic Roadmap for Digital Dominance</h2>
+            <p class="max-w-3xl mx-auto mt-4 text-gray-600">
+                An infographic visualizing the market landscape, technical health, and strategic growth path for Pakistan Khabar TV in the nation's dynamic digital media ecosystem.
+            </p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="landscape">
+                <h3 class="text-3xl font-bold text-center mb-8 text-[#272727]">Section 1: The Digital Arena - Pakistan's Media Landscape</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="kpi-card lg:col-span-1 flex flex-col items-center justify-center text-center">
+                        <h4 class="text-xl font-bold text-[#004FFF] mb-2">Internet Penetration</h4>
+                        <p class="text-6xl font-extrabold text-[#272727]">45.7%</p>
+                        <p class="text-gray-600 mt-2">of the population are internet users, highlighting a massive, connected audience.</p>
+                        <div class="chart-container mt-4 h-48 sm:h-56">
+                            <canvas id="penetrationChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card lg:col-span-1 flex flex-col items-center justify-center text-center">
+                        <h4 class="text-xl font-bold text-[#004FFF] mb-2">Social Media Audience</h4>
+                        <p class="text-gray-600 mb-2">The audience on social platforms is predominantly male, a key demographic for content strategy.</p>
+                        <div class="chart-container h-64 sm:h-72">
+                            <canvas id="demographicsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card lg:col-span-1">
+                        <h4 class="text-xl font-bold text-[#004FFF] mb-4 text-center">Top Social News Sources</h4>
+                        <p class="text-gray-600 text-center mb-4">Video platforms dominate news consumption. TikTok is the fastest-growing network for news.</p>
+                        <div class="chart-container h-64 sm:h-72">
+                            <canvas id="socialNewsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="health-check">
+                <h3 class="text-3xl font-bold text-center mb-8 text-[#272727]">Section 2: Digital Health Check - Critical Issues to Address</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="kpi-card bg-red-100 border border-red-400 text-center">
+                        <h4 class="text-xl font-bold text-red-700 mb-2">Mobile PageSpeed</h4>
+                        <p class="text-6xl font-extrabold text-red-600">19<span class="text-3xl">/100</span></p>
+                        <p class="text-red-800 mt-2">An extremely poor score, leading to high bounce rates and a frustrating user experience on mobile.</p>
+                        <div class="w-full bg-gray-300 rounded-full h-4 mt-4">
+                            <div class="bg-red-600 h-4 rounded-full" style="width: 19%"></div>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card bg-red-100 border border-red-400 text-center">
+                        <h4 class="text-xl font-bold text-red-700 mb-2">Website Security</h4>
+                        <p class="text-6xl font-extrabold text-red-600">F</p>
+                        <p class="text-red-800 mt-2">A failing grade due to missing security headers, exposing the site to clickjacking and XSS attacks.</p>
+                    </div>
+                    
+                    <div class="kpi-card bg-yellow-100 border border-yellow-400">
+                        <h4 class="text-xl font-bold text-yellow-800 mb-4 text-center">Email Deliverability Risk</h4>
+                         <ul class="space-y-2 text-left text-yellow-900">
+                            <li class="flex items-center"><span class="text-2xl mr-3 text-red-500">✗</span> DMARC Record Not Found/Enforced</li>
+                            <li class="flex items-center"><span class="text-2xl mr-3 text-red-500">✗</span> SPF Record Misconfigured</li>
+                             <li class="flex items-center"><span class="text-2xl mr-3 text-green-500">✓</span> DKIM Record Present</li>
+                        </ul>
+                        <p class="text-yellow-800 mt-3 text-sm">Emails are at high risk of being marked as spam, undermining communication and trust.</p>
+                    </div>
+
+                    <div class="kpi-card text-center">
+                        <h4 class="text-xl font-bold text-[#004FFF] mb-2">YouTube Engagement Gap</h4>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div>
+                                <p class="text-4xl font-bold">~60k</p>
+                                <p class="text-sm text-gray-500">Subscribers</p>
+                            </div>
+                            <p class="text-4xl font-thin text-gray-400">→</p>
+                             <div>
+                                <p class="text-4xl font-bold text-red-500">&lt;200</p>
+                                <p class="text-sm text-gray-500">Avg. Recent Views</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mt-4">A massive subscriber base is not translating into active viewership, indicating a major content or algorithm challenge.</p>
+                    </div>
+
+                </div>
+            </section>
+            
+            <section id="competition">
+                <h3 class="text-3xl font-bold text-center mb-8 text-[#272727]">Section 3: The Competitive Battlefield</h3>
+                <div class="kpi-card md:col-span-2 lg:col-span-3">
+                    <h4 class="text-xl font-bold text-[#004FFF] mb-4 text-center">News Channel Viewership Market Share (2024)</h4>
+                    <p class="text-gray-600 text-center mb-4 max-w-2xl mx-auto">Pakistan Khabar TV is entering a market dominated by established giants like Geo and ARY News, who have strong brand recognition and sophisticated digital operations.</p>
+                    <div class="chart-container h-80 sm:h-96">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roadmap">
+                <h3 class="text-3xl font-bold text-center mb-12 text-[#272727]">Section 4: A Strategic Roadmap for Growth</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+                    <div class="flowchart-step p-4 rounded-lg text-center w-64">
+                        <p class="text-2xl mb-2">①</p>
+                        <h5 class="font-bold text-lg">Technical Remediation</h5>
+                        <p class="text-sm">Fix site speed, security, & email deliverability. This is the foundation.</p>
+                    </div>
+                    <div class="flowchart-arrow transform md:rotate-0 rotate-90">→</div>
+                    <div class="flowchart-step p-4 rounded-lg text-center w-64">
+                        <p class="text-2xl mb-2">②</p>
+                        <h5 class="font-bold text-lg">Content & Engagement</h5>
+                        <p class="text-sm">Create high-quality, interactive, video-first content. Re-engage YouTube audience.</p>
+                    </div>
+                    <div class="flowchart-arrow transform md:rotate-0 rotate-90">→</div>
+                    <div class="flowchart-step p-4 rounded-lg text-center w-64">
+                        <p class="text-2xl mb-2">③</p>
+                        <h5 class="font-bold text-lg">Diversify Monetization</h5>
+                        <p class="text-sm">Explore subscriptions, sponsorships, and affiliate marketing beyond display ads.</p>
+                    </div>
+                    <div class="flowchart-arrow transform md:rotate-0 rotate-90">→</div>
+                    <div class="flowchart-step p-4 rounded-lg text-center w-64">
+                        <p class="text-2xl mb-2">④</p>
+                        <h5 class="font-bold text-lg">Build a Unique Brand</h5>
+                        <p class="text-sm">Lean into infotainment & humor. Build trust through transparency and fact-checking.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
+            <p class="text-sm text-gray-500">&copy; 2025 Strategic Analysis. Data sourced from market research and technical audits.</p>
+        </footer>
+
+    </div>
+
+<script>
+    const energeticPalette = {
+        primary: '#004FFF',
+        secondary: '#87D3F2',
+        accent: '#00FFD1',
+        light: '#FBFBFF',
+        dark: '#272727'
+    };
+
+    function wrapText(text, maxLength) {
+        if (typeof text !== 'string' || text.length <= maxLength) {
+            return text;
+        }
+        const words = text.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + ' ' + word).trim().length > maxLength) {
+                lines.push(currentLine.trim());
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        });
+        if (currentLine) {
+            lines.push(currentLine.trim());
+        }
+        return lines;
+    }
+
+    const defaultTooltipCallback = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                          return label.join(' ');
+                        } else {
+                          return label;
+                        }
+                    }
+                }
+            }
+        }
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        if (document.getElementById('penetrationChart')) {
+            new Chart(document.getElementById('penetrationChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Internet Users', 'Non-Users'],
+                    datasets: [{
+                        data: [45.7, 54.3],
+                        backgroundColor: [energeticPalette.primary, '#e0e0e0'],
+                        borderColor: energeticPalette.light,
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        if (document.getElementById('demographicsChart')) {
+            new Chart(document.getElementById('demographicsChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Male Users', 'Female Users'],
+                    datasets: [{
+                        label: 'Social Media Users',
+                        data: [70.4, 29.6],
+                        backgroundColor: [energeticPalette.primary, energeticPalette.secondary],
+                        borderColor: energeticPalette.light,
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '50%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: energeticPalette.dark,
+                                font: { size: 14 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        if (document.getElementById('socialNewsChart')) {
+            const socialNewsLabels = ['Facebook', 'YouTube', 'Instagram', 'WhatsApp', 'TikTok'];
+            new Chart(document.getElementById('socialNewsChart'), {
+                type: 'bar',
+                data: {
+                    labels: socialNewsLabels,
+                    datasets: [{
+                        label: 'Weekly News Consumption (%)',
+                        data: [36, 30, 19, 19, 16],
+                        backgroundColor: [energeticPalette.primary, energeticPalette.secondary, energeticPalette.accent, '#a0c4ff', '#bde0fe'],
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: energeticPalette.dark,
+                            }
+                        },
+                        y: {
+                             grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: energeticPalette.dark,
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+        
+        if (document.getElementById('competitorChart')) {
+            const competitorLabels = ['Geo News', 'ARY News', 'Dunya News', 'Samaa TV', 'Other News Channels'];
+            new Chart(document.getElementById('competitorChart'), {
+                type: 'bar',
+                data: {
+                    labels: competitorLabels.map(label => wrapText(label, 16)),
+                    datasets: [{
+                        label: 'Viewership Market Share (%)',
+                        data: [24.5, 17, 15, 12, 31.5],
+                        backgroundColor: [
+                            energeticPalette.primary, 
+                            energeticPalette.secondary, 
+                            energeticPalette.accent, 
+                            '#a0c4ff', 
+                            '#e0e0e0'
+                        ],
+                        borderColor: energeticPalette.dark,
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...defaultTooltipCallback,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Market Share (%)',
+                                color: energeticPalette.dark
+                            },
+                            ticks: { color: energeticPalette.dark }
+                        },
+                        x: {
+                            ticks: { color: energeticPalette.dark }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+</script>
+
+</body>
+</html>

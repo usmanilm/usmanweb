@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Kings Lane: Strategic Market Analysis & Growth Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .swot-card {
+            border-left-width: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .swot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .flow-step {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .flow-step:hover {
+            background-color: #e9f9f5;
+            border-color: #06D6A0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-[#073B4C]">
+    
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-[#073B4C]">New Kings Lane</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#market" class="text-gray-600 hover:text-[#118AB2] transition">Market</a>
+                <a href="#competition" class="text-gray-600 hover:text-[#118AB2] transition">Competition</a>
+                <a href="#swot" class="text-gray-600 hover:text-[#118AB2] transition">SWOT</a>
+                <a href="#roadmap" class="text-gray-600 hover:text-[#118AB2] transition">Roadmap</a>
+                <a href="#digital" class="text-gray-600 hover:text-[#118AB2] transition">Digital</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="intro" class="text-center my-12">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-[#073B4C] mb-4">Strategic Market Analysis & Growth Roadmap</h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                An infographic visualizing the key market dynamics, competitive landscape, and strategic opportunities for New Kings Lane in Lahore's booming real estate sector.
+            </p>
+        </section>
+        
+        <section id="market" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">The Lahore Real Estate Gold Rush</h3>
+            <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">Lahore's property market is experiencing unprecedented growth, driven by urbanization and a clear shift in buyer preference towards smaller, more affordable plots.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-2">Projected Market Growth (CAGR)</h4>
+                    <p class="text-7xl font-extrabold text-[#06D6A0]">8-10%</p>
+                    <p class="mt-2 text-gray-500">Over the next five years, signaling a robust and sustained growth trajectory for developers.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-4">The Rise of Small Properties</h4>
+                     <p class="text-center text-sm text-gray-500 mb-4">Smaller properties have significantly outperformed the market, showing a massive 195% cumulative return. This validates New Kings Lane's focus on 3 and 5 Marla plots, targeting the market's most lucrative segment.</p>
+                    <div class="chart-container h-64 md:h-72">
+                        <canvas id="smallPropertiesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:col-span-3">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-4">Mortgage Finance Boom (FY11-FY23)</h4>
+                    <p class="text-center text-sm text-gray-500 mb-4">A surge in available mortgage financing from PKR 44B to PKR 235B is unlocking a vast new pool of potential buyers for projects offering flexible installment plans like New Kings Lane.</p>
+                    <div class="chart-container h-80">
+                        <canvas id="mortgageFinanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">The Competitive Arena</h3>
+            <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">New Kings Lane enters a contested market but is well-positioned to carve a niche through strategic pricing and a focus on quality within the affordable segment.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-4">Competitor Plot Pricing (5 Marla Residential)</h4>
+                    <p class="text-center text-sm text-gray-500 mb-4">This comparison highlights the price landscape in Lahore. While specific pricing for New Kings Lane isn't public, it aims to be a leader in the affordable-to-mid-range segment, competing directly with societies like Al-Kabir Town.</p>
+                    <div class="chart-container">
+                        <canvas id="competitorPricingChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-4">Primary Marketing Focus of Competitors</h4>
+                    <p class="text-center text-sm text-gray-500 mb-6">Understanding how competitors position themselves is key to differentiation. New Kings Lane's focus on affordability, quality, and timely delivery provides a unique and compelling narrative.</p>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-lg border-l-4 border-[#118AB2] bg-blue-50">
+                            <h5 class="font-bold text-[#073B4C]">DHA Lahore</h5>
+                            <p class="text-sm text-gray-600">Upscale living, prime location, and high security.</p>
+                        </div>
+                        <div class="p-4 rounded-lg border-l-4 border-[#06D6A0] bg-green-50">
+                            <h5 class="font-bold text-[#073B4C]">Bahria Town</h5>
+                            <p class="text-sm text-gray-600">All-inclusive lifestyle, world-class amenities, and modern luxury.</p>
+                        </div>
+                        <div class="p-4 rounded-lg border-l-4 border-[#FFD166] bg-yellow-50">
+                            <h5 class="font-bold text-[#073B4C]">Al-Kabir Town</h5>
+                            <p class="text-sm text-gray-600">Budget-friendly, flexible payments, and timely completion.</p>
+                        </div>
+                        <div class="p-4 rounded-lg border-l-4 border-[#FF6B6B] bg-red-50">
+                            <h5 class="font-bold text-[#073B4C]">Zaitoon City</h5>
+                            <p class="text-sm text-gray-600">Eco-friendliness, developer trust, and rapid development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="swot" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">SWOT Analysis: A Clear Path Forward</h3>
+            <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">A strategic overview of internal strengths and weaknesses against external opportunities and threats, highlighting the core challenges and advantages for New Kings Lane.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg swot-card border-[#06D6A0]">
+                    <h4 class="font-bold text-xl mb-3 text-[#06D6A0]">Strengths <span class="ml-2">💪</span></h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm">
+                        <li>Strategic & connected location</li>
+                        <li>Focus on high-demand plot sizes</li>
+                        <li>Reputable developer (timely delivery)</li>
+                        <li>Strong partnerships (Sheranwala Group)</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg swot-card border-[#FF6B6B]">
+                    <h4 class="font-bold text-xl mb-3 text-[#FF6B6B]">Weaknesses <span class="ml-2">⚠️</span></h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm">
+                        <li>Inaccessible 'Properties' web page</li>
+                        <li>Lack of transparent online pricing</li>
+                        <li>New project with low brand recognition</li>
+                        <li>Limited in-depth online content</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg swot-card border-[#118AB2]">
+                    <h4 class="font-bold text-xl mb-3 text-[#118AB2]">Opportunities <span class="ml-2">🚀</span></h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm">
+                        <li>High demand for small properties</li>
+                        <li>Growing mortgage market</li>
+                        <li>Sustained urbanization in Lahore</li>
+                        <li>Leverage digital marketing & SEO</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg swot-card border-[#FFD166]">
+                    <h4 class="font-bold text-xl mb-3 text-[#FFD166]">Threats <span class="ml-2">🛡️</span></h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm">
+                        <li>Intense market competition</li>
+                        <li>National economic instability</li>
+                        <li>Regulatory ambiguities</li>
+                        <li>Risk of project delays</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">Phased Strategic Growth Roadmap</h3>
+            <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">A clear, actionable plan to address weaknesses and capitalize on opportunities, ensuring sustainable growth and increased revenue over the next year.</p>
+            <div class="relative">
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                
+                <div class="md:grid grid-cols-2 gap-x-12 relative">
+                    <div class="mb-8 md:mb-12">
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-transparent flow-step">
+                            <h4 class="text-lg font-bold text-[#118AB2]">Phase 1: Foundation (0-3 Months)</h4>
+                            <p class="text-sm text-gray-600 mt-2">Fix the digital front door. Populate the 'Properties' page with rich, transparent data. Launch foundational SEO and activate social media with engaging video content and secure premium listings on Zameen.com.</p>
+                        </div>
+                    </div>
+                    <div></div>
+
+                    <div></div>
+                    <div class="mb-8 md:mb-12">
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-transparent flow-step">
+                            <h4 class="text-lg font-bold text-[#06D6A0]">Phase 2: Penetration (3-6 Months)</h4>
+                            <p class="text-sm text-gray-600 mt-2">Launch targeted digital ad campaigns. Establish a strong LinkedIn presence for B2B networking and investor outreach. Form partnerships with banks to offer streamlined mortgage options for buyers.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8 md:mb-12">
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-transparent flow-step">
+                            <h4 class="text-lg font-bold text-[#FFD166]">Phase 3: Innovation (6-12+ Months)</h4>
+                            <p class="text-sm text-gray-600 mt-2">Evaluate and integrate smart home features. Explore opportunities for new project phases or complementary commercial developments. Continuously monitor market trends to stay ahead of the competition.</p>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="digital" class="my-16">
+            <h3 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">Unlocking Digital Potential</h3>
+            <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">A strategic shift in digital presence is crucial. This means expanding keyword targets and engaging on platforms where high-value investors and buyers congregate.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-4">Evolving SEO: From Basic to Strategic</h4>
+                    <p class="text-center text-sm text-gray-500 mb-4">Transitioning from generic keywords to specific, long-tail queries will capture highly motivated buyers and establish authority. This chart visualizes the required strategic shift in keyword focus.</p>
+                    <div class="chart-container">
+                        <canvas id="seoKeywordsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center">
+                    <h4 class="text-lg font-semibold text-center text-gray-700 mb-6">Expanding the Social Media Footprint</h4>
+                    <p class="text-center text-sm text-gray-500 mb-6">To maximize reach and engagement, New Kings Lane must be active on platforms crucial for B2B networking, investor relations, visual discovery, and direct sales.</p>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-4xl">🔗</p>
+                            <p class="font-semibold mt-2 text-[#073B4C]">LinkedIn</p>
+                            <p class="text-xs text-gray-500">For Investors & B2B</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-4xl">🐦</p>
+                            <p class="font-semibold mt-2 text-[#073B4C]">X (Twitter)</p>
+                            <p class="text-xs text-gray-500">For Real-time News</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-4xl">📌</p>
+                            <p class="font-semibold mt-2 text-[#073B4C]">Pinterest</p>
+                            <p class="text-xs text-gray-500">For Visual Inspiration</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-4xl">🏠</p>
+                            <p class="font-semibold mt-2 text-[#073B4C]">Property Portals</p>
+                            <p class="text-xs text-gray-500">(Zameen, Graana)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t mt-16">
+        <div class="container mx-auto py-6 px-6 text-center text-gray-600">
+            <p>&copy; 2025 New Kings Lane Strategic Analysis. All data synthesized from the market research report.</p>
+            <p class="text-xs mt-2">This infographic is for informational purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const vibrantPalette = {
+                red: '#FF6B6B',
+                yellow: '#FFD166',
+                green: '#06D6A0',
+                blue: '#118AB2',
+                navy: '#073B4C'
+            };
+
+            function processLabels(labels) {
+                const maxLen = 16;
+                return labels.map(label => {
+                    if (label.length <= maxLen) {
+                        return label;
+                    }
+                    const words = label.split(' ');
+                    const newLabels = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).trim().length > maxLen) {
+                            newLabels.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    });
+                    if (currentLine) {
+                        newLabels.push(currentLine.trim());
+                    }
+                    return newLabels;
+                });
+            }
+
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const smallPropertiesChartCtx = document.getElementById('smallPropertiesChart').getContext('2d');
+            new Chart(smallPropertiesChartCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Small Properties (3-5 Marla)', 'Mid-Sized Properties', 'Large Properties'],
+                    datasets: [{
+                        label: 'Cumulative Return',
+                        data: [195, 120, 85], 
+                        backgroundColor: [
+                            vibrantPalette.green,
+                            vibrantPalette.yellow,
+                            vibrantPalette.blue
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    plugins: {
+                         ...tooltipTitleCallback.plugins,
+                        legend: {
+                            position: 'bottom',
+                        },
+                        title: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            const mortgageFinanceChartCtx = document.getElementById('mortgageFinanceChart').getContext('2d');
+            new Chart(mortgageFinanceChartCtx, {
+                type: 'line',
+                data: {
+                    labels: ['FY11', 'FY13', 'FY15', 'FY17', 'FY19', 'FY21', 'FY23'],
+                    datasets: [{
+                        label: 'Mortgage Finance (PKR Billions)',
+                        data: [44.2, 55.1, 70.5, 95.8, 140.2, 190.7, 235.0],
+                        backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                        borderColor: vibrantPalette.blue,
+                        pointBackgroundColor: vibrantPalette.blue,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'PKR (Billions)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            const competitorPricingChartCtx = document.getElementById('competitorPricingChart').getContext('2d');
+            new Chart(competitorPricingChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: processLabels(['DHA Lahore (Avg)', 'Bahria Town (Avg)', 'Al-Kabir Town (Avg)', 'Park View City', 'Bahria Orchard']),
+                    datasets: [{
+                        label: 'Price (PKR Lacs)',
+                        data: [95, 52.5, 63.25, 71.43, 77.37],
+                        backgroundColor: [
+                            vibrantPalette.blue,
+                            vibrantPalette.green,
+                            vibrantPalette.yellow,
+                            vibrantPalette.red,
+                            vibrantPalette.navy
+                        ],
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    indexAxis: 'y',
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Average Price (PKR Lacs)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            const seoKeywordsChartCtx = document.getElementById('seoKeywordsChart').getContext('2d');
+            new Chart(seoKeywordsChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Basic Keywords', 'Strategic Keywords'],
+                    datasets: [{
+                        label: 'Search Volume Potential',
+                        data: [45, 95], 
+                        backgroundColor: [vibrantPalette.red, vibrantPalette.green],
+                        categoryPercentage: 0.6,
+                        barPercentage: 0.7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    ...tooltipTitleCallback,
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Relative Search Volume & Conversion Potential'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            max: 100,
+                             ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const navLinks = document.querySelectorAll('header nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, 
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

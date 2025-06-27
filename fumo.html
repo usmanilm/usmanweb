@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Strategic E-commerce Growth in Pakistan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background: linear-gradient(135deg, #00A6ED, #7300E3);
+        }
+        .kpi-value {
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, #00A6ED, #DE006F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title {
+            font-weight: 700;
+            color: #1a202c;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .swot-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .swot-item {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .swot-strengths { background-color: #e6f7ff; border-left: 5px solid #00A6ED; }
+        .swot-weaknesses { background-color: #fff1f2; border-left: 5px solid #DE006F; }
+        .swot-opportunities { background-color: #f0fff4; border-left: 5px solid #48bb78; }
+        .swot-threats { background-color: #fffbe6; border-left: 5px solid #FFB600; }
+        
+        .matrix-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .matrix-table th {
+            background-color: #f7fafc;
+            font-weight: 600;
+        }
+        .matrix-table .axis-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            font-weight: 600;
+            background-color: #edf2f7;
+        }
+        .matrix-table .highlight-aspirational {
+            background-color: #e6f7ff;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <header class="bg-white py-8 px-4 text-center shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black mb-2 header-gradient">Pakistan's E-commerce Revolution</h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">A strategic deep-dive for FUMORETAIL.COM into a market of immense opportunity and unique challenges.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="market-growth" class="card">
+            <h2 class="text-2xl md:text-3xl section-title mb-4 text-center">An Exploding Market</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Pakistan's e-commerce sector is experiencing explosive growth, projected to more than double in the coming years. This creates a fertile ground for businesses ready to capture a share of the rapidly expanding digital economy.</p>
+            <div class="chart-container mx-auto">
+                <canvas id="marketGrowthChart"></canvas>
+            </div>
+        </section>
+
+        <section id="kpis" class="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
+             <div class="kpi-card text-white p-6 rounded-xl shadow-2xl flex flex-col justify-center items-center text-center">
+                <h3 class="text-xl font-semibold mb-2">2024 Market Size</h3>
+                <p class="text-5xl kpi-value">~$7.7B</p>
+                <p class="mt-2 opacity-80">A significant and growing valuation.</p>
+            </div>
+             <div class="kpi-card text-white p-6 rounded-xl shadow-2xl flex flex-col justify-center items-center text-center">
+                <h3 class="text-xl font-semibold mb-2">Mobile Traffic</h3>
+                <p class="text-5xl kpi-value">>60%</p>
+                <p class="mt-2 opacity-80">The battlefield for customers is on mobile.</p>
+            </div>
+            <div class="kpi-card text-white p-6 rounded-xl shadow-2xl flex flex-col justify-center items-center text-center">
+                <h3 class="text-xl font-semibold mb-2">E-commerce Penetration</h3>
+                <p class="text-5xl kpi-value">~2%</p>
+                <p class="mt-2 opacity-80">Vast, untapped potential for growth.</p>
+            </div>
+        </section>
+
+
+        <section id="consumer-profile" class="card">
+             <h2 class="text-2xl md:text-3xl section-title mb-6 text-center">Meet the Pakistani Online Shopper</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Youth-Driven Market</h3>
+                    <p class="text-gray-600 mb-4">The market is dominated by a young, tech-savvy generation. Over two-thirds of online shoppers are under 25, highlighting a digitally native consumer base that is quick to adopt new trends and platforms.</p>
+                     <div class="chart-container" style="height: 280px; max-height: 300px;">
+                        <canvas id="ageDemographicsChart"></canvas>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Gender Landscape</h3>
+                    <p class="text-gray-600 mb-4">The current landscape shows a significant male majority in online shopping, presenting a clear target demographic while also highlighting an opportunity to cultivate and expand reach among female consumers.</p>
+                    <div class="flex items-center justify-center space-x-8 p-6 bg-gray-50 rounded-lg">
+                        <div class="text-center">
+                            <span class="text-6xl text-[#00A6ED]">👨</span>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">70%</p>
+                            <p class="text-gray-500">Male</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-6xl text-[#DE006F]">👩</span>
+                            <p class="text-3xl font-bold text-gray-800 mt-2">30%</p>
+                            <p class="text-gray-500">Female</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="swot" class="card">
+            <h2 class="text-2xl md:text-3xl section-title mb-6 text-center">SWOT Analysis: Strategic Outlook</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Understanding internal capabilities and external market forces is key to navigating the competitive landscape.</p>
+            <div class="swot-grid">
+                <div class="swot-item swot-strengths">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Strengths</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Unique non-nicotine product proposition</li>
+                        <li>Focus on natural, wellness-oriented ingredients</li>
+                        <li>Fidget-friendly design for habit replacement</li>
+                        <li>Clear, defined niche market</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-weaknesses">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Weaknesses</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Poor website performance (Mobile Score: 54)</li>
+                        <li>Email deliverability & security issues (DMARC)</li>
+                        <li>Limited brand awareness in Pakistan market</li>
+                        <li>Over-reliance on complex COD logistics</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-opportunities">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Opportunities</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Rapidly growing e-commerce market</li>
+                        <li>Low e-commerce penetration (~2%)</li>
+                        <li>Large, young, tech-savvy demographic</li>
+                        <li>Rise of social commerce (TikTok, WhatsApp)</li>
+                        <li>Increasing health & wellness awareness</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-threats">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Threats</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Intense competition from marketplaces (Daraz)</li>
+                        <li>Direct competition from NRT & vaping products</li>
+                        <li>Widespread consumer trust deficit</li>
+                        <li>Logistical and regulatory uncertainties</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="competitors" class="card">
+            <h2 class="text-2xl md:text-3xl section-title mb-6 text-center">Competitive Positioning Matrix</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">FUMORETAIL's path to success lies in building high trust within its specialized niche, moving from an emerging player to an established authority.</p>
+            <div class="overflow-x-auto">
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="text-center">Narrow / Specialized Product Range</th>
+                            <th class="text-center">Broad / General Product Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="axis-label">High Trust & Authority</td>
+                            <td class="highlight-aspirational">
+                                <p class="font-bold">FUMORETAIL (Aspirational Goal)</p>
+                                <p class="text-sm">Sapphire (Fashion), Telemart (Electronics), Qarshi (Health/Herbal)</p>
+                            </td>
+                            <td>
+                                <p class="font-bold">Daraz.pk (Market Leader)</p>
+                                <p class="text-sm">Goto.com.pk, Shopon.pk</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="axis-label">Low / Emerging Trust</td>
+                            <td>
+                                <p class="font-bold">FUMORETAIL (Current Position)</p>
+                                <p class="text-sm">The Vape Town (Vaping), BioShop (Aromatherapy), ZYN (Nicotine Pouches)</p>
+                            </td>
+                            <td>
+                                <p class="font-bold">OLX, Markaz, AliExpress</p>
+                                <p class="text-sm">(Variable seller trust)</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="strategy">
+             <h2 class="text-2xl md:text-3xl section-title mb-2 text-center">A Four-Pillar Strategy for Growth</h2>
+             <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">To succeed, FUMORETAIL must build a strategy on four crucial pillars that directly address the market's challenges and leverage its opportunities.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card !mb-0 text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#00A6ED] text-white text-3xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-2">Build Digital Trust</h3>
+                    <p class="text-gray-600">Use radical transparency, social proof, and exceptional, empathetic customer service to overcome consumer skepticism.</p>
+                </div>
+                 <div class="card !mb-0 text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#DE006F] text-white text-3xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Optimize for Mobile & Social</h3>
+                    <p class="text-gray-600">Design a flawless mobile-first website and integrate deeply with social commerce channels like TikTok and Instagram.</p>
+                </div>
+                <div class="card !mb-0 text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#FF4300] text-white text-3xl mb-4">💳</div>
+                    <h3 class="text-xl font-bold mb-2">Diversify Payments & Logistics</h3>
+                    <p class="text-gray-600">Offer COD as standard but incentivize secure digital payments. Partner with reliable couriers for transparent tracking.</p>
+                </div>
+                 <div class="card !mb-0 text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#FFB600] text-white text-3xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">Leverage Data & Personalization</h3>
+                    <p class="text-gray-600">Use analytics and AI to understand customers, personalize their experience, and run highly targeted marketing campaigns.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-8 bg-gray-800 text-gray-400">
+        <p>Infographic created for FUMORETAIL.COM. Data synthesized from Market Research Report.</p>
+         <p class="text-xs mt-2">This infographic was rendered using HTML, Tailwind CSS, and Chart.js (Canvas). No SVG or Mermaid JS were used in its creation.</p>
+    </footer>
+
+    <script>
+        const energeticPlayful = {
+            blue: '#00A6ED',
+            purple: '#7300E3',
+            pink: '#DE006F',
+            orange: '#FF4300',
+            yellow: '#FFB600',
+            gray: '#6b7280'
+        };
+
+        const chartTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#4b5563',
+                        font: {
+                           family: "'Inter', sans-serif"
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: '#4b5563'
+                    },
+                    grid: {
+                        color: '#e5e7eb'
+                    }
+                },
+                x: {
+                     ticks: {
+                        color: '#4b5563'
+                    },
+                     grid: {
+                        display: false
+                    }
+                }
+            },
+            maintainAspectRatio: false
+        };
+
+        const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+        new Chart(marketGrowthCtx, {
+            type: 'line',
+            data: {
+                labels: ['2024', '2025', '2026 (proj.)', '2027 (proj.)'],
+                datasets: [{
+                    label: 'Market Revenue (in US$ Billion)',
+                    data: [7.7, 12, 16, 20],
+                    backgroundColor: 'rgba(0, 166, 237, 0.2)',
+                    borderColor: energeticPlayful.blue,
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: energeticPlayful.blue,
+                    pointRadius: 5
+                }]
+            },
+            options: chartTooltipOptions
+        });
+
+        const ageDemographicsCtx = document.getElementById('ageDemographicsChart').getContext('2d');
+        new Chart(ageDemographicsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['16-25 years', '26-35 years', '36+ years'],
+                datasets: [{
+                    label: 'Online Shopper Age',
+                    data: [67, 27, 6],
+                    backgroundColor: [
+                        energeticPlayful.blue,
+                        energeticPlayful.pink,
+                        energeticPlayful.yellow
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                 plugins: {
+                    tooltip: chartTooltipOptions.plugins.tooltip,
+                    legend: {
+                         position: 'bottom',
+                         labels: {
+                            color: '#4b5563',
+                            font: {
+                               family: "'Inter', sans-serif"
+                            }
+                        }
+                    }
+                },
+                maintainAspectRatio: false,
+                cutout: '60%'
+            }
+        });
+    </script>
+</body>
+</html>

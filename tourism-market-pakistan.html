@@ -155,10 +155,58 @@
             max-height: 90vh;
             overflow-y: auto;
         }
+
+        /* Floating Back Button Specific CSS */
+        .back-button {
+            position: fixed; /* Stays in place when scrolling */
+            top: 20px;       /* 20px from the top */
+            left: 20px;      /* 20px from the left */
+            z-index: 1000;   /* Ensures it stays on top of other content */
+            background-color: #6366f1; /* Indigo-500 */
+            color: #ffffff; /* White text */
+            padding: 10px 15px;
+            border-radius: 9999px; /* Fully rounded pill shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none; /* Remove default button border */
+        }
+
+        .back-button:hover {
+            background-color: #4f46e5; /* Darker indigo on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+        }
+
+        .back-button:active {
+            transform: translateY(0); /* Press effect */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
-
+    
+    <button class="back-button" onclick="window.location.href='index.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back
+    </button>
+    
     <header class="text-center py-10 bg-white border-b border-[--border-color]">
         <h1 class="text-5xl font-bold tracking-wide text-[--text-dark]">KINARA RESORTS</h1>
         <p class="text-xl text-gray-500 mt-2 font-light">Interactive Market Analysis Dashboard</p>

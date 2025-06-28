@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Kings Lane - Premium Residential & Commercial Plots in Lahore</title>
+    <meta name="description" content="Discover premium 3 Marla, 5 Marla, and commercial plots for sale in Lahore with New Kings Lane. Ideal for investment and dream homes with flexible payment plans.">
+    <meta name="keywords" content="New Kings Lane, Lahore plots, 3 Marla plots Lahore, 5 Marla plots Lahore, commercial plots Lahore, residential plots Lahore, affordable plots Lahore, investment Lahore, real estate Lahore, property for sale Lahore, installment plans Lahore, Sheranwala Group">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --nkl-orange: #FF6B00; /* Primary brand color from logo */
+            --nkl-dark: #000000;   /* Secondary brand color from logo */
+            --nkl-light: #f8f9fa;
+            --nkl-gray: #343a40;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--nkl-light);
+            color: var(--nkl-gray);
+            overflow-x: hidden;
+        }
+        .navbar-brand img {
+            max-height: 50px;
+            width: auto;
+        }
+        /* Updated Navbar Styling */
+        .navbar {
+            background-color: var(--nkl-dark) !important; /* Make navbar black */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Darker shadow for black navbar */
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--nkl-light); /* White links for black navbar */
+            transition: color 0.3s ease;
+        }
+        .navbar-light .navbar-nav .nav-link:hover,
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--nkl-orange); /* Orange hover/active for contrast */
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* White toggler icon */
+        }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1); /* Lighter border for toggler */
+        }
+
+
+        .hero-section {
+            padding: 0; /* Remove padding as carousel handles height */
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 70vh; /* Adjust height as needed */
+            object-fit: cover;
+            filter: brightness(60%); /* Darken images for text readability */
+        }
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            color: white;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .carousel-caption h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+        .carousel-caption p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+        .btn-primary-custom {
+            background-color: var(--nkl-orange);
+            border-color: var(--nkl-orange);
+            transition: all 0.3s ease;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(255, 107, 0, 0.3);
+            animation: zoomIn 1s ease-out forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+        .btn-primary-custom:hover {
+            background-color: #e65c00; /* Darker orange on hover */
+            border-color: #e65c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 107, 0, 0.4);
+        }
+        .section-heading {
+            font-weight: 700;
+            color: var(--nkl-orange);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--nkl-orange);
+            border-radius: 5px;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+        }
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--nkl-orange);
+            margin-bottom: 15px;
+            animation: bounceIn 1s ease-out;
+        }
+        .bg-gradient-nkl {
+            background: linear-gradient(45deg, var(--nkl-orange), #e65c00);
+            color: white;
+        }
+        .footer {
+            background-color: var(--nkl-dark);
+            color: var(--nkl-light);
+            padding: 50px 0;
+        }
+        .footer a {
+            color: var(--nkl-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: var(--nkl-orange);
+        }
+        .social-icon {
+            font-size: 1.8rem;
+            margin: 0 10px;
+            color: var(--nkl-light);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--nkl-orange);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-slide-left.is-visible {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+        .animate-slide-right.is-visible {
+            animation: slideInRight 1s ease-out forwards;
+        }
+        .animate-bounce-in.is-visible {
+            animation: bounceIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://newkingslane.pk/wp-content/uploads/2024/04/NKL-Logo2.png" alt="New Kings Lane Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#properties">Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Why Choose Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero-section">
+        <div id="heroCarousel" class="carousel slide w-100 h-100" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://newkingslane.pk/wp-content/uploads/2025/04/Slider-2.jpg.webp" class="d-block w-100" alt="New Kings Lane Entrance">
+                    <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                        <h1 class="display-3 fw-bold mb-4">Your Dream Plot Awaits in Lahore</h1>
+                        <p class="lead mb-5">Invest in premium residential and commercial plots with flexible payment plans.</p>
+                        <a href="#contact" class="btn btn-primary-custom btn-lg">Inquire Now</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://newkingslane.pk/wp-content/uploads/2025/04/Slider-1.jpg.webp" class="d-block w-100" alt="New Kings Lane Aerial View">
+                    <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                        <h1 class="display-3 fw-bold mb-4">Strategic Location, Unmatched Connectivity</h1>
+                        <p class="lead mb-5">Experience modern living with easy access to Lahore's key landmarks.</p>
+                        <a href="#about" class="btn btn-primary-custom btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://newkingslane.pk/wp-content/uploads/2025/04/Slider-3.jpg.webp" class="d-block w-100" alt="New Kings Lane Green Spaces">
+                    <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                        <h1 class="display-3 fw-bold mb-4">Green Spaces & Modern Amenities</h1>
+                        <p class="lead mb-5">A community designed for comfort, well-being, and a vibrant lifestyle.</p>
+                        <a href="#features" class="btn btn-primary-custom btn-lg">Our Features</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://newkingslane.pk/wp-content/uploads/2024/05/WhatsApp-Image-2024-05-04-at-2.05.27-PM.jpeg.webp" class="d-block w-100" alt="New Kings Lane Gate at Night">
+                    <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
+                        <h1 class="display-3 fw-bold mb-4">Secure Your Future, Today</h1>
+                        <p class="lead mb-5">Invest with confidence in a project backed by trusted developers.</p>
+                        <a href="#properties" class="btn btn-primary-custom btn-lg">View Properties</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 py-md-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 animate-on-scroll animate-slide-left">
+                    <h2 class="section-heading text-center text-md-start">About New Kings Lane</h2>
+                    <p class="lead">New Kings Lane is a visionary real estate project by the esteemed Sheranwala Group, committed to delivering excellence in Lahore's thriving property market.</p>
+                    <p>We specialize in providing meticulously planned residential and commercial plots, focusing on high-demand sizes like 3 Marla and 5 Marla, designed to cater to both aspiring homeowners and astute investors.</p>
+                    <p>With a strategic location, transparent processes, and a commitment to timely delivery, New Kings Lane is set to redefine modern living and investment opportunities in Lahore.</p>
+                </div>
+                <div class="col-md-6 text-center animate-on-scroll animate-slide-right">
+                    <img src="https://placehold.co/600x400/FF6B00/ffffff?text=New+Kings+Lane+Vision" alt="New Kings Lane Vision" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="py-5 py-md-5">
+        <div class="container">
+            <h2 class="section-heading text-center">Our Featured Properties</h2>
+            <p class="text-center mb-5 lead text-muted">Explore our diverse range of residential and commercial plots, designed for your future.</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col animate-on-scroll">
+                    <div class="card card-custom">
+                        <img src="https://placehold.co/600x400/FF6B00/ffffff?text=3+Marla+Plot" class="card-img-top" alt="3 Marla Residential Plot">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">3 Marla Residential Plots</h5>
+                            <p class="card-text">Perfect for small families or as a smart investment. Experience compact luxury with all essential amenities.</p>
+                            <ul class="list-unstyled text-muted small">
+                                <li><i class="bi bi-geo-alt-fill me-2"></i> Prime Location</li>
+                                <li><i class="bi bi-cash-stack me-2"></i> Flexible Payment Plans</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-primary rounded-pill" style="border-color: var(--nkl-orange); color: var(--nkl-orange);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate-on-scroll" style="animation-delay: 0.2s;">
+                    <div class="card card-custom">
+                        <img src="https://placehold.co/600x400/FF6B00/ffffff?text=5+Marla+Plot" class="card-img-top" alt="5 Marla Residential Plot">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">5 Marla Residential Plots</h5>
+                            <p class="card-text">Spacious and ideal for growing families. Build your dream home in a secure, vibrant community.</p>
+                            <ul class="list-unstyled text-muted small">
+                                <li><i class="bi bi-geo-alt-fill me-2"></i> Excellent Infrastructure</li>
+                                <li><i class="bi bi-cash-stack me-2"></i> Attractive Installments</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-primary rounded-pill" style="border-color: var(--nkl-orange); color: var(--nkl-orange);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate-on-scroll" style="animation-delay: 0.4s;">
+                    <div class="card card-custom">
+                        <img src="https://placehold.co/600x400/FF6B00/ffffff?text=Commercial+Plot" class="card-img-top" alt="Commercial Plot">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Commercial Plots</h5>
+                            <p class="card-text">Strategic locations for businesses and high-return investments. Secure your commercial future today.</p>
+                            <ul class="list-unstyled text-muted small">
+                                <li><i class="bi bi-geo-alt-fill me-2"></i> High Foot Traffic Areas</li>
+                                <li><i class="bi bi-cash-stack me-2"></i> Lucrative Investment</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline-primary rounded-pill" style="border-color: var(--nkl-orange); color: var(--nkl-orange);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="features" class="py-5 py-md-5 bg-gradient-nkl">
+        <div class="container text-center">
+            <h2 class="section-heading text-white">Why Choose New Kings Lane?</h2>
+            <p class="lead mb-5 text-white-50">Our commitment to quality, location, and customer satisfaction sets us apart.</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col animate-on-scroll animate-bounce-in">
+                    <div class="p-4 bg-white rounded-lg shadow-lg h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-geo-alt feature-icon"></i>
+                        <h5 class="fw-bold text-dark">Strategic Location</h5>
+                        <p class="text-muted mb-0">Easily accessible from major city hubs, ensuring convenience and value appreciation.</p>
+                    </div>
+                </div>
+                <div class="col animate-on-scroll animate-bounce-in" style="animation-delay: 0.2s;">
+                    <div class="p-4 bg-white rounded-lg shadow-lg h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-currency-dollar feature-icon"></i>
+                        <h5 class="fw-bold text-dark">Flexible Payment Plans</h5>
+                        <p class="text-muted mb-0">Tailored installment options to make your property ownership journey seamless.</p>
+                    </div>
+                </div>
+                <div class="col animate-on-scroll animate-bounce-in" style="animation-delay: 0.4s;">
+                    <div class="p-4 bg-white rounded-lg shadow-lg h-100 d-flex flex-column justify-content-center align-items-center">
+                        <i class="bi bi-award feature-icon"></i>
+                        <h5 class="fw-bold text-dark">Trusted Developer</h5>
+                        <p class="text-muted mb-0">Backed by Sheranwala Group's legacy of timely delivery and quality construction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 py-md-5">
+        <div class="container">
+            <h2 class="section-heading text-center">Get in Touch</h2>
+            <p class="text-center mb-5 lead text-muted">Have questions? Want to book a site visit? Contact us today!</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 animate-on-scroll">
+                    <form class="bg-white p-4 p-md-5 rounded-lg shadow-lg">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="+92 3XX XXXXXXX" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="I'm interested in 5 Marla plots..."></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary-custom btn-lg">Send Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-heading text-center">Find Us on the Map</h2>
+            <div class="ratio ratio-16x9 rounded-lg shadow-lg animate-on-scroll">
+                <!-- Replace with actual Google Maps embed for New Kings Lane location -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.456789012345!2d74.3210987654321!3d31.5203987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDE5JzM0LjkiTiA3NMKwMTknMTYuMCJF!5e0!3m2!1sen!2s!4v1678901234567!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">New Kings Lane</h5>
+                    <p class="text-light">Your trusted partner for premium real estate investments in Lahore.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <p class="text-light"><i class="bi bi-geo-alt-fill me-2"></i> [Your Project Address, Lahore]</p>
+                    <p class="text-light"><i class="bi bi-envelope-fill me-2"></i> info@newkingslane.pk</p>
+                    <p class="text-light"><i class="bi bi-phone-fill me-2"></i> +92 3XX XXXXXXX</p>
+                    <div class="mt-3">
+                        <a href="https://www.facebook.com/newkingslane" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/newkingslane" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/newkingslane" target="_blank" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://twitter.com/newkingslane" target="_blank" class="social-icon"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-4 border-top border-secondary">
+                <p class="mb-0 text-muted">&copy; 2025 New Kings Lane. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons (for social media and features) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

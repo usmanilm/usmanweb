@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCare Pro - Trusted Car Repair & Maintenance Services in Lahore</title>
+    <meta name="description" content="AutoCare Pro offers trusted, transparent, and convenient car repair and maintenance services in Lahore. Mobile mechanic services, oil change, AC repair, and diagnostics right at your doorstep. Find the best mechanic near you!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #001219; /* Dark Blue from Brilliant Blues */
+            color: #E2E8F0; /* Light text for dark background */
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .section-heading {
+            font-weight: 700;
+            color: #94D2BD; /* Light Teal from Brilliant Blues */
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #005F73; /* Darker Blue from Brilliant Blues */
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #EE9B00; /* Yellow from Brilliant Blues */
+            color: #001219;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #CA6702; /* Orange from Brilliant Blues */
+            transform: translateY(-2px);
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        .animate-slideInUp {
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom animation delays for staggered effect */
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-500 { animation-delay: 0.5s; }
+        .animate-delay-600 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-[#001219] shadow-lg fixed w-full z-50 py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#hero" class="flex items-center space-x-2">
+                <img src="https://placehold.co/60x60/001219/94D2BD?text=Logo" alt="AutoCare Pro Logo" class="h-12 w-12 rounded-full">
+                <span class="text-3xl font-black text-white">AutoCare Pro</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#services" class="text-white hover:text-[#94D2BD] transition-colors">Services</a>
+                <a href="#why-us" class="text-white hover:text-[#94D2BD] transition-colors">Why Us</a>
+                <a href="#how-it-works" class="text-white hover:text-[#94D2BD] transition-colors">How It Works</a>
+                <a href="#contact" class="text-white hover:text-[#94D2BD] transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-[#001219] py-2">
+            <a href="#services" class="block px-4 py-2 text-white hover:bg-[#005F73]">Services</a>
+            <a href="#why-us" class="block px-4 py-2 text-white hover:bg-[#005F73]">Why Us</a>
+            <a href="#how-it-works" class="block px-4 py-2 text-white hover:bg-[#005F73]">How It Works</a>
+            <a href="#contact" class="block px-4 py-2 text-white hover:bg-[#005F73]">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-center px-4" style="background-image: url('https://placehold.co/1920x1080/001219/94D2BD?text=Your+Car+Deserves+The+Best');">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <div class="z-10 animate-fadeIn animate-delay-200">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-slideInUp">
+                Your Trusted <span class="text-[#94D2BD]">Car Repair & Maintenance</span> Partner in Lahore
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 animate-slideInUp animate-delay-300">
+                Experience transparent, convenient, and certified mobile mechanic services right at your doorstep.
+            </p>
+            <a href="#contact" class="btn-primary inline-block animate-slideInUp animate-delay-400">Book Your Service Now</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading animate-slideInUp">About AutoCare Pro</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                At AutoCare Pro, we're revolutionizing <strong class="text-[#E9D8A6]">car repair in Lahore</strong>. Tired of hidden charges and unreliable mechanics? We offer a new standard of trust and convenience, bringing expert automotive care directly to you.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card animate-slideInUp animate-delay-200">
+                    <h3 class="text-2xl font-bold text-[#E9D8A6] mb-3">Transparency</h3>
+                    <p class="text-gray-200">Upfront pricing, detailed diagnostics, and clear communication. You approve every step before we begin.</p>
+                </div>
+                <div class="card animate-slideInUp animate-delay-300">
+                    <h3 class="text-2xl font-bold text-[#E9D8A6] mb-3">Convenience</h3>
+                    <p class="text-gray-200">No more waiting in workshops. Our <strong class="text-[#E9D8A6]">mobile mechanic services</strong> come to your home or office.</p>
+                </div>
+                <div class="card animate-slideInUp animate-delay-400">
+                    <h3 class="text-2xl font-bold text-[#E9D8A6] mb-3">Certified Quality</h3>
+                    <p class="text-gray-200">Vetted, trained professionals using genuine parts, backed by a warranty. Your vehicle is in safe hands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-4 bg-[#005F73]">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading text-white animate-slideInUp">Our Expert Car Services</h2>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                From routine <strong class="text-[#E9D8A6]">car maintenance</strong> to complex repairs, our skilled technicians handle it all. We are your go-to solution for all automotive needs.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-200">
+                    <img src="https://placehold.co/100x100/FFFFFF/005F73?text=Oil" alt="Oil Change" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#005F73] mb-2">Oil Change & Filter Replacement</h3>
+                    <p class="text-gray-700">Essential <strong class="text-[#001219]">oil change Lahore</strong> services for optimal engine performance and longevity.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-300">
+                    <img src="https://placehold.co/100x100/FFFFFF/0A9396?text=AC" alt="AC Repair" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#0A9396] mb-2">Car AC Repair & Service</h3>
+                    <p class="text-gray-700">Expert <strong class="text-[#001219]">car AC repair Lahore</strong> to keep you cool and comfortable all year round.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-400">
+                    <img src="https://placehold.co/100x100/FFFFFF/BB3E03?text=Diag" alt="Diagnostics" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#BB3E03] mb-2">Engine Diagnostics & Repair</h3>
+                    <p class="text-gray-700">Advanced diagnostics for your <strong class="text-[#001219]">check engine light diagnosis</strong> and efficient problem-solving.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-500">
+                    <img src="https://placehold.co/100x100/FFFFFF/AE2012?text=Brake" alt="Brake Service" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#AE2012] mb-2">Brake System Inspection & Repair</h3>
+                    <p class="text-gray-700">Comprehensive brake services ensuring your safety on the roads of Lahore.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-600">
+                    <img src="https://placehold.co/100x100/FFFFFF/9B2226?text=Batt" alt="Battery Service" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#9B2226] mb-2">Battery Check & Replacement</h3>
+                    <p class="text-gray-700">Don't get stuck! We offer reliable battery checks and replacements for when your <strong class="text-[#001219]">car not starting</strong>.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-700">
+                    <img src="https://placehold.co/100x100/FFFFFF/EE9B00?text=Gen" alt="General Repair" class="mx-auto mb-4">
+                    <h3 class="text-2xl font-bold text-[#EE9B00] mb-2">General Car Repair & Tune-ups</h3>
+                    <p class="text-gray-700">From minor fixes to major overhauls, we are the <strong class="text-[#001219]">best mobile car repair Lahore</strong> has to offer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading animate-slideInUp">Why Choose AutoCare Pro?</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                We are committed to being the <strong class="text-[#E9D8A6]">trusted mechanic</strong> you've been searching for. Our unique approach sets us apart.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="animate-slideInUp animate-delay-200">
+                    <img src="https://placehold.co/600x400/001219/94D2BD?text=Mobile+Mechanic" alt="Mobile Mechanic Service" class="rounded-lg shadow-lg mx-auto">
+                </div>
+                <div class="text-left space-y-6">
+                    <div class="animate-slideInUp animate-delay-300">
+                        <h3 class="text-2xl font-bold text-[#94D2BD] mb-2">Your Convenience, Our Priority</h3>
+                        <p class="text-gray-200">No need to disrupt your day. Our mobile units bring the workshop to you, saving you time and hassle. Searching for a "mechanic near me"? We're already on our way!</p>
+                    </div>
+                    <div class="animate-slideInUp animate-delay-400">
+                        <h3 class="text-2xl font-bold text-[#94D2BD] mb-2">Unwavering Trust & Quality</h3>
+                        <p class="text-gray-200">Every service is performed by certified technicians using state-of-the-art tools and genuine parts. We provide a detailed service report and warranty for peace of mind.</p>
+                    </div>
+                    <div class="animate-slideInUp animate-delay-500">
+                        <h3 class="text-2xl font-bold text-[#94D2BD] mb-2">Fair & Transparent Pricing</h3>
+                        <p class="text-gray-200">Say goodbye to hidden fees. We offer clear, competitive pricing with no surprises. Get an estimate before any work begins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 px-4 bg-[#005F73]">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading text-white animate-slideInUp">How AutoCare Pro Works</h2>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                Getting your car serviced has never been easier. Follow our simple 3-step process.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-200">
+                    <div class="text-5xl mb-4 text-[#EE9B00]">1</div>
+                    <h3 class="text-2xl font-bold text-[#005F73] mb-2">Book Online or Call</h3>
+                    <p class="text-gray-700">Schedule your service through our easy-to-use website or give us a call. Tell us what your car needs, from a routine check-up to a specific <strong class="text-[#001219]">car repair Lahore</strong> service.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-300">
+                    <div class="text-5xl mb-4 text-[#EE9B00]">2</div>
+                    <h3 class="text-2xl font-bold text-[#0A9396] mb-2">We Come to You</h3>
+                    <p class="text-gray-700">Our expert <strong class="text-[#001219]">mobile mechanic</strong> arrives at your specified location in Lahore, equipped with all necessary tools and parts.</p>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-400">
+                    <div class="text-5xl mb-4 text-[#EE9B00]">3</div>
+                    <h3 class="text-2xl font-bold text-[#BB3E03] mb-2">Quality Service & Drive On</h3>
+                    <p class="text-gray-700">We perform the service efficiently and effectively. Pay securely, get your warranty, and enjoy your perfectly running car.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading animate-slideInUp">What Our Customers Say</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                Hear from satisfied car owners who trust AutoCare Pro for their vehicle needs.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card animate-slideInUp animate-delay-200">
+                    <p class="text-gray-200 italic mb-4">"Finally, a <strong class="text-[#E9D8A6]">trusted mechanic</strong> in Lahore! AutoCare Pro fixed my <strong class="text-[#E9D8A6]">car AC repair</strong> quickly and transparently. Highly recommend their mobile service."</p>
+                    <p class="font-bold text-[#94D2BD]">- Ahmed Khan</p>
+                </div>
+                <div class="card animate-slideInUp animate-delay-300">
+                    <p class="text-gray-200 italic mb-4">"My <strong class="text-[#E9D8A6]">car not starting</strong> was a nightmare, but AutoCare Pro came to my rescue. Professional, efficient, and great value for <strong class="text-[#E9D8A6]">car repair in Lahore</strong>."</p>
+                    <p class="font-bold text-[#94D2BD]">- Fatima Zahra</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 bg-[#005F73]">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl section-heading text-white animate-slideInUp">Get in Touch with AutoCare Pro</h2>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-12 animate-slideInUp animate-delay-100">
+                Ready to experience hassle-free <strong class="text-[#E9D8A6]">car maintenance</strong> and repair? Contact us today!
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-200">
+                    <h3 class="text-2xl font-bold text-[#005F73] mb-2">Book Your Service</h3>
+                    <p class="mb-4">Fill out the form below or call us directly.</p>
+                    <form class="space-y-4 text-left">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#EE9B00] focus:border-[#EE9B00]">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#EE9B00] focus:border-[#EE9B00]">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#EE9B00] focus:border-[#EE9B00]">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Service Needed / Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#EE9B00] focus:border-[#EE9B00]"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">Submit Request</button>
+                    </form>
+                </div>
+                <div class="card bg-white text-gray-800 animate-slideInUp animate-delay-300">
+                    <h3 class="text-2xl font-bold text-[#0A9396] mb-2">Contact Details</h3>
+                    <p class="mb-4">We're here to help you find the <strong class="text-[#001219]">best mobile car repair Lahore</strong> has to offer!</p>
+                    <ul class="space-y-3 text-left">
+                        <li><strong>Phone:</strong> <a href="tel:+923001234567" class="text-[#0A9396] hover:underline">+92 300 1234567</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:info@autocarepro.com" class="text-[#0A9396] hover:underline">info@autocarepro.com</a></li>
+                        <li><strong>Address:</strong> Serving all of Lahore, Pakistan</li>
+                        <li><strong>Hours:</strong> Mon - Sat: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#001219] py-8 px-4 text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; 2025 AutoCare Pro. All rights reserved. Your trusted partner for <strong class="text-[#94D2BD]">car repair and maintenance services in Lahore</strong>.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-[#94D2BD]">Privacy Policy</a>
+                <a href="#" class="hover:text-[#94D2BD]">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking a link
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn', 'animate-slideInUp');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        document.querySelectorAll('.animate-fadeIn, .animate-slideInUp').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

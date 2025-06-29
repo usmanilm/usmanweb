@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCare Pro: Lahore Car Repair Market Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #001219;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #005F73;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 1.5rem;
+            line-height: 2rem;
+            color: #94D2BD;
+            margin: 0 1rem;
+        }
+        .flow-step:last-child .flow-arrow::after {
+            content: '';
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-white">Driving Change in Lahore's Car Repair Market</h1>
+            <p class="text-lg text-[#94D2BD] mt-2">An Infographic by AutoCare Pro</p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section id="opportunity" class="bg-white/10 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 ring-1 ring-white/10">
+                <h2 class="text-3xl font-bold text-white mb-2 text-center">A Massive, Underserved Market</h2>
+                <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto">Lahore's streets are bustling with millions of vehicles, creating a substantial and continuous demand for repair and maintenance services. This represents a significant financial opportunity for a service provider that can earn customer trust.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
+                    <div class="kpi-card">
+                        <div class="text-5xl font-extrabold text-[#E9D8A6]">3.99M</div>
+                        <div class="mt-2 text-gray-200">Total Registered Vehicles</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="text-5xl font-extrabold text-[#E9D8A6]">794k+</div>
+                        <div class="mt-2 text-gray-200">Registered Cars in Lahore</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="text-5xl font-extrabold text-[#E9D8A6]">10%</div>
+                        <div class="mt-2 text-gray-200">of Vehicle Ownership Cost is Maintenance</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="problem" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2">The Trust Deficit: Customer Pain Points</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">The current market is plagued by issues that leave car owners frustrated and searching for a reliable alternative. A new brand's primary mission must be to solve these core problems.</p>
+                <div class="chart-container mx-auto">
+                    <canvas id="painPointsChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4">Analysis shows a pervasive lack of trust is the single largest barrier, stemming from scams, hidden charges, and inconsistent service quality.</p>
+            </section>
+            
+            <section id="competitors" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2">The Competitive Landscape</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">The market is split between three main provider types, each with distinct trade-offs. This fragmentation creates a clear opportunity for a service that combines the best attributes of each.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="chart-container">
+                        <canvas id="competitorRadarChart"></canvas>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-[#005F73]">Authorized Dealerships</h3>
+                            <p class="text-gray-600">High trust in parts and quality, but often inconvenient and expensive.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#CA6702]">Independent Workshops</h3>
+                            <p class="text-gray-600">Affordable and accessible, but suffer from a severe lack of trust and inconsistent quality.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-[#0A9396]">Mobile Services</h3>
+                            <p class="text-gray-600">Extremely convenient with transparent pricing, but can be limited in service scope.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="bg-white/10 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 ring-1 ring-white/10">
+                <h2 class="text-3xl font-bold text-white text-center mb-2">The Solution: AutoCare Pro</h2>
+                <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto">A new brand designed from the ground up to address market gaps by prioritizing transparency, convenience, and certified quality.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                        <div class="text-5xl mb-3">🛡️</div>
+                        <h3 class="font-bold text-lg">Unmatched Transparency</h3>
+                        <p class="text-sm text-gray-600">Upfront pricing and visual diagnostics. See the problem, approve the work. No surprises.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                        <div class="text-5xl mb-3">📱</div>
+                        <h3 class="font-bold text-lg">Ultimate Convenience</h3>
+                        <p class="text-sm text-gray-600">Book and track your service via our app. We come to your home or office.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                        <div class="text-5xl mb-3">✅</div>
+                        <h3 class="font-bold text-lg">Certified Quality</h3>
+                        <p class="text-sm text-gray-600">Vetted, trained mechanics using genuine or high-quality parts, backed by a warranty.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                        <div class="text-5xl mb-3">🤝</div>
+                        <h3 class="font-bold text-lg">Customer-Centric</h3>
+                        <p class="text-sm text-gray-600">24/7 support, service history, and post-service follow-ups to ensure satisfaction.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="strategy" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2">Reaching Customers Digitally</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Our go-to-market strategy focuses on dominating digital channels where customers are actively searching for solutions. SEO is the cornerstone of our acquisition plan.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                     <div class="order-2 md:order-1">
+                        <h3 class="font-bold text-xl text-[#005F73] mb-4">Top SEO Keyword Categories</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-lg text-[#EE9B00] mr-3">●</span>
+                                <div><strong class="text-gray-800">Transactional & Local:</strong> "car repair Lahore", "mechanic near me"</div>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-lg text-[#CA6702] mr-3">●</span>
+                                <div><strong class="text-gray-800">Service-Specific:</strong> "car AC repair Lahore", "oil change Lahore"</div>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-lg text-[#BB3E03] mr-3">●</span>
+                                <div><strong class="text-gray-800">Problem-Oriented:</strong> "car not starting", "check engine light diagnosis"</div>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-lg text-[#9B2226] mr-3">●</span>
+                                <div><strong class="text-gray-800">Trust-Based:</strong> "best mobile car repair Lahore", "trusted mechanic"</div>
+                            </li>
+                        </ul>
+                        <p class="text-sm text-gray-500 mt-4">By targeting these high-intent keywords, we connect with customers at the exact moment they need our services.</p>
+                     </div>
+                     <div class="order-1 md:order-2 chart-container">
+                        <canvas id="seoKeywordsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="process" class="bg-white/10 backdrop-blur-sm rounded-lg shadow-2xl p-6 md:p-8 ring-1 ring-white/10">
+                <h2 class="text-3xl font-bold text-white text-center mb-8">The AutoCare Pro Customer Journey</h2>
+                <div class="flex flex-col md:flex-row flex-wrap items-center justify-center text-center text-white">
+                    <div class="flow-step flex items-center mb-4 md:mb-0">
+                        <div class="p-4 rounded-lg bg-white/20">
+                            <div class="font-bold">1. Book via App</div>
+                            <div class="text-xs text-gray-300">Simple & Fast</div>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                    </div>
+                     <div class="flow-step flex items-center mb-4 md:mb-0">
+                        <div class="p-4 rounded-lg bg-white/20">
+                            <div class="font-bold">2. Transparent Quote</div>
+                            <div class="text-xs text-gray-300">Approve Before Work</div>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                    </div>
+                     <div class="flow-step flex items-center mb-4 md:mb-0">
+                        <div class="p-4 rounded-lg bg-white/20">
+                            <div class="font-bold">3. Mobile Service</div>
+                            <div class="text-xs text-gray-300">We Come to You</div>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                    </div>
+                    <div class="flow-step flex items-center mb-4 md:mb-0">
+                        <div class="p-4 rounded-lg bg-white/20">
+                            <div class="font-bold">4. Secure Payment</div>
+                            <div class="text-xs text-gray-300">Digital & Safe</div>
+                        </div>
+                         <div class="flow-arrow hidden md:block"></div>
+                    </div>
+                     <div class="flow-step flex items-center">
+                        <div class="p-4 rounded-lg bg-white/20">
+                            <div class="font-bold">5. Warranty & Follow-up</div>
+                            <div class="text-xs text-gray-300">Peace of Mind</div>
+                        </div>
+                         <div class="flow-arrow"></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 AutoCare Pro. All rights reserved.</p>
+            <p class="mt-1">Data synthesized from comprehensive market analysis of the Lahore automotive service industry.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            darkBlue: '#005F73',
+            teal: '#0A9396',
+            lightTeal: '#94D2BD',
+            sand: '#E9D8A6',
+            yellow: '#EE9B00',
+            orange: '#CA6702',
+            burntOrange: '#BB3E03',
+            darkRed: '#AE2012',
+            maroon: '#9B2226'
+        };
+        
+        function wrapLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const defaultChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#334155'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const defaultChartOptionsDark = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#e2e8f0'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                r: {
+                     grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                     pointLabels: { color: '#e2e8f0', font: { size: 12 } },
+                     angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                     ticks: {
+                         color: '#e2e8f0',
+                         backdropColor: 'rgba(0,0,0,0.5)'
+                     }
+                }
+            }
+        };
+
+        const painPointsCtx = document.getElementById('painPointsChart').getContext('2d');
+        new Chart(painPointsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Lack of Trust / Scams', 'Inconsistent Quality', 'Inconvenience / Time', 'High Costs', 'Hidden Charges'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Severity of Customer Pain Point',
+                    data: [95, 80, 70, 65, 85],
+                    backgroundColor: [brilliantBlues.darkRed, brilliantBlues.burntOrange, brilliantBlues.orange, brilliantBlues.yellow, brilliantBlues.maroon],
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                 scales: {
+                    x: { grid: { display: false }, ticks: { color: '#475569' } },
+                    y: { grid: { display: false }, ticks: { color: '#475569' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const competitorRadarCtx = document.getElementById('competitorRadarChart').getContext('2d');
+        new Chart(competitorRadarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Cost', 'Convenience', 'Trust', 'Quality', 'Transparency'],
+                datasets: [
+                    {
+                        label: 'Dealerships',
+                        data: [3, 4, 8, 9, 6],
+                        fill: true,
+                        backgroundColor: 'rgba(0, 95, 115, 0.4)',
+                        borderColor: brilliantBlues.darkBlue,
+                        pointBackgroundColor: brilliantBlues.darkBlue,
+                    }, 
+                    {
+                        label: 'Independent Shops',
+                        data: [9, 6, 2, 4, 2],
+                        fill: true,
+                        backgroundColor: 'rgba(202, 103, 2, 0.4)',
+                        borderColor: brilliantBlues.orange,
+                        pointBackgroundColor: brilliantBlues.orange,
+                    },
+                     {
+                        label: 'Mobile Services',
+                        data: [6, 10, 7, 7, 9],
+                        fill: true,
+                        backgroundColor: 'rgba(10, 147, 150, 0.4)',
+                        borderColor: brilliantBlues.teal,
+                        pointBackgroundColor: brilliantBlues.teal,
+                    }
+                ]
+            },
+            options: {
+                 ...defaultChartOptions,
+                 scales: {
+                    r: {
+                         suggestedMin: 0,
+                         suggestedMax: 10,
+                         grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                         pointLabels: { color: '#1e293b', font: { size: 12 } },
+                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                         ticks: {
+                             color: '#475569',
+                             backdropColor: 'rgba(255,255,255,0.75)'
+                         }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'top', labels: { color: '#334155' } },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+        
+        const seoKeywordsCtx = document.getElementById('seoKeywordsChart').getContext('2d');
+        new Chart(seoKeywordsCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Transactional & Local',
+                    data: [{ x: 20, y: 30, r: 25 }],
+                    backgroundColor: brilliantBlues.yellow
+                }, {
+                    label: 'Service-Specific',
+                    data: [{ x: 40, y: 15, r: 20 }],
+                     backgroundColor: brilliantBlues.orange
+                }, {
+                    label: 'Problem-Oriented',
+                    data: [{ x: 60, y: 35, r: 15 }],
+                     backgroundColor: brilliantBlues.burntOrange
+                }, {
+                    label: 'Trust-Based',
+                    data: [{ x: 30, y: 50, r: 18 }],
+                     backgroundColor: brilliantBlues.darkRed
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label;
+                            },
+                            title: () => '' 
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

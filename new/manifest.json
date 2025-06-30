@@ -1,21 +1,21 @@
 {
     "name": "Muhammad Usman Portfolio",
     "short_name": "Usman Portfolio",
-    "description": "Muhammad Usman's Professional Portfolio - IT Professional & CMO",
+    "description": "Muhammad Usman's Professional Portfolio - IT Professional & CMO specializing in data-driven strategies.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#f0f2f5",
     "theme_color": "#1a73e8",
     "icons": [
         {
-            "src": "https://placehold.co/192x192/1a73e8/ffffff?text=Usman",
+            "src": "https://scontent.flhe5-1.fna.fbcdn.net/v/t39.30808-6/483478627_10163281384940774_942338982432644931_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFEpOBEDM-5LQyMr8ItCA2K8eHU65FYAAbx4dTrkVgABoq3KdZDAGG-Nfr15pSY0g-YWm67bC_EE4Vie9U4gAJh&_nc_ohc=tyVU5f45N5EQ7kNvwFTsdua&_nc_oc=AdnraGJrK3JwqC6L-CfzyQ5Xm8dpZduWtjy9RwUgCtaRhtIm32HlNt2yM2qvGrvnLPtroyM122_5GL7vYxP_bygU&_nc_zt=23&_nc_ht=scontent.flhe5-1.fna&_nc_gid=32m9vpydiICOkFeDnFYYDQ&oh=00_AfMfv5gxT1eunQMaFWuLd54g4W7a83hD4bnVp6_yoJF0jA&oe=6868BF6E",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/jpeg"
         },
         {
-            "src": "https://placehold.co/512x512/1a73e8/ffffff?text=Usman",
+            "src": "https://scontent.flhe5-1.fna.fbcdn.net/v/t39.30808-6/483478627_10163281384940774_942338982432644931_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFEpOBEDM-5LQyMr8ItCA2K8eHU65FYAAbx4dTrkVgABoq3KdZDAGG-Nfr15pSY0g-YWm67bC_EE4Vie9U4gAJh&_nc_ohc=tyVU5f45N5EQ7kNvwFTsdua&_nc_oc=AdnraGJrK3JwqC6L-CfzyQ5Xm8dpZduWtjy9RwUgCtaRhtIm32HlNt2yM2qvGrvnLPtroyM122_5GL7vYxP_bygU&_nc_zt=23&_nc_ht=scontent.flhe5-1.fna&_nc_gid=32m9vpydiICOkFeDnFYYDQ&oh=00_AfMfv5gxT1eunQMaFWuLd54g4W7a83hD4bnVp6_yoJF0jA&oe=6868BF6E",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/jpeg"
         }
     ]
 }

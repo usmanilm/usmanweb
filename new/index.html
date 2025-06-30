@@ -9,6 +9,8 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#1a73e8">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS CDN - For production, please install as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -96,6 +98,37 @@
         .image-container img:hover {
             transform: scale(1.05); /* Slight zoom on hover */
         }
+
+        /* Animated Icons for Skills */
+        .skill-icon {
+            font-size: 3rem;
+            color: #1a73e8;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .material-card:hover .skill-icon {
+            transform: rotateY(180deg);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .mobile-menu-hidden {
+                display: none;
+            }
+            .mobile-menu-expanded {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            .mobile-menu-expanded a {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+            .mobile-menu-expanded a:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -103,22 +136,26 @@
     <header class="bg-white shadow-md py-4">
         <nav class="container mx-auto flex justify-between items-center px-4">
             <a href="#" class="text-2xl font-bold text-gray-800">Muhammad Usman</a>
-            <div class="space-x-4">
-                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium">About</a>
-                <a href="#skills" class="text-gray-600 hover:text-blue-600 font-medium">Skills</a>
-                <a href="#services" class="text-gray-600 hover:text-blue-600 font-medium">Services</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-blue-600 font-medium">Portfolio</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
-                <button id="installAppButton" class="material-button hidden">Install App</button>
+            <div class="md:hidden">
+                <button id="mobileMenuButton" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="navMenu" class="mobile-menu-hidden md:flex md:space-x-4">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium py-2 md:py-0">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-blue-600 font-medium py-2 md:py-0">Skills</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 font-medium py-2 md:py-0">Services</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-blue-600 font-medium py-2 md:py-0">Portfolio</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium py-2 md:py-0">Contact</a>
+                <button id="installAppButton" class="material-button hidden mt-4 md:mt-0">Install App</button>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-pattern opacity-10"></div> <!-- Subtle background pattern -->
-        <div class="container mx-auto px-4 relative z-10 animate-fadeIn">
-            <img src="https://placehold.co/150x150/1a73e8/ffffff?text=Usman" alt="Muhammad Usman Profile" class="rounded-full mx-auto mb-6 border-4 border-white shadow-lg animate-fadeInDown">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div> <div class="container mx-auto px-4 relative z-10 animate-fadeIn">
+            <img src="https://scontent.flhe5-1.fna.fbcdn.net/v/t39.30808-6/483478627_10163281384940774_942338982432644931_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFEpOBEDM-5LQyMr8ItCA2K8eHU65FYAAbx4dTrkVgABoq3KdZDAGG-Nfr15pSY0g-YWm67bC_EE4Vie9U4gAJh&_nc_ohc=tyVU5f45N5EQ7kNvwFTsdua&_nc_oc=AdnraGJrK3JwqC6L-CfzyQ5Xm8dpZduWtjy9RwUgCtaRhtIm32HlNt2yM2qvGrvnLPtroyM122_5GL7vYxP_bygU&_nc_zt=23&_nc_ht=scontent.flhe5-1.fna&_nc_gid=32m9vpydiICOkFeDnFYYDQ&oh=00_AfMfv5gxT1eunQMaFWuLd54g4W7a83hD4bnVp6_yoJF0jA&oe=6868BF6E" alt="Muhammad Usman Profile" class="rounded-full mx-auto mb-6 border-4 border-white shadow-lg w-40 h-40 object-cover animate-fadeInDown">
             <h1 class="text-5xl font-extrabold mb-4 leading-tight animate-fadeInDown">Muhammad Usman</h1>
             <p class="text-2xl font-light mb-8 animate-fadeInUp">IT Professional & Chief Marketing Officer</p>
             <p class="text-lg max-w-2xl mx-auto mb-10 animate-fadeInUp">
@@ -145,7 +182,7 @@
                     </p>
                 </div>
                 <div class="md:w-1/3 mt-8 md:mt-0">
-                    <img src="https://placehold.co/400x300/e0e0e0/333333?text=About+Image" alt="About Muhammad Usman" class="rounded-lg shadow-lg w-full h-auto">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884997?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About Muhammad Usman" class="rounded-lg shadow-lg w-full h-auto">
                 </div>
             </div>
         </div>
@@ -158,31 +195,37 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Skill Card 1 -->
                 <div class="material-card p-6 text-center animate-fadeInUp">
+                    <i class="fas fa-chart-line skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Data-Driven Strategies</h3>
                     <p class="text-gray-700">Crafting and executing strategies based on deep data analysis to achieve business objectives and maximize ROI.</p>
                 </div>
                 <!-- Skill Card 2 -->
                 <div class="material-card p-6 text-center animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <i class="fas fa-lightbulb skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Technology Innovations</h3>
                     <p class="text-gray-700">Identifying, implementing, and leveraging cutting-edge technologies to drive efficiency and competitive advantage.</p>
                 </div>
                 <!-- Skill Card 3 -->
                 <div class="material-card p-6 text-center animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <i class="fas fa-cloud skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Google Workspace</h3>
                     <p class="text-gray-700">Expert administration and optimization of Google Workspace for enhanced team collaboration and productivity.</p>
                 </div>
                 <!-- Skill Card 4 -->
                 <div class="material-card p-6 text-center animate-fadeInUp" style="animation-delay: 0.3s;">
+                    <i class="fas fa-database skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Database Management</h3>
                     <p class="text-gray-700">Designing, managing, and optimizing databases for robust data storage, retrieval, and security.</p>
                 </div>
                 <!-- Skill Card 5 -->
                 <div class="material-card p-6 text-center animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <i class="fas fa-code skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Software Development</h3>
                     <p class="text-gray-700">Proficient in developing scalable and efficient software solutions tailored to specific business needs.</p>
                 </div>
                 <!-- Skill Card 6 -->
                 <div class="material-card p-6 text-center animate-fadeInUp" style="animation-delay: 0.5s;">
+                    <i class="fas fa-bullhorn skill-icon"></i>
                     <h3 class="text-xl font-semibold mb-3 text-blue-600">Digital Marketing</h3>
                     <p class="text-gray-700">Implementing comprehensive digital marketing strategies to boost online presence and engagement.</p>
                 </div>
@@ -198,7 +241,7 @@
                 <!-- Service Card 1 -->
                 <div class="material-card p-6 animate-fadeInUp">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/add8e6/000000?text=Consulting" alt="IT Consulting Services">
+                        <img src="https://images.unsplash.com/photo-1551288259-f81d113c2331?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Consulting Services">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">IT Consulting</h3>
                     <p class="text-gray-700">Providing strategic IT guidance to optimize your infrastructure and leverage technology for business growth.</p>
@@ -206,7 +249,7 @@
                 <!-- Service Card 2 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.1s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/90ee90/000000?text=Digital+Marketing" alt="Digital Marketing Strategy">
+                        <img src="https://images.unsplash.com/photo-1542744095-fcf52d7d7904?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Digital Marketing Strategy">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">Digital Marketing Strategy</h3>
                     <p class="text-gray-700">Developing comprehensive digital marketing plans to enhance your online presence and reach target audiences.</p>
@@ -214,7 +257,7 @@
                 <!-- Service Card 3 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.2s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/ffb6c1/000000?text=Software+Dev" alt="Custom Software Development">
+                        <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Custom Software Development">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">Custom Software Development</h3>
                     <p class="text-gray-700">Building bespoke software solutions tailored to your unique operational and business requirements.</p>
@@ -222,7 +265,7 @@
                 <!-- Service Card 4 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.3s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/ffd700/000000?text=Data+Analytics" alt="Data Analytics & BI">
+                        <img src="https://images.unsplash.com/photo-1521737711867-ee1375b48695?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Data Analytics & BI">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">Data Analytics & BI</h3>
                     <p class="text-gray-700">Transforming raw data into actionable insights for informed decision-making and strategic planning.</p>
@@ -230,7 +273,7 @@
                 <!-- Service Card 5 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.4s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/dda0dd/000000?text=Cloud+Solutions" alt="Cloud Solutions & Migration">
+                        <img src="https://images.unsplash.com/photo-1586324209564-96d557342981?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cloud Solutions & Migration">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">Cloud Solutions & Migration</h3>
                     <p class="text-gray-700">Assisting with cloud adoption, migration, and optimization for scalable and secure infrastructure.</p>
@@ -238,7 +281,7 @@
                 <!-- Service Card 6 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.5s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/87cefa/000000?text=Security" alt="Cybersecurity Consulting">
+                        <img src="https://images.unsplash.com/photo-1593642531955-b62e17bbd959?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cybersecurity Consulting">
                     </div>
                     <h3 class="text-2xl font-semibold mb-3 text-blue-600">Cybersecurity Consulting</h3>
                     <p class="text-gray-700">Protecting your digital assets with robust cybersecurity strategies and implementation.</p>
@@ -255,7 +298,7 @@
                 <!-- Portfolio Item 1 -->
                 <div class="material-card p-6 animate-fadeInUp">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/c0c0c0/000000?text=Project+A" alt="Portfolio Project A">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dd3474d7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Portfolio Project A">
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-blue-600">Enterprise CRM Integration</h3>
                     <p class="text-gray-700">Successfully integrated a custom CRM system for a large enterprise, enhancing customer management and sales processes.</p>
@@ -263,7 +306,7 @@
                 <!-- Portfolio Item 2 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.1s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/d3d3d3/000000?text=Project+B" alt="Portfolio Project B">
+                        <img src="https://images.unsplash.com/photo-1496171367476-4d98a002679e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Portfolio Project B">
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-blue-600">E-commerce Platform Revamp</h3>
                     <p class="text-gray-700">Led the complete redesign and re-platforming of a major e-commerce site, resulting in a 30% increase in conversion rates.</p>
@@ -271,7 +314,7 @@
                 <!-- Portfolio Item 3 -->
                 <div class="material-card p-6 animate-fadeInUp" style="animation-delay: 0.2s;">
                     <div class="image-container">
-                        <img src="https://placehold.co/600x400/b0c4de/000000?text=Project+C" alt="Portfolio Project C">
+                        <img src="https://images.unsplash.com/photo-1542831371-d28ea6d2039c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Portfolio Project C">
                     </div>
                     <h3 class="text-xl font-semibold mb-2 text-blue-600">Data Warehouse Implementation</h3>
                     <p class="text-gray-700">Designed and implemented a scalable data warehouse solution, enabling advanced analytics and reporting capabilities.</p>
@@ -343,12 +386,13 @@
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('/sw.js') // Changed from new URL('sw.js', import.meta.url)
                     .then(registration => {
                         console.log('Service Worker registered! Scope:', registration.scope);
                     })
                     .catch(err => {
-                        console.log('Service Worker registration failed:', err);
+                        console.error('Service Worker registration failed:', err);
+                        alert('Offline support might not be available. Please try refreshing or check console for details.');
                     });
             });
         }
@@ -358,37 +402,26 @@
         const installAppButton = document.getElementById('installAppButton');
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
-            // Stash the event so it can be triggered later.
             deferredPrompt = e;
-            // Update UI to notify the user they can add to home screen
             installAppButton.classList.remove('hidden');
-            console.log('beforeinstallprompt event fired.');
+            console.log('beforeinstallprompt event fired. Install button shown.');
         });
 
         installAppButton.addEventListener('click', async () => {
-            // Hide the install button
             installAppButton.classList.add('hidden');
-            // Show the install prompt
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                // Wait for the user to respond to the prompt
                 const { outcome } = await deferredPrompt.userChoice;
-                // Optionally, send analytics event with outcome of user choice
                 console.log(`User response to the install prompt: ${outcome}`);
-                // We've used the prompt, and can't use it again, clear it.
-                deferredPrompt = null;
+                deferredPrompt = null; // Prompt used, clear it
             }
         });
 
         window.addEventListener('appinstalled', () => {
-            // Hide the install button
             installAppButton.classList.add('hidden');
-            // Clear the deferredPrompt so it can be garbage collected
             deferredPrompt = null;
-            // Optionally, send analytics event to indicate successful install
-            console.log('PWA was installed!');
+            console.log('PWA was installed successfully!');
         });
 
         // Intersection Observer for scroll animations
@@ -411,6 +444,15 @@
 
         animateOnScrollElements.forEach(element => {
             observer.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-menu-hidden');
+            navMenu.classList.toggle('mobile-menu-expanded');
         });
     </script>
 </body>

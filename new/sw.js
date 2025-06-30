@@ -1,10 +1,10 @@
 console.log('Service Worker script is starting to execute.'); // Added for debugging
 
-const CACHE_NAME = 'usman-portfolio-v11'; // Increment cache version for updates
+const CACHE_NAME = 'usman-portfolio-v12'; // Increment cache version for updates
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json'
+    './', // Represents the root of the PWA's scope (e.g., /repository-name/)
+    './index.html',
+    './manifest.json'
     // All other URLs removed from initial cache list for more robust installation.
     // These resources will be cached on first fetch by the fetch handler.
 ];

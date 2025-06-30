@@ -1,14 +1,24 @@
 console.log('Service Worker script is starting to execute.'); // Added for debugging
 
-const CACHE_NAME = 'usman-portfolio-v9'; // Increment cache version for updates
+const CACHE_NAME = 'usman-portfolio-v10'; // Increment cache version for updates
 const urlsToCache = [
     '/',
     '/index.html',
-    '/manifest.json'
-    // Removed external CDN URLs from here. These will still be loaded by the browser
-    // but won't block service worker installation if they fail to cache.
-    // Also removed local image paths, as they are not critical for initial SW installation
-    // and can be cached on demand by the fetch handler.
+    '/manifest.json',
+    'https://cdn.tailwindcss.com', // Re-including CDN URLs for caching
+    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
+    // Local images from /new/img directory
+    '/new/img/usman.jpg',
+    '/new/img/it-consulting.jpg',
+    '/new/img/digital-marketing-strategy.jpg',
+    '/new/img/custom-software-development.jpg',
+    '/new/img/data-analytics-bi.jpg',
+    '/new/img/cloud-solutions-migration.jpg',
+    '/new/img/cyber-security-consulting.jpg',
+    '/new/img/enterprise-crm-integration.jpg',
+    '/new/img/e-commerce-platform.jpg',
+    '/new/img/data-warehouse.jpg'
 ];
 
 // Install event: caches the static assets
@@ -17,11 +27,11 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                console.log('Service Worker: Caching core assets.');
+                console.log('Service Worker: Caching assets.');
                 return cache.addAll(urlsToCache)
                     .then(() => self.skipWaiting()) // Activates the new SW immediately
                     .catch(error => {
-                        console.error('Service Worker: Failed to cache some core assets during install:', error);
+                        console.error('Service Worker: Failed to cache some assets during install:', error);
                         // Log which URL caused the error if possible
                         if (error.message.includes('A bad HTTP response code')) {
                             console.error('Check the URL for the failed resource. It might be incorrect or inaccessible.');

@@ -2,7 +2,7 @@
     "name": "Muhammad Usman Portfolio",
     "short_name": "Usman Portfolio",
     "description": "Muhammad Usman's Professional Portfolio - IT Professional & CMO specializing in data-driven strategies.",
-    "start_url": "/",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#f0f2f5",
     "theme_color": "#1a73e8",

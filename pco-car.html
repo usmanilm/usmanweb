@@ -71,26 +71,30 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100%; /* Set width to 100% of parent */
-            height: 100%; /* Set height to 100% of parent */
-            min-width: 100vw; /* Ensure it's at least viewport width */
-            min-height: 100vh; /* Ensure it's at least viewport height */
+            min-width: 100%; /* Ensure it's at least 100% of parent width */
+            min-height: 100%; /* Ensure it's at least 100% of parent height */
+            width: auto;
+            height: auto;
             transform: translate(-50%, -50%); /* Center the video */
             object-fit: cover; /* Cover the entire area */
             pointer-events: none; /* Prevent interaction with video */
         }
 
         /* Adjust iframe scaling for different aspect ratios to ensure full cover */
+        /* This media query ensures that on wider screens (like desktops), the video scales by height */
         @media (min-aspect-ratio: 16/9) {
             .video-background iframe {
-                height: 100%;
-                width: calc(100vh * 16 / 9); /* Calculate width based on height to maintain 16:9 */
+                width: 100%; /* Default to 100% width */
+                height: calc(100vw * 9 / 16); /* Calculate height based on width to maintain 16:9 */
+                min-height: 100%; /* Ensure it's at least 100% of parent height */
             }
         }
+        /* This media query ensures that on taller screens (like mobile in portrait), the video scales by width */
         @media (max-aspect-ratio: 16/9) {
             .video-background iframe {
-                width: 100%;
-                height: calc(100vw * 9 / 16); /* Calculate height based on width to maintain 16:9 */
+                height: 100%; /* Default to 100% height */
+                width: calc(100vh * 16 / 9); /* Calculate width based on height to maintain 16:9 */
+                min-width: 100%; /* Ensure it's at least 100% of parent width */
             }
         }
 

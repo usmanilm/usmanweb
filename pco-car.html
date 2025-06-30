@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOCAR - Flexible & Reliable Car Hire for PCO & Personal Use UK</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Brand Colors */
+        :root {
+            --pcocar-blue: #214396;
+            --pcocar-black: #000000;
+            --pcocar-light-gray: #f8f9fa;
+            --pcocar-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--pcocar-light-gray);
+            color: var(--pcocar-black);
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+        .navbar {
+            background-color: var(--pcocar-white); /* Navbar background changed to white for logo visibility */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .navbar-brand {
+            color: var(--pcocar-black) !important; /* Adjust brand text color for white background */
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        .navbar-brand img {
+            height: 40px; /* Adjust as needed for logo size */
+            margin-right: 10px;
+        }
+        .nav-link {
+            color: var(--pcocar-black) !important; /* Adjust nav link color for white background */
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: var(--pcocar-blue) !important; /* Brand blue on hover */
+        }
+
+        .hero-section {
+            position: relative; /* For video positioning */
+            background-color: var(--pcocar-black); /* Fallback background for hero */
+            color: var(--pcocar-white);
+            padding: 100px 0; /* Increased padding for better spacing */
+            border-radius: 0 0 15px 15px;
+            overflow: hidden;
+            display: flex; /* Use flexbox for vertical centering */
+            align-items: center; /* Center content vertically */
+            min-height: 70vh; /* Minimum height for hero section */
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind content */
+        }
+        .video-background iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area */
+            pointer-events: none; /* Prevent interaction with video */
+            transform: scale(1.1); /* Slightly zoom to hide black bars */
+        }
+        .hero-content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+            z-index: 1; /* Above video, below content */
+        }
+        .hero-section .container {
+            position: relative; /* Ensure container content is above overlay */
+            z-index: 2;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem; /* Slightly larger heading */
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-align: left;
+        }
+        .hero-section p {
+            font-size: 1.25rem; /* Slightly larger text */
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .hero-section .hero-image-container {
+            text-align: right;
+        }
+        .hero-section .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            min-width: 150px;
+        }
+        .btn-primary {
+            background-color: var(--pcocar-blue);
+            border-color: var(--pcocar-blue);
+        }
+        .btn-primary:hover {
+            background-color: #1a357a;
+            border-color: #1a357a;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: var(--pcocar-white);
+            border-color: var(--pcocar-white);
+            color: var(--pcocar-black);
+            margin-left: 15px;
+        }
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+            border-color: #e0e0e0;
+            color: var(--pcocar-black);
+            transform: translateY(-2px);
+        }
+
+        .search-form-group {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .search-form-group .form-control {
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            background-color: var(--pcocar-white);
+            border: 1px solid #ccc;
+        }
+        .search-form-group .form-control::placeholder {
+            color: #888;
+        }
+        .search-form-group .btn {
+            margin-top: 20px;
+        }
+        .search-form-group .btn + .btn {
+            margin-left: 15px;
+        }
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 50px 0;
+                min-height: 60vh;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .hero-section p {
+                text-align: center;
+            }
+            .hero-section .hero-image-container {
+                margin-top: 40px;
+                text-align: center;
+            }
+            .search-form-group {
+                text-align: center;
+            }
+            .search-form-group .btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .search-form-group .btn + .btn {
+                margin-left: 0;
+            }
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+        .feature-card, .fleet-card, .testimonial-card {
+            background-color: var(--pcocar-white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(20px); /* Initial state for animation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .feature-card:hover, .fleet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .feature-card .icon {
+            font-size: 3rem;
+            color: var(--pcocar-blue);
+            margin-bottom: 20px;
+        }
+        .fleet-card img {
+            border-radius: 10px 10px 0 0;
+            width: 100%; /* Ensure image fills its container */
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+        }
+        .fleet-card .card-body {
+            padding: 20px;
+        }
+        .testimonial-card {
+            background-color: #e9ecef;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            opacity: 0; /* Initial state for animation */
+            transform: translateY(20px); /* Initial state for animation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .testimonial-card .quote-icon {
+            font-size: 2rem;
+            color: var(--pcocar-blue);
+            margin-bottom: 15px;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--pcocar-black);
+        }
+
+        /* Animation class */
+        .animated-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animated-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer {
+            background-color: var(--pcocar-black);
+            color: var(--pcocar-white);
+            padding: 50px 0;
+            border-radius: 15px 15px 0 0;
+        }
+        .footer a {
+            color: var(--pcocar-white);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: var(--pcocar-blue);
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .form-label {
+            font-weight: 500;
+            color: var(--pcocar-black);
+        }
+
+        /* Custom Modal Styling */
+        .custom-modal-header {
+            background-color: var(--pcocar-blue);
+            color: var(--pcocar-white);
+            border-bottom: none;
+            border-radius: 0.3rem 0.3rem 0 0;
+        }
+        .custom-modal-footer {
+            border-top: none;
+        }
+        .custom-modal-body {
+            color: var(--pcocar-black);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://pcocar.com/public/theme3/assets/img/logo1.png" alt="PCOCAR Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fleet">Our Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="video-background">
+            <!-- YouTube video embed -->
+            <iframe
+                src="https://www.youtube.com/embed/8a_LnIilIF0?autoplay=1&mute=1&controls=0&loop=1&playlist=8a_LnIilIF0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&enablejsapi=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+            ></iframe>
+        </div>
+        <div class="hero-content-overlay"></div> <!-- Overlay for text readability -->
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Flexible & Reliable Car Hire for PCO & Personal Use</h1>
+                    <p>Your trusted partner for PCO car rentals for Uber, Bolt, Ola, Amazon, and personal vehicle needs across the UK. Drive with confidence.</p>
+
+                    <div class="search-form-group">
+                        <label for="nearestArea" class="form-label text-white">Enter your nearest area to find cars:</label>
+                        <input type="text" class="form-control" id="nearestArea" placeholder="e.g., London, Manchester, Birmingham">
+                        <div class="d-flex flex-wrap mt-3">
+                            <button type="button" class="btn btn-primary me-2 mb-2 search-button" data-car-type="pco">Find PCO Cars</button>
+                            <button type="button" class="btn btn-secondary mb-2 search-button" data-car-type="private">Find Private Cars</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block hero-image-container">
+                    <img src="https://pcocar.com/public/theme3/assets/img/header-car.png" class="img-fluid hero-image" alt="Modern PCO Car">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Features Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Why Choose PCOCAR?</h2>
+            <div class="row g-4 section-content">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Flexible Terms</h3>
+                        <p>Rent from 4 weeks to 24 months, with options tailored to your needs. No long-term commitments required.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Comprehensive Support</h3>
+                        <p>Enjoy fully inclusive servicing, free roadside assistance, and immediate replacement in case of accidents.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-car"></i></div>
+                        <h3>Modern & Maintained Fleet</h3>
+                        <p>Access a wide range of reliable, well-maintained vehicles, including electric and hybrid options.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-file-invoice"></i></div>
+                        <h3>Easy Online Process</h3>
+                        <p>Streamlined online payment and documentation for a hassle-free rental experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-headset"></i></div>
+                        <h3>Dedicated Customer Service</h3>
+                        <p>Our team is always ready to assist you with any queries or support you may need.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Nationwide Coverage</h3>
+                        <p>Providing reliable car hire services across the entire United Kingdom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Fleet Section -->
+    <section id="fleet" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Explore Our Diverse Fleet</h2>
+            <div class="row g-4 section-content">
+                <div class="col-md-4">
+                    <div class="card fleet-card">
+                        <img src="https://images.pexels.com/photos/18886584/pexels-photo-18886584/free-photo-of-kia-ev5-electric-vehicle-on-driveway.jpeg" class="card-img-top" alt="Kia EV5 Electric Vehicle">
+                        <div class="card-body">
+                            <h5 class="card-title">Electric Vehicles</h5>
+                            <p class="card-text">Drive green with our range of modern electric cars, perfect for eco-conscious drivers.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" style="color: var(--pcocar-blue); border-color: var(--pcocar-blue);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card fleet-card">
+                        <img src="https://live.staticflickr.com/5179/5487798785_ffdf8ff122_b.jpg" class="card-img-top" alt="Hybrid Car">
+                        <div class="card-body">
+                            <h5 class="card-title">Hybrid Cars</h5>
+                            <p class="card-text">Combine efficiency and performance with our reliable hybrid models.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" style="color: var(--pcocar-blue); border-color: var(--pcocar-blue);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card fleet-card">
+                        <img src="https://img.goodfon.com/original/4096x3072/c/16/badfon-2013-toyota-corolla-altis.jpg" class="card-img-top" alt="2013 Toyota Corolla Altis Petrol Car">
+                        <div class="card-body">
+                            <h5 class="card-title">Petrol & Diesel</h5>
+                            <p class="card-text">Traditional fuel options for those who prefer classic performance and range.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary" style="color: var(--pcocar-blue); border-color: var(--pcocar-blue);">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">What Our Customers Say</h2>
+            <div id="testimonialCarousel" class="carousel slide section-content" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <p class="lead">"PCOCAR made getting a car for Uber incredibly easy. The process was smooth, the car was perfect, and their support team is always helpful. Highly recommend!"</p>
+                                    <p class="author">- John D., Uber Driver</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <p class="lead">"I needed a car for a few months, and PCOCAR offered the best flexible terms. The vehicle was in excellent condition, and I appreciated the inclusive servicing."</p>
+                                    <p class="author">- Sarah L., Personal User</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <p class="lead">"Fantastic service! From online documentation to roadside assistance, PCOCAR has everything covered. They truly care about their drivers."</p>
+                                    <p class="author">- Michael B., Bolt Driver</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Get In Touch With Us</h2>
+            <div class="row justify-content-center section-content">
+                <div class="col-lg-8">
+                    <div class="card p-4 shadow-sm rounded-3">
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Your Message / Inquiry</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Inquiry</button>
+                            </form>
+                            <div id="formMessage" class="mt-3 text-center" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>PCOCAR</h5>
+                    <p>Your premier choice for flexible and reliable PCO and personal car hire services across the UK.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#fleet">Our Fleet</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Car Hire Lane, London, UK</li>
+                        <li><i class="fas fa-phone me-2"></i> +44 20 1234 5678</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@pcocar.com</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 PCOCAR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Message Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header custom-modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">Notification</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body custom-modal-body" id="modalMessageContent">
+                    <!-- Message content will be inserted here -->
+                </div>
+                <div class="modal-footer custom-modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Function to show custom modal message
+            function showCustomMessage(title, message, isSuccess = true) {
+                const modalElement = document.getElementById('messageModal');
+                const modalTitle = modalElement.querySelector('.modal-title');
+                const modalBody = document.getElementById('modalMessageContent');
+
+                modalTitle.textContent = title;
+                modalBody.textContent = message;
+
+                if (isSuccess) {
+                    modalElement.querySelector('.custom-modal-header').classList.remove('bg-danger');
+                    modalElement.querySelector('.custom-modal-header').classList.add('bg-primary');
+                } else {
+                    modalElement.querySelector('.custom-modal-header').classList.remove('bg-primary');
+                    modalElement.querySelector('.custom-modal-header').classList.add('bg-danger');
+                }
+
+                const modal = new bootstrap.Modal(modalElement);
+                modal.show();
+            }
+
+            // Form submission handling for Contact Form (client-side only, no backend)
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name && email && message) {
+                    showCustomMessage('Success!', 'Thank you for your inquiry! We will get back to you soon.', true);
+                    contactForm.reset(); // Clear the form
+                } else {
+                    showCustomMessage('Error!', 'Please fill in all required fields.', false);
+                }
+            });
+
+            // Search buttons functionality
+            document.querySelectorAll('.search-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const nearestArea = document.getElementById('nearestArea').value;
+                    const carType = this.getAttribute('data-car-type');
+                    
+                    if (nearestArea.trim() === '') {
+                        showCustomMessage('Missing Information', 'Please enter your nearest area to search!', false);
+                        return;
+                    }
+
+                    console.log(`Searching for ${carType} cars in: ${nearestArea}`);
+                    showCustomMessage('Search Initiated', `Searching for ${carType} cars in "${nearestArea}". (This is a demo, no actual search performed)`, true);
+                });
+            });
+
+            // Intersection Observer for animations
+            const sections = document.querySelectorAll('.section-padding');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2 // Trigger when 20% of the section is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate the main content of the section
+                        const sectionContent = entry.target.querySelector('.section-content');
+                        if (sectionContent) {
+                            // Animate cards within the section-content
+                            const cards = sectionContent.querySelectorAll('.feature-card, .fleet-card, .testimonial-card');
+                            cards.forEach((card, index) => {
+                                // Add a slight delay for staggered animation
+                                card.style.transitionDelay = `${index * 0.1}s`;
+                                card.classList.add('animated-card');
+                            });
+                        } else {
+                            // If no specific section-content, animate direct children or the section itself
+                            entry.target.classList.add('animated-section');
+                        }
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

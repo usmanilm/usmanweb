@@ -436,7 +436,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 // Register the service worker using an absolute URL to avoid protocol issues
-                navigator.serviceWorker.register(window.location.origin + '/sw.js')
+                navigator.serviceWorker.register(window.location.origin + '/new/sw.js')
                     .then(registration => {
                         console.log('Service Worker registered! Scope:', registration.scope);
                     })

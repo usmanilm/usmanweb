@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <title>Muhammad Usman - Personal Website</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation.">
+        <meta name="keywords" content="Usman Profile, Technology Consultant, Chief Technology Officer, Chief Marketing Officer, Web Design Expert, App Development Specialist, SEO Professional, Content Creator, Digital Marketing Strategist, IT Solutions Expert, Cloud Computing, Cybersecurity Consultant, Network Infrastructure, Digital Transformation, Business Optimization, Tech Innovator">
+        <link rel="canonical" href="https://usman.biztrax.uk/" />
         
-<title>Muhammad Usman - Personal Website</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation.">
-<meta name="keywords" content="Usman Profile, Technology Consultant, Chief Technology Officer, Chief Marketing Officer, Web Design Expert, App Development Specialist, SEO Professional, Content Creator, Digital Marketing Strategist, IT Solutions Expert, Cloud Computing, Cybersecurity Consultant, Network Infrastructure, Digital Transformation, Business Optimization, Tech Innovator">
-<link rel="canonical" href="https://usman.biztrax.uk/" />
-        
-<!-- Open Graph / WhatsApp -->
-<meta property="og:title" content="Muhammad Usman - Personal Website"/>
-<meta property="og:description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation."/>
-<meta property="og:image" content="/img/profile2.png"/>
-<meta property="og:image:type" content="image/png"/>
-<meta property="og:image:width" content="500"/>
-<meta property="og:image:height" content="500"/>
-<meta property="og:url" content="https://usman.biztrax.uk"/>
-<meta property="og:type" content="website"/>
+        <!-- Open Graph / WhatsApp -->
+        <meta property="og:title" content="Muhammad Usman - Personal Website"/>
+        <meta property="og:description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation."/>
+        <meta property="og:image" content="/img/profile2.png"/>
+        <meta property="og:image:type" content="image/png"/>
+        <meta property="og:image:width" content="500"/>
+        <meta property="og:image:height" content="500"/>
+        <meta property="og:url" content="https://usman.biztrax.uk"/>
+        <meta property="og:type" content="website"/>
 
-<!-- Twitter Card (Optional for better sharing across platforms) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Muhammad Usman - Personal Website">
-<meta name="twitter:description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation.">
-<meta name="twitter:image" content="/img/profile2.png">
+        <!-- Twitter Card (Optional for better sharing across platforms) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Muhammad Usman - Personal Website">
+        <meta name="twitter:description" content="Explore Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation.">
+        <meta name="twitter:image" content="/img/profile2.png">
         
- 
         <!-- Favicon -->
         <link href="img/profile.jpeg" rel="icon">
 
+        <!-- Preconnect for Google Fonts and Cloudflare CDN -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+        <link rel="preconnect" href="https://stackpath.bootstrapcdn.com" crossorigin>
+
         <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Poppins&display=swap" rel="stylesheet"> 
+        <style>
+            /* Ensure font-display is set for better FCP */
+            @font-face {
+                font-family: 'Averia Serif Libre';
+                font-display: swap;
+                src: url('https://fonts.gstatic.com/s/averiaseriflibre/v19/neIWzD2ms4WnGrXf_gXgM4M_g_g-g_g.woff2') format('woff2'); /* Example, check actual font URLs */
+            }
+            @font-face {
+                font-family: 'Poppins';
+                font-display: swap;
+                src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgM5WlFVadF_f.woff2') format('woff2'); /* Example, check actual font URLs */
+            }
+        </style>
 
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -41,24 +58,63 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <!-- Inline critical CSS if any, or ensure style.css is optimized -->
+        <style>
+            /* Basic critical CSS if needed to prevent FOUC */
+            body { font-family: 'Poppins', sans-serif; }
+            .wrapper { display: flex; } /* Example */
+            /* Add other critical styles here */
+
+            /* Improved contrast for text-primary on white background */
+            .text-primary {
+                color: #007bff; /* Original Bootstrap primary */
+            }
+            /* Adjusting text color for better contrast where needed */
+            .bg-white p, .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white small {
+                color: #333; /* Darker text for better contrast on white */
+            }
+            .bg-primary h1, .bg-primary p {
+                color: #fff; /* Ensure white text on primary background */
+            }
+            .btn-outline-primary {
+                color: #007bff;
+                border-color: #007bff;
+            }
+            .btn-outline-primary:hover {
+                background-color: #007bff;
+                color: #fff;
+            }
+            /* Ensure progress bar text is accessible if visible */
+            .progress-bar {
+                color: #fff; /* White text on colored bars */
+                text-align: center;
+                line-height: 20px; /* Adjust as needed */
+            }
+        </style>
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
         <div class="wrapper">
             <div class="sidebar">
                 <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                    <img class="w-100 img-fluid mb-4" src="img/profile2.png" alt="Usman">
+                    <img class="w-100 img-fluid mb-4" 
+                         src="img/profile2.png" 
+                         alt="Muhammad Usman's profile picture"
+                         srcset="img/profile2.png 352w, img/profile2-medium.png 500w, img/profile2-large.png 800w" 
+                         sizes="(max-width: 768px) 100vw, 352px"
+                         fetchpriority="high">
                     <h1 class="mt-2">M. Usman</h1>
                     <div class="mb-4" style="height: 22px;">
-                        <h4 class="typed-text-output d-inline-block text-body"></h4>
+                        <h2 class="typed-text-output d-inline-block text-body"></h2> <!-- Changed to h2 for semantic order -->
                         <div class="typed-text d-none">Chief Marketing Officer, IT Consultant, Technology Specialist</div>
                     </div>
                     <div class="d-flex justify-content-center mt-auto mb-3">
-                        <a class="mx-2" href="https://x.com/usmanilm"><i class="fab fa-twitter"></i></a>
-                        <a class="mx-2" href="https://www.facebook.com/usman.ilm"><i class="fab fa-facebook-f"></i></a>
-                        <a class="mx-2" href="www.linkedin.com/in/usmanilm"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="mx-2" href="https://www.instagram.com/usman.ilm/"><i class="fab fa-instagram"></i></a>
-                        <a class="mx-2" href="https://www.youtube.com/@MuhammadUsmanILM/videos"><i class="fab fa-youtube"></i></a>
+                        <a class="mx-2" href="https://x.com/usmanilm" aria-label="Visit Usman's Twitter profile"><i class="fab fa-twitter"></i></a>
+                        <a class="mx-2" href="https://www.facebook.com/usman.ilm" aria-label="Visit Usman's Facebook profile"><i class="fab fa-facebook-f"></i></a>
+                        <a class="mx-2" href="https://www.linkedin.com/in/usmanilm" aria-label="Visit Usman's LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="mx-2" href="https://www.instagram.com/usman.ilm/" aria-label="Visit Usman's Instagram profile"><i class="fab fa-instagram"></i></a>
+                        <a class="mx-2" href="https://www.youtube.com/@MuhammadUsmanILM/videos" aria-label="Visit Usman's YouTube channel"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="d-flex align-items-end justify-content-between">
                         <a href="https://usman.biztrax.uk/timeline" class="btn btn-block border-right">Career Timeline</a>
@@ -88,23 +144,23 @@
                             <p>Hi there! I'm Muhammad Usman, an IT aficionado with nearly two decades of experience in the tech industry. As the Chief Marketing Officer, I specialize in data-driven strategies and technology innovations. With expertise in Google Workspace, Databases, and Software Development, my projects have impacted governmental and private sectors.</p>
                             <div class="row">
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Name:</h5> Muhammad usman
+                                    <h3 class="d-inline text-primary">Name:</h3> Muhammad usman <!-- Changed to h3 -->
                                 </div>
 
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Degree:</h5> BCS
+                                    <h3 class="d-inline text-primary">Degree:</h3> BCS <!-- Changed to h3 -->
                                 </div>
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Experience:</h5> 20+ Years
+                                    <h3 class="d-inline text-primary">Experience:</h3> 20+ Years <!-- Changed to h3 -->
                                 </div>
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Phone:</h5> +92 313 4781876
+                                    <h3 class="d-inline text-primary">Phone:</h3> +92 313 4781876 <!-- Changed to h3 -->
                                 </div>
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Email:</h5> usman@biztrax.uk
+                                    <h3 class="d-inline text-primary">Email:</h3> usman@biztrax.uk <!-- Changed to h3 -->
                                 </div>
                                 <div class="col-sm-6 py-1">
-                                    <h5 class="d-inline text-primary">Address:</h5> Lahore, Pakistan
+                                    <h3 class="d-inline text-primary">Address:</h3> Lahore, Pakistan <!-- Changed to h3 -->
                                 </div>
                             </div>
                         </div>
@@ -126,7 +182,7 @@
                                     <p class="mb-2">95%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Technology Leadership progress"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
@@ -135,7 +191,7 @@
                                     <p class="mb-2">85%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Technology Management progress"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
@@ -144,7 +200,7 @@
                                     <p class="mb-2">90%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Google Workspace progress"></div>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +211,7 @@
                                     <p class="mb-2">90%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Javascript progress"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
@@ -164,7 +220,7 @@
                                     <p class="mb-2">95%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Angular JS progress"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
@@ -173,7 +229,7 @@
                                     <p class="mb-2">85%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Wordpress progress"></div>
                                 </div>
                             </div>
                         </div>
@@ -186,26 +242,26 @@
                 <a href="timeline.html"><div class="container bg-white py-5">
                     <div class="row px-3">
                         <div class="col-12">
-                            <h2 class="title position-relative pb-2 mb-4">Expericence</h2>
+                            <h2 class="title position-relative pb-2 mb-4">Experience</h2> <!-- Corrected heading -->
                         </div>
                         <div class="col-12">
                             <div class="border-left border-primary pt-2 pl-4 ml-2">
                                 <div class="position-relative mb-4">
                                     <i class="fa fa-arrow-right text-primary position-absolute" style="top: 3px; left: -24px;"></i>
-                                    <h5 class="mb-1">Chief Technology Officer & Chief Marketing Officer</h5>
+                                    <h3 class="mb-1">Chief Technology Officer & Chief Marketing Officer</h3> <!-- Changed to h3 -->
                                     <p class="mb-2">Neon Nova | <small>Feb 2024 - Present</small></p>
                                     <p>Pioneering technology-driven innovations for custom neon signs while driving strategic marketing efforts to elevate brand presence.</p>
                                 </div>
                                 <div class="position-relative mb-4">
                                     <i class="fa fa-arrow-right text-primary position-absolute" style="top: 3px; left: -24px;"></i>
-                                    <h5 class="mb-1">IT Consultant</h5>
+                                    <h3 class="mb-1">IT Consultant</h3> <!-- Changed to h3 -->
                                     <p class="mb-2">Glamp Pakistan | <small>Oct 2019 - Present</small></p>
                                     <p>Revolutionizing the hospitality industry with luxury glamping experiences, combining comfort, sustainability, and technology for modern travelers.</p>
                                 </div>
                                 <div class="position-relative mb-4">
                                     <i class="fa fa-arrow-right text-primary position-absolute" style="top: 3px; left: -24px;"></i>
-                                    <h5 class="mb-1">Information Technology Consultant</h5>
-                                    <p class="mb-2">3rd Planet | <small>July 2024 - Present</p>
+                                    <h3 class="mb-1">Information Technology Consultant</h3> <!-- Changed to h3 -->
+                                    <p class="mb-2">3rd Planet | <small>July 2024 - Present</small></p>
                                     <p>Specializing in IT consultancy to optimize business processes, enhance efficiency, and drive digital transformation for sustainability-focused clients.</p>
                                 </div>
                             </div>
@@ -219,11 +275,11 @@
                 <!-- Subscribe Start -->
                 <div class="container bg-white py-5 px-0">
                     <div class="bg-primary text-center p-5">
-                        <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
+                        <h2 class="text-white font-weight-bold">Subscribe My Newsletter</h2> <!-- Changed to h2 -->
                         <p class="text-white">Subscribe and get my latest article in your inbox</p>
                         <form class="form-inline justify-content-center">
                             <div class="input-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Email">
+                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" aria-label="Your Email for Newsletter" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-dark px-4" type="submit">Subscribe</button>
                                 </div>
@@ -241,23 +297,23 @@
                             <h2 class="title position-relative pb-2 mb-4">Services</h2>
                         </div>
                         <div class="col-md-6 service-item text-center mb-3">
-                            <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
-                            <h5 class="mb-2">Web Design</h5>
+                            <i class="fa fa-2x fa-laptop-code mx-auto mb-4" aria-hidden="true"></i>
+                            <h3 class="mb-2">Web Design</h3> <!-- Changed to h3 -->
                             <p>Crafting visually appealing, user-friendly websites tailored to enhance brand identity and drive user engagement.</p>
                         </div>
                         <div class="col-md-6 service-item text-center mb-3">
-                            <i class="fab fa-2x fa-android mx-auto mb-4"></i>
-                            <h5 class="mb-2">Apps Development</h5>
+                            <i class="fab fa-2x fa-android mx-auto mb-4" aria-hidden="true"></i>
+                            <h3 class="mb-2">Apps Development</h3> <!-- Changed to h3 -->
                             <p>Delivering innovative, feature-rich mobile and web applications designed to optimize user experiences and meet business needs.</p>
                         </div>
                         <div class="col-md-6 service-item text-center mb-3">
-                            <i class="fa fa-2x fa-search mx-auto mb-4"></i>
-                            <h5 class="mb-2">SEO</h5>
+                            <i class="fa fa-2x fa-search mx-auto mb-4" aria-hidden="true"></i>
+                            <h3 class="mb-2">SEO</h3> <!-- Changed to h3 -->
                             <p>Boosting online visibility and driving organic traffic through data-driven search engine optimization strategies.</p>
                         </div>
                         <div class="col-md-6 service-item text-center mb-3">
-                            <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
-                            <h5 class="mb-2">Content Creating</h5>
+                            <i class="fa fa-2x fa-edit mx-auto mb-4" aria-hidden="true"></i>
+                            <h3 class="mb-2">Content Creating</h3> <!-- Changed to h3 -->
                             <p>Producing compelling, high-quality content that aligns with brand goals and resonates with target audiences.</p>
                         </div>
                     </div>
@@ -275,49 +331,69 @@
                             <div class="row">
                                 <div class="col-12 text-center mb-2">
                                     <ul class="list-inline mb-4" id="portfolio-flters">
-                                        <li class="btn btn-outline-primary active"  data-filter="*"><i class="fa fa-star mr-2"></i>All</li>
-                                        <li class="btn btn-outline-primary" data-filter=".first"><i class="fa fa-laptop-code mr-2"></i>Design</li>
-                                        <li class="btn btn-outline-primary" data-filter=".second"><i class="fa fa-mobile-alt mr-2"></i>Development</li>
+                                        <li class="btn btn-outline-primary active"  data-filter="*"><i class="fa fa-star mr-2" aria-hidden="true"></i>All</li>
+                                        <li class="btn btn-outline-primary" data-filter=".first"><i class="fa fa-laptop-code mr-2" aria-hidden="true"></i>Design</li>
+                                        <li class="btn btn-outline-primary" data-filter=".second"><i class="fa fa-mobile-alt mr-2" aria-hidden="true"></i>Development</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="row portfolio-container">
                                 <div class="col-md-6 mb-4 portfolio-item first">
                                     <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
+                                        <img class="img-fluid w-100" 
+                                             src="img/portfolio-1.jpg" 
+                                             alt="Portfolio item: Web Design example 1"
+                                             loading="lazy"
+                                             srcset="img/portfolio-1.jpg 320w, img/portfolio-1-medium.jpg 600w"
+                                             sizes="(max-width: 768px) 100vw, 320px">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                                                <i class="fa fa-4x fa-plus text-white"></i>
+                                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio" aria-label="View Web Design example 1 in lightbox">
+                                                <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 portfolio-item second">
                                     <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
+                                        <img class="img-fluid w-100" 
+                                             src="img/portfolio-2.jpg" 
+                                             alt="Portfolio item: Apps Development example 1"
+                                             loading="lazy"
+                                             srcset="img/portfolio-2.jpg 320w, img/portfolio-2-medium.jpg 600w"
+                                             sizes="(max-width: 768px) 100vw, 320px">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                                                <i class="fa fa-4x fa-plus text-white"></i>
+                                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio" aria-label="View Apps Development example 1 in lightbox">
+                                                <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 portfolio-item first">
                                     <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
+                                        <img class="img-fluid w-100" 
+                                             src="img/portfolio-3.jpg" 
+                                             alt="Portfolio item: Web Design example 2"
+                                             loading="lazy"
+                                             srcset="img/portfolio-3.jpg 320w, img/portfolio-3-medium.jpg 600w"
+                                             sizes="(max-width: 768px) 100vw, 320px">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                                                <i class="fa fa-4x fa-plus text-white"></i>
+                                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio" aria-label="View Web Design example 2 in lightbox">
+                                                <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4 portfolio-item second">
                                     <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
+                                        <img class="img-fluid w-100" 
+                                             src="img/portfolio-4.jpg" 
+                                             alt="Portfolio item: Apps Development example 2"
+                                             loading="lazy"
+                                             srcset="img/portfolio-4.jpg 320w, img/portfolio-4-medium.jpg 600w"
+                                             sizes="(max-width: 768px) 100vw, 320px">
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                                                <i class="fa fa-4x fa-plus text-white"></i>
+                                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio" aria-label="View Apps Development example 2 in lightbox">
+                                                <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -338,34 +414,34 @@
                         <div class="col-12">
                             <div class="owl-carousel testimonial-carousel">
                                 <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Usman’s innovative approach and technical expertise have transformed our operations at Neon Nova. His ability to blend creativity with technology has been instrumental in enhancing customer engagement and driving growth.</h4>
+                                    <i class="fa fa-3x fa-quote-left text-primary mb-4" aria-hidden="true"></i>
+                                    <h3 class="text-body mb-4">Usman’s innovative approach and technical expertise have transformed our operations at Neon Nova. His ability to blend creativity with technology has been instrumental in enhancing customer engagement and driving growth.</h3> <!-- Changed to h3 -->
                                     <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                                        <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;" alt="Sadia, CEO Neon Nova">
                                         <div class="pl-3">
-                                            <h5 class="text-primary m-0">Sadia</h5>
+                                            <h4 class="text-primary m-0">Sadia</h4> <!-- Changed to h4 -->
                                             <i>CEO Neon Nova</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Usman’s visionary leadership in tech and marketing has elevated Glamp Pakistan’s digital presence. His solutions are not only strategic but also tailored to deliver measurable results.</h4>
+                                    <i class="fa fa-3x fa-quote-left text-primary mb-4" aria-hidden="true"></i>
+                                    <h3 class="text-body mb-4">Usman’s visionary leadership in tech and marketing has elevated Glamp Pakistan’s digital presence. His solutions are not only strategic but also tailored to deliver measurable results.</h3> <!-- Changed to h3 -->
                                     <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                                        <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;" alt="Fahad, CEO & Founder Glamp Pakistan">
                                         <div class="pl-3">
-                                            <h5 class="text-primary m-0">Fahad</h5>
+                                            <h4 class="text-primary m-0">Fahad</h4> <!-- Changed to h4 -->
                                             <i>CEO & Founder Glamp Pakistan</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-left">
-                                    <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                    <h4 class="text-body mb-4">Usman’s consultancy has been a game-changer for 3rd Planet. His proficiency in IT and dedication to sustainable practices have significantly streamlined our operations and amplified our impact.</h4>
+                                    <i class="fa fa-3x fa-quote-left text-primary mb-4" aria-hidden="true"></i>
+                                    <h3 class="text-body mb-4">Usman’s consultancy has been a game-changer for 3rd Planet. His proficiency in IT and dedication to sustainable practices have significantly streamlined our operations and amplified our impact.</h3> <!-- Changed to h3 -->
                                     <div class="d-flex align-items-center">
-                                        <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                                        <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" alt="Azam, Founder 3rd Planet">
                                         <div class="pl-3">
-                                            <h5 class="text-primary m-0">Azam</h5>
+                                            <h4 class="text-primary m-0">Azam</h4> <!-- Changed to h4 -->
                                             <i>Founder 3rd Planet</i>
                                         </div>
                                     </div>
@@ -390,24 +466,24 @@
                                     <div class="form-row">
                                         <div class="control-group col-sm-6">
                                             <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
-                                                required="required" data-validation-required-message="Please enter your name" />
+                                                required="required" data-validation-required-message="Please enter your name" aria-label="Your Name" />
                                             <p class="help-block text-danger"></p>
                                         </div>
                                         <div class="control-group col-sm-6">
                                             <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                                required="required" data-validation-required-message="Please enter your email" />
+                                                required="required" data-validation-required-message="Please enter your email" aria-label="Your Email" />
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                            required="required" data-validation-required-message="Please enter a subject" />
+                                            required="required" data-validation-required-message="Please enter a subject" aria-label="Subject" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group">
                                         <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
                                             required="required"
-                                            data-validation-required-message="Please enter your message"></textarea>
+                                            data-validation-required-message="Please enter your message" aria-label="Message"></textarea>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div>
@@ -425,19 +501,19 @@
                 <div class="container-fluid bg-white pt-5 px-0">
                     <div class="container bg-dark text-light text-center py-5">
                         <div class="d-flex justify-content-center mb-4">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://x.com/usmanilm"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/usman.ilm"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.instagram.com/usman.ilm/"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/usman.ilm/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://x.com/usmanilm" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/usman.ilm" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.linkedin.com/in/usmanilm" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/usman.ilm/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="d-flex justify-content-center mb-3">
-                            <a class="text-white" href="#">Privacy</a>
+                            <a class="text-white" href="#" aria-label="Privacy Policy">Privacy</a>
                             <span class="px-3">|</span>
-                            <a class="text-white" href="#">Terms</a>
+                            <a class="text-white" href="#" aria-label="Terms and Conditions">Terms</a>
                             <span class="px-3">|</span>
-                            <a class="text-white" href="#">FAQs</a>
+                            <a class="text-white" href="#" aria-label="Frequently Asked Questions">FAQs</a>
                             <span class="px-3">|</span>
-                            <a class="text-white" href="#">Help</a>
+                            <a class="text-white" href="#" aria-label="Help">Help</a>
                         </div>
                         <p class="m-0">&copy; All Rights Reserved.</p>
                     </div>
@@ -447,23 +523,23 @@
         </div>
         
         <!-- Back to Top -->
-        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fa fa-angle-double-up"></i></a>
         
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/typed/typed.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="lib/typed/typed.min.js" defer></script>
+        <script src="lib/easing/easing.min.js" defer></script>
+        <script src="lib/waypoints/waypoints.min.js" defer></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js" defer></script>
+        <script src="lib/isotope/isotope.pkgd.min.js" defer></script>
+        <script src="lib/lightbox/js/lightbox.min.js" defer></script>
 
         <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <script src="mail/jqBootstrapValidation.min.js" defer></script>
+        <script src="mail/contact.js" defer></script>
 
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src="js/main.js" defer></script>
     </body>
 </html>

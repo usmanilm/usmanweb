@@ -44,6 +44,19 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Custom CSS for mobile heading adjustment -->
+  <style>
+    @media (max-width: 767.98px) {
+      .section-title h2 {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+        word-break: break-word; /* Ensure long words break */
+      }
+      .section-title p {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+      }
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: Style
   * Template URL: https://bootstrapmade.com/style-bootstrap-portfolio-template/
@@ -611,7 +624,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item">
               <div class="icon">
-                <i class="bi bi-laptop-code"></i>
+                <i class="bi bi-laptop-code"></i> <!-- Correct icon for Web Design & Development -->
               </div>
               <h3>Web Design & Development</h3>
               <p>Crafting visually appealing, user-friendly, and responsive websites tailored to enhance brand identity and drive user engagement. Specializing in modern web technologies and SEO-friendly structures.</p>
@@ -741,20 +754,24 @@
             <li data-filter=".filter-digital">
               Digital Solutions
             </li>
+            <li data-filter=".filter-marketing">
+              Marketing
+            </li>
           </ul>
 
           <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
 
+            <!-- Existing Portfolio Items (updated with new descriptions/links if needed) -->
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="Web Design Project 1" loading="lazy">
+                  <img src="assets/img/portfolio/e-commerce-platform.jpg" class="img-fluid" alt="E-commerce Platform Development" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">Web Design</div>
-                      <h3 class="entry-title">E-commerce Website Redesign</h3>
+                      <h3 class="entry-title">E-commerce Platform Development</h3>
                       <div class="entry-links">
-                        <a href="assets/img/portfolio/portfolio-1.webp" class="glightbox" data-gallery="portfolio-gallery-design" data-glightbox="title: E-commerce Website Redesign; description: A modern redesign for an online retail platform, focusing on user experience and conversion rates.">
+                        <a href="assets/img/portfolio/e-commerce-platform.jpg" class="glightbox" data-gallery="portfolio-gallery-design" data-glightbox="title: E-commerce Platform Development; description: Designed and developed a robust e-commerce platform with enhanced user experience and secure payment gateways.">
                           <i class="bi bi-arrows-angle-expand"></i>
                         </a>
                         <a href="https://usman.biztrax.uk/minduxe" target="_blank" rel="noopener noreferrer">
@@ -770,13 +787,13 @@
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-2.webp" class="img-fluid" alt="App Development Project 1" loading="lazy">
+                  <img src="assets/img/portfolio/custom-software-development.jpg" class="img-fluid" alt="Custom Software Development" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">App Development</div>
-                      <h3 class="entry-title">Mobile Booking Application</h3>
+                      <h3 class="entry-title">Custom Software Development</h3>
                       <div class="entry-links">
-                        <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox" data-gallery="portfolio-gallery-development" data-glightbox="title: Mobile Booking Application; description: Developed a seamless mobile application for service bookings, enhancing user convenience.">
+                        <a href="assets/img/portfolio/custom-software-development.jpg" class="glightbox" data-gallery="portfolio-gallery-development" data-glightbox="title: Custom Software Development; description: Developed bespoke software solutions tailored to specific business needs, improving operational efficiency.">
                           <i class="bi bi-arrows-angle-expand"></i>
                         </a>
                         <a href="https://usman.biztrax.uk/tourism-market-pakistan" target="_blank" rel="noopener noreferrer">
@@ -792,13 +809,13 @@
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="Digital Solution Project 1" loading="lazy">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="IT Consulting Services" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">Digital Solutions</div>
-                      <h3 class="entry-title">Automated Inventory System</h3>
+                      <h3 class="entry-title">IT Consulting & Strategy</h3>
                       <div class="entry-links">
-                        <a href="assets/img/portfolio/portfolio-3.webp" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Automated Inventory System; description: Implemented a cloud-based automated inventory system for improved efficiency.">
+                        <a href="assets/img/portfolio/it-consulting.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: IT Consulting & Strategy; description: Provided strategic IT consulting to optimize infrastructure and drive digital transformation for various clients.">
                           <i class="bi bi-arrows-angle-expand"></i>
                         </a>
                         <a href="https://usman.biztrax.uk/info-autocare-pro" target="_blank" rel="noopener noreferrer">
@@ -814,7 +831,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="Web Design Project 2" loading="lazy">
+                  <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="Real Estate Portal" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">Web Design</div>
@@ -836,7 +853,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="App Development Project 2" loading="lazy">
+                  <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="Cafe Management System" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">App Development</div>
@@ -858,7 +875,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
               <article class="portfolio-entry">
                 <figure class="entry-image">
-                  <img src="assets/img/portfolio/portfolio-6.webp" class="img-fluid" alt="Digital Solution Project 2" loading="lazy">
+                  <img src="assets/img/portfolio/portfolio-6.webp" class="img-fluid" alt="Custom Neon Signs Platform" loading="lazy">
                   <div class="entry-overlay">
                     <div class="overlay-content">
                       <div class="entry-meta">Digital Solutions</div>
@@ -868,6 +885,139 @@
                           <i class="bi bi-arrows-angle-expand"></i>
                         </a>
                         <a href="https://neonnova.co.uk/" target="_blank" rel="noopener noreferrer">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <!-- New Portfolio Items -->
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/cloud-solutions-migration.jpg" class="img-fluid" alt="Cloud Solutions Migration" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Cloud Solutions & Migration</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/cloud-solutions-migration.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Cloud Solutions & Migration; description: Successfully migrated on-premise infrastructure to scalable cloud solutions, enhancing performance and reducing costs.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/cyber-security-consulting.jpg" class="img-fluid" alt="Cyber Security Consulting" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Cyber Security Consulting</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/cyber-security-consulting.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Cyber Security Consulting; description: Provided expert cybersecurity consulting, implementing robust security measures and compliance frameworks.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/data-analytics-bi.jpg" class="img-fluid" alt="Data Analytics & Business Intelligence" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Data Analytics & BI Solutions</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/data-analytics-bi.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Data Analytics & Business Intelligence; description: Developed and implemented data analytics and business intelligence dashboards for informed decision-making.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/data-warehouse.jpg" class="img-fluid" alt="Data Warehouse Implementation" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Data Warehouse Implementation</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/data-warehouse.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Data Warehouse Implementation; description: Designed and implemented scalable data warehouse solutions for efficient data storage and retrieval.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/digital-marketing-strategy.jpg" class="img-fluid" alt="Digital Marketing Strategy" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Marketing</div>
+                      <h3 class="entry-title">Advanced Digital Marketing Strategy</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/digital-marketing-strategy.jpg" class="glightbox" data-gallery="portfolio-gallery-marketing" data-glightbox="title: Advanced Digital Marketing Strategy; description: Developed and executed comprehensive digital marketing strategies, including SEO, SEM, and social media campaigns.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/enterprise-crm-integration.jpg" class="img-fluid" alt="Enterprise CRM Integration" loading="lazy">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Enterprise CRM Integration</h3>
+                      <div class="entry-links">
+                        <a href="assets/img/portfolio/enterprise-crm-integration.jpg" class="glightbox" data-gallery="portfolio-gallery-digital" data-glightbox="title: Enterprise CRM Integration; description: Integrated enterprise-level CRM systems to streamline customer relationship management and sales processes.">
+                          <i class="bi bi-arrows-angle-expand"></i>
+                        </a>
+                        <a href="#portfolio">
                           <i class="bi bi-arrow-right"></i>
                         </a>
                       </div>
@@ -1207,7 +1357,7 @@
                 </div>
                 <div class="content">
                   <h4>Phone Number</h4>
-                  <p>+92 313 4781876</p>
+                  <p><a href="tel:+923134781876">+92 313 4781876</a></p>
                 </div>
               </div>
 
@@ -1217,7 +1367,7 @@
                 </div>
                 <div class="content">
                   <h4>Email Address</h4>
-                  <p>usman@biztrax.uk</p>
+                  <p><a href="mailto:usman@biztrax.uk">usman@biztrax.uk</a></p>
                 </div>
               </div>
             </div>
@@ -1228,7 +1378,8 @@
               <h3>Send Me a Message</h3>
               <p>Use the form below to send a direct message. I aim to respond within 24-48 hours.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <!-- Updated form action for native mail client -->
+              <form action="mailto:usman@biztrax.uk" method="post" enctype="text/plain" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -1248,10 +1399,7 @@
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
+                    <!-- Removed loading, error, and sent messages as they are for server-side processing -->
                     <button type="submit" class="btn">Send Message</button>
                   </div>
 

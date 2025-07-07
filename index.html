@@ -36,16 +36,16 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Poppins&display=swap" rel="stylesheet"> 
         <style>
-            /* Ensure font-display is set for better FCP */
+            /* Ensure font-display is set for better FCP for fonts loaded via Google Fonts link */
             @font-face {
                 font-family: 'Averia Serif Libre';
                 font-display: swap;
-                src: url('https://fonts.gstatic.com/s/averiaseriflibre/v19/neIWzD2ms4WnGrXf_gXgM4M_g_g-g_g.woff2') format('woff2'); /* Example, check actual font URLs */
+                /* No src URL here, relies on Google Fonts link */
             }
             @font-face {
                 font-family: 'Poppins';
                 font-display: swap;
-                src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgM5WlFVadF_f.woff2') format('woff2'); /* Example, check actual font URLs */
+                /* No src URL here, relies on Google Fonts link */
             }
         </style>
 
@@ -101,9 +101,7 @@
                     <img class="w-100 img-fluid mb-4" 
                          src="img/profile2.png" 
                          alt="Muhammad Usman's profile picture"
-                         srcset="img/profile2.png 352w, img/profile2-medium.png 500w, img/profile2-large.png 800w" 
-                         sizes="(max-width: 768px) 100vw, 352px"
-                         fetchpriority="high">
+                         fetchpriority="high"> <!-- Removed srcset and sizes -->
                     <h1 class="mt-2">M. Usman</h1>
                     <div class="mb-4" style="height: 22px;">
                         <h2 class="typed-text-output d-inline-block text-body"></h2> <!-- Changed to h2 for semantic order -->
@@ -343,9 +341,7 @@
                                         <img class="img-fluid w-100" 
                                              src="img/portfolio-1.jpg" 
                                              alt="Portfolio item: Web Design example 1"
-                                             loading="lazy"
-                                             srcset="img/portfolio-1.jpg 320w, img/portfolio-1-medium.jpg 600w"
-                                             sizes="(max-width: 768px) 100vw, 320px">
+                                             loading="lazy"> <!-- Removed srcset and sizes -->
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
                                             <a href="img/portfolio-1.jpg" data-lightbox="portfolio" aria-label="View Web Design example 1 in lightbox">
                                                 <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
@@ -358,9 +354,7 @@
                                         <img class="img-fluid w-100" 
                                              src="img/portfolio-2.jpg" 
                                              alt="Portfolio item: Apps Development example 1"
-                                             loading="lazy"
-                                             srcset="img/portfolio-2.jpg 320w, img/portfolio-2-medium.jpg 600w"
-                                             sizes="(max-width: 768px) 100vw, 320px">
+                                             loading="lazy"> <!-- Removed srcset and sizes -->
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
                                             <a href="img/portfolio-2.jpg" data-lightbox="portfolio" aria-label="View Apps Development example 1 in lightbox">
                                                 <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
@@ -373,9 +367,7 @@
                                         <img class="img-fluid w-100" 
                                              src="img/portfolio-3.jpg" 
                                              alt="Portfolio item: Web Design example 2"
-                                             loading="lazy"
-                                             srcset="img/portfolio-3.jpg 320w, img/portfolio-3-medium.jpg 600w"
-                                             sizes="(max-width: 768px) 100vw, 320px">
+                                             loading="lazy"> <!-- Removed srcset and sizes -->
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
                                             <a href="img/portfolio-3.jpg" data-lightbox="portfolio" aria-label="View Web Design example 2 in lightbox">
                                                 <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>
@@ -388,9 +380,7 @@
                                         <img class="img-fluid w-100" 
                                              src="img/portfolio-4.jpg" 
                                              alt="Portfolio item: Apps Development example 2"
-                                             loading="lazy"
-                                             srcset="img/portfolio-4.jpg 320w, img/portfolio-4-medium.jpg 600w"
-                                             sizes="(max-width: 768px) 100vw, 320px">
+                                             loading="lazy"> <!-- Removed srcset and sizes -->
                                         <div class="portfolio-btn d-flex align-items-center justify-content-center">
                                             <a href="img/portfolio-4.jpg" data-lightbox="portfolio" aria-label="View Apps Development example 2 in lightbox">
                                                 <i class="fa fa-4x fa-plus text-white" aria-hidden="true"></i>

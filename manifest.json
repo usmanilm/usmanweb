@@ -2,7 +2,7 @@
   "name": "Muhammad Usman - Portfolio",
   "short_name": "Usman Portfolio",
   "description": "Muhammad Usman's personal portfolio website showcasing technology leadership, IT consulting, and digital transformation expertise.",
-  "start_url": "/usmanweb/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#149ddd",

@@ -6,6 +6,15 @@
 * License: https://bootstrapmade.com/license/
 */
 
+// Preloader
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    preloader.remove();
+    document.body.classList.add('loaded'); // Add 'loaded' class to body
+  }
+});
+
 (function() {
   "use strict";
 

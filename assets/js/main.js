@@ -5,6 +5,30 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+// Register Service Worker for PWA functionality
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/usmanweb/service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered:', registration);
+      })
+      .catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
+}
+
+// Existing preloader code should follow this
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    document.body.classList.add('loaded');
+    preloader.addEventListener('transitionend', () => {
+      preloader.remove();
+    });
+  }
+});
+
 
 // Preloader
 window.addEventListener('load', () => {

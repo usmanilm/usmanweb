@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalfordEPC: Digital Strategy for Manchester & London</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .matrix-cell {
+            border: 2px solid #E5E7EB;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .matrix-cell:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .strategy-step {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 4px solid #48CAE4;
+        }
+        .strategy-step:last-child {
+            border-left: none;
+        }
+        .strategy-step::before {
+            content: '';
+            position: absolute;
+            left: -0.875rem;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #0077B6;
+            border-radius: 50%;
+            border: 4px solid #F0F9FF;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#004E89] tracking-tight">Powering Growth</h1>
+            <p class="text-xl md:text-2xl text-[#0077B6] mt-2">A Digital Strategy for SalfordEPC's Expansion into Manchester & London</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="opportunity">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#004E89]">The Market Opportunity</h2>
+                    <p class="text-lg text-gray-600 mt-2">The UK's property EPC market is expanding, driven by regulatory changes and a clear need for homeowner education.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-center items-center text-center">
+                        <span class="text-7xl font-black text-[#0077B6]">466k</span>
+                        <p class="mt-2 text-xl font-semibold text-[#004E89]">EPCs Lodged in Q1 2025</p>
+                        <p class="text-gray-600 mt-1">A 4% increase year-on-year, indicating a robust and growing demand for compliance services across England & Wales.</p>
+                    </div>
+
+                    <div class="md:col-span-2 lg:col-span-2 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center text-[#004E89]">Market Shift: Existing Properties Drive Growth</h3>
+                        <p class="text-center text-gray-600 mb-4">Demand is moving away from new builds towards the existing housing stock, fueled by sales, rentals, and new regulations.</p>
+                        <div class="chart-container">
+                            <canvas id="marketTrendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center text-[#004E89]">Landlord Knowledge Gap</h3>
+                        <p class="text-center text-gray-600 mb-4">A significant portion of landlords are unaware of key EPC regulations, creating an opportunity for educational marketing.</p>
+                        <div class="chart-container h-auto md:h-[350px] flex flex-col sm:flex-row justify-around items-center gap-4">
+                            <div class="w-full sm:w-1/2 h-[200px] sm:h-full"><canvas id="landlordAwarenessChart"></canvas></div>
+                            <div class="w-full sm:w-1/2 h-[200px] sm:h-full"><canvas id="landlordCostChart"></canvas></div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center text-[#004E89]">The Regulatory Push: MEES Deadlines</h3>
+                        <p class="text-center text-gray-600 mb-4">Upcoming Minimum Energy Efficiency Standards (MEES) will mandate upgrades for commercial properties, creating sustained demand.</p>
+                        <div class="flex flex-col md:flex-row justify-around items-center text-center h-full gap-4">
+                            <div class="bg-[#ADE8F4]/30 rounded-lg p-4 w-full">
+                                <p class="text-5xl font-extrabold text-[#0077B6]">EPC 'C'</p>
+                                <p class="text-lg font-semibold text-[#004E89] mt-2">Required by 2027</p>
+                                <p class="text-sm text-gray-600">Minimum rating for rented commercial properties.</p>
+                            </div>
+                            <div class="bg-[#F7A325]/20 rounded-lg p-4 w-full">
+                                <p class="text-5xl font-extrabold text-[#F7A325]">EPC 'B'</p>
+                                <p class="text-lg font-semibold text-[#004E89] mt-2">Required by 2030</p>
+                                <p class="text-sm text-gray-600">A higher future standard creating long-term work.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="competition">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#004E89]">The Competitive Landscape</h2>
+                    <p class="text-lg text-gray-600 mt-2">The market is crowded. Price and speed are key battlegrounds where SalfordEPC faces strong challenges.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center text-[#004E89]">Domestic EPC Price Comparison (£)</h3>
+                        <p class="text-center text-gray-600 mb-4">National competitors are undercutting the current fixed price, making value differentiation crucial.</p>
+                        <div class="chart-container">
+                            <canvas id="priceComparisonChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center text-[#004E89]">Competitor Positioning Matrix</h3>
+                        <p class="text-center text-gray-600 mb-4">SalfordEPC aims for the high-value quadrant, but must build expertise in new markets to justify its position.</p>
+                        <div class="grid grid-cols-2 grid-rows-2 h-[350px] w-full max-w-xl mx-auto gap-1 mt-4">
+                            <div class="matrix-cell bg-green-50 border-green-200">
+                                <h4 class="font-bold text-green-800">Comprehensive Solutions & Expertise</h4>
+                                <p class="text-sm font-semibold text-green-700 mt-2">JustEPC.co.uk</p>
+                                <p class="text-xs text-gray-500">(Broad services, online convenience)</p>
+                            </div>
+                            <div class="matrix-cell bg-blue-50 border-blue-200">
+                                <h4 class="font-bold text-blue-800">Comprehensive Solutions & Expertise</h4>
+                                <p class="font-semibold text-blue-700 mt-2">SalfordEPC (Aspiring)</p>
+                                <p class="font-semibold text-blue-700 mt-1">Haptic EPC</p>
+                                <p class="text-xs text-gray-500">(Value-focused, advanced services)</p>
+                            </div>
+                            <div class="matrix-cell bg-yellow-50 border-yellow-200">
+                                <h4 class="font-bold text-yellow-800">Basic Compliance</h4>
+                                <p class="font-semibold text-yellow-700 mt-2">FasterEPC.com</p>
+                                <p class="font-semibold text-yellow-700 mt-1">EPC Manchester</p>
+                                <p class="text-xs text-gray-500">(Speed & low price focus)</p>
+                            </div>
+                            <div class="matrix-cell bg-red-50 border-red-200">
+                                 <h4 class="font-bold text-red-800">Basic Compliance</h4>
+                                <p class="font-semibold text-red-700 mt-2">London-EPC</p>
+                                <p class="font-semibold text-red-700 mt-1">Nexus Energy</p>
+                                 <p class="text-xs text-gray-500">(Established, price guarantees)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="swot">
+                 <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#004E89]">Internal Audit: SWOT Analysis</h2>
+                    <p class="text-lg text-gray-600 mt-2">A clear view of internal capabilities and external market forces.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-500">
+                        <h3 class="text-2xl font-bold text-green-600 flex items-center"><span class="text-3xl mr-3">👍</span> Strengths</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Qualified, insured, and experienced professionals</li>
+                            <li>Personalized service via direct assessor contact</li>
+                            <li>Transparent, fixed pricing model builds trust</li>
+                            <li>Comprehensive services enable cross-selling</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-red-600 flex items-center"><span class="text-3xl mr-3">👎</span> Weaknesses</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li><strong>Critical technical flaws (Security 'F', DMARC fail)</strong></li>
+                            <li>Suboptimal domain strategy for local SEO</li>
+                            <li>Price & speed are not competitive leaders</li>
+                            <li>Lack of established presence in new markets</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
+                        <h3 class="text-2xl font-bold text-blue-600 flex items-center"><span class="text-3xl mr-3">✨</span> Opportunities</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Growing regulatory demand (MEES)</li>
+                            <li>Educate the confused landlord market segment</li>
+                            <li>Leverage green mortgages as a sales incentive</li>
+                            <li>Forge partnerships with local estate agents</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold text-yellow-600 flex items-center"><span class="text-3xl mr-3">⚠️</span> Threats</h3>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
+                            <li>Aggressive price competition from national players</li>
+                            <li>Technical vulnerabilities risk data breach & downtime</li>
+                            <li>Economic downturn could slow property market</li>
+                            <li>Increased public scrutiny on EPC accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="technical-audit">
+                <div class="text-center mb-8 bg-red-100 border-l-4 border-red-500 text-red-700 p-6 rounded-lg">
+                    <h2 class="text-3xl font-bold">Urgent: Foundational Flaws Detected</h2>
+                    <p class="text-lg mt-2">Critical technical issues undermine all marketing efforts and pose a severe risk to the business.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center border-t-8 border-red-500">
+                        <p class="text-8xl font-black text-red-500">F</p>
+                        <p class="mt-2 text-xl font-semibold text-[#004E89]">Security Grade</p>
+                        <p class="text-gray-600 mt-1">Severe lack of security headers exposes the site to cyberattacks, damaging trust and SEO.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center border-t-8 border-yellow-500">
+                        <p class="text-6xl font-black text-yellow-500">72<span class="text-4xl">/100</span></p>
+                        <p class="mt-2 text-xl font-semibold text-[#004E89]">Mobile Performance</p>
+                        <p class="text-gray-600 mt-1">An acceptable but uncompetitive score. Optimization is needed to improve user experience.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center border-t-8 border-red-500">
+                        <p class="text-4xl font-black text-red-500 leading-tight">DMARC FAILURE</p>
+                        <p class="mt-2 text-xl font-semibold text-[#004E89]">Email Deliverability</p>
+                        <p class="text-gray-600 mt-1">Quotes, bookings, and replies are likely landing in spam, resulting in lost leads and revenue.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="strategy">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#004E89]">The Roadmap to Success</h2>
+                    <p class="text-lg text-gray-600 mt-2">A 4-step digital strategy to fix foundations, build authority, and capture the London & Manchester markets.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="strategy-step">
+                            <h3 class="text-xl font-bold text-[#004E89] mb-2"><span class="text-2xl mr-2">🔧</span> 1. Foundational Technical Overhaul</h3>
+                            <p class="text-gray-600">Immediately fix all security vulnerabilities (Headers, DMARC, SPF/DKIM) and optimize site performance. This is non-negotiable and must be the top priority.</p>
+                        </div>
+                        <div class="strategy-step">
+                            <h3 class="text-xl font-bold text-[#004E89] mb-2"><span class="text-2xl mr-2">🌐</span> 2. Strategic SEO & Domain Shift</h3>
+                            <p class="text-gray-600">Acquire a `.co.uk` domain to signal local relevance. Create dedicated, highly-optimized service pages for Manchester and London to build local search authority.</p>
+                        </div>
+                        <div class="strategy-step">
+                             <h3 class="text-xl font-bold text-[#004E89] mb-2"><span class="text-2xl mr-2">📣</span> 3. Refined Brand Positioning</h3>
+                             <p class="text-gray-600">Move the message from 'cheap and fast' to 'trusted, comprehensive compliance partner'. Emphasize the value of direct, expert advice to justify the price point.</p>
+                        </div>
+                         <div class="strategy-step">
+                             <h3 class="text-xl font-bold text-[#004E89] mb-2"><span class="text-2xl mr-2">✏️</span> 4. Content Marketing & Outreach</h3>
+                             <p class="text-gray-600">Launch an educational content hub addressing landlord confusion. Use targeted Google Ads and forge partnerships with local estate agents to accelerate market entry.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-lg text-[#004E89] font-semibold">Unlocking the Manchester & London Property Markets</p>
+            <p class="text-gray-600">By addressing foundational issues and executing a targeted strategy, SalfordEPC can achieve significant growth.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const brilliantBlues = {
+                darkBlue: '#004E89',
+                mediumBlue: '#0077B6',
+                lightBlue: '#48CAE4',
+                veryLightBlue: '#ADE8F4',
+                accentOrange: '#F7A325',
+                gray: '#a0aec0',
+                darkText: '#333333'
+            };
+
+            const wrapLabel = (str, maxWidth) => {
+                if (str.length <= maxWidth) {
+                    return str;
+                }
+                const words = str.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            };
+
+            const marketTrendCtx = document.getElementById('marketTrendChart').getContext('2d');
+            new Chart(marketTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Oct-Dec 2024', 'Jan-Mar 2025'],
+                    datasets: [{
+                        label: 'EPCs on Existing Dwellings',
+                        data: [309000, 372000],
+                        borderColor: brilliantBlues.mediumBlue,
+                        backgroundColor: brilliantBlues.mediumBlue + '33',
+                        fill: true,
+                        tension: 0.1
+                    }, {
+                        label: 'EPCs on New Dwellings',
+                        data: [56000, 46000],
+                        borderColor: brilliantBlues.accentOrange,
+                        backgroundColor: brilliantBlues.accentOrange + '33',
+                        fill: true,
+                        tension: 0.1
+                    }]
+                },
+                options: { ...tooltipTitleCallback,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value / 1000 + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const landlordAwarenessCtx = document.getElementById('landlordAwarenessChart').getContext('2d');
+            new Chart(landlordAwarenessCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Unaware of Legal Requirement', 'Aware'],
+                    datasets: [{
+                        label: 'Awareness',
+                        data: [62, 38],
+                        backgroundColor: [brilliantBlues.accentOrange, brilliantBlues.lightBlue],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...tooltipTitleCallback,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                       ...tooltipTitleCallback.plugins,
+                       title: { display: true, text: '62% Unaware of EPC Law', position: 'top' }
+                    }
+                }
+            });
+
+            const landlordCostCtx = document.getElementById('landlordCostChart').getContext('2d');
+            new Chart(landlordCostCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Unsure of Improvement Costs', 'Sure'],
+                    datasets: [{
+                        label: 'Cost Certainty',
+                        data: [73, 27],
+                        backgroundColor: [brilliantBlues.accentOrange, brilliantBlues.lightBlue],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 2
+                    }]
+                },
+                options: { ...tooltipTitleCallback,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                       ...tooltipTitleCallback.plugins,
+                       title: { display: true, text: '73% Unsure of Costs', position: 'top' }
+                    }
+                }
+            });
+            
+            const priceComparisonCtx = document.getElementById('priceComparisonChart').getContext('2d');
+            new Chart(priceComparisonCtx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        wrapLabel('JustEPC.co.uk', 16), 
+                        wrapLabel('FasterEPC.com', 16),
+                        wrapLabel('SalfordEPC.com (Current)', 16),
+                        wrapLabel('London-EPC', 16) 
+                    ],
+                    datasets: [{
+                        label: 'Price (£)',
+                        data: [49.95, 59.99, 65.00, 65.00],
+                        backgroundColor: [
+                            brilliantBlues.accentOrange,
+                            brilliantBlues.lightBlue,
+                            brilliantBlues.darkBlue,
+                            brilliantBlues.mediumBlue
+                        ],
+                        borderRadius: 5
+                    }]
+                },
+                options: { ...tooltipTitleCallback,
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        ...tooltipTitleCallback.plugins,
+                        legend: { display: false }
+                    },
+                     scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Price (£)'
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Lycetuff DNK - Digital Growth Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            color: #4A5568;
+            margin-top: 0.5rem;
+        }
+        .section-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #CBD5E0;
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -0.7rem;
+            top: 0;
+            height: 1.25rem;
+            width: 1.25rem;
+            border-radius: 9999px;
+            border: 4px solid #f0f4f8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003366] mb-2">American Lycetuff DNK School System</h1>
+            <p class="text-xl md:text-2xl font-semibold text-[#4A5568]">A Strategic Roadmap for Digital Dominance</p>
+        </header>
+
+        <section id="digital-dilemma" class="mb-12">
+            <div class="section-card">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#D9534F]">The Digital Dilemma: A Foundation at Risk</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">The school's digital presence is critically undermined by poor performance and security, creating a stark contrast with its brand promise of a modern, tech-enabled education. This is not just a technical issue; it's a direct threat to brand credibility and student acquisition.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="kpi-card border-t-4 border-[#FC913A]">
+                        <p class="kpi-value text-[#FC913A]">55<span class="text-3xl">%</span></p>
+                        <p class="kpi-label">Mobile Performance Score</p>
+                        <p class="text-sm text-gray-500 mt-2">Failing Core Web Vitals, leading to a frustrating user experience and lower search rankings.</p>
+                    </div>
+                    <div class="kpi-card border-t-4 border-[#D9534F]">
+                        <p class="kpi-value text-[#D9534F]">F</p>
+                        <p class="kpi-label">Security Header Grade</p>
+                        <p class="text-sm text-gray-500 mt-2">Lacks basic protection, exposing the site and its users to common cyberattacks like clickjacking.</p>
+                    </div>
+                    <div class="kpi-card border-t-4 border-[#F9D423]">
+                        <p class="kpi-value text-[#F9D423]">None</p>
+                        <p class="kpi-label">DMARC Email Policy</p>
+                        <p class="text-sm text-gray-500 mt-2">Leaves the brand vulnerable to email spoofing and phishing, risking financial and reputational damage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competitors" class="mb-12">
+            <div class="section-card">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003366]">Competitive Landscape</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">ALS DNK operates in a market dominated by established giants. While competitors lead in brand equity and digital presence, ALS DNK's strategic alliance in technical education provides a unique, powerful differentiator to carve out market leadership.</p>
+                <div class="chart-container h-96 md:h-[450px] max-h-[500px]">
+                    <canvas id="competitorRadarChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="swot" class="mb-12">
+             <div class="section-card">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003366]">The Strategic Pivot: SWOT Analysis</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A synthesis of internal capabilities and external market factors reveals a clear path forward. The strategy must focus on mitigating digital weaknesses while capitalizing on the unique opportunity presented by the high-demand technical education market.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-2xl font-bold text-green-800 mb-3 flex items-center"><span class="text-3xl mr-3">💪</span>Strengths</h3>
+                        <ul class="list-disc list-inside text-green-700 space-y-2">
+                            <li><b>Extensive Network:</b> 70+ campuses nationwide.</li>
+                            <li><b>Established Legacy:</b> Founded in 1999, building trust.</li>
+                            <li><b>TANG Alliance:</b> First-mover in technical education (TVET).</li>
+                            <li><b>Modern Curriculum:</b> Focus on STEM, robotics, and holistic development.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-red-800 mb-3 flex items-center"><span class="text-3xl mr-3">🔗</span>Weaknesses</h3>
+                        <ul class="list-disc list-inside text-red-700 space-y-2">
+                            <li><b>Poor Digital Infrastructure:</b> Failing performance and security.</li>
+                            <li><b>Brand Dissonance:</b> Digital reality contradicts modern promise.</li>
+                            <li><b>Email Vulnerabilities:</b> High risk of phishing and fraud.</li>
+                            <li><b>Undercapitalized Digital Presence:</b> A bottleneck, not a growth driver.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-3 flex items-center"><span class="text-3xl mr-3">🚀</span>Opportunities</h3>
+                        <ul class="list-disc list-inside text-blue-700 space-y-2">
+                            <li><b>Booming Online Education Market:</b> Projected 24.43% CAGR.</li>
+                            <li><b>High Demand for Tech Skills:</b> TANG alliance meets market needs.</li>
+                            <li><b>Parental Demand for STEM:</b> Aligns with existing curriculum focus.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold text-yellow-800 mb-3 flex items-center"><span class="text-3xl mr-3">🛡️</span>Threats</h3>
+                        <ul class="list-disc list-inside text-yellow-700 space-y-2">
+                            <li><b>Intense Competition:</b> Large, well-funded school chains.</li>
+                            <li><b>Digital Security Risks:</b> Vulnerable to reputation-damaging attacks.</li>
+                            <li><b>Partner Reliance:</b> Over-reliance on the TANG alliance as a sole differentiator.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="mb-12">
+            <div class="section-card">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003366]">A Phased Roadmap to Digital Leadership</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A disciplined, three-phase approach will transform the school's digital presence from a liability into a primary engine for growth, moving from essential repairs to market domination.</p>
+                <div class="relative">
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-[#FC913A]"></div>
+                        <h3 class="text-xl font-bold text-[#FC913A] mb-1">Phase 1: Stabilization (0-6 Months)</h3>
+                        <p class="text-gray-600">The immediate priority is to fix the broken foundation. This phase is about risk mitigation and creating a stable platform for growth.</p>
+                        <ul class="mt-2 list-disc list-inside text-gray-500">
+                            <li>Achieve passing Core Web Vitals scores (>90).</li>
+                            <li>Implement all missing security headers (Grade 'A').</li>
+                            <li>Secure email with an enforced DMARC policy.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-[#F9D423]"></div>
+                        <h3 class="text-xl font-bold text-[#F9D423] mb-1">Phase 2: Foundational Growth (6-18 Months)</h3>
+                        <p class="text-gray-600">With a secure and fast website, the focus shifts to building authority and generating qualified leads through targeted content and advertising.</p>
+                         <ul class="mt-2 list-disc list-inside text-gray-500">
+                            <li>Launch content marketing around the TANG alliance.</li>
+                            <li>Run geo-targeted paid campaigns for key campuses.</li>
+                            <li>Increase organic search traffic by 50% YoY.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot bg-[#5CB85C]"></div>
+                        <h3 class="text-xl font-bold text-[#5CB85C] mb-1">Phase 3: Market Leadership (18-36 Months)</h3>
+                        <p class="text-gray-600">Leverage established authority to dominate the market for technical education and diversify revenue streams through new online offerings.</p>
+                         <ul class="mt-2 list-disc list-inside text-gray-500">
+                            <li>Rank in top 3 for "Matric Tech" and "STEM school" keywords.</li>
+                            <li>Launch an online portal for skills-based short courses.</li>
+                            <li>Reduce Cost-Per-Enrollment by over 25%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="investment" class="mb-12">
+            <div class="section-card">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#003366]">Investing in Growth: Financial Projections</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A strategic investment of $1.5M over three years is projected to generate over $4.5M in revenue from digital channels, delivering a significant return and establishing a sustainable pipeline for student enrollment.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold text-center mb-4">3-Year Budget Allocation (Market Leader Tier)</h3>
+                        <div class="chart-container h-80 md:h-96 max-h-[400px]">
+                            <canvas id="budgetAllocationChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center mb-4">Projected Revenue vs. Investment</h3>
+                        <div class="chart-container h-80 md:h-96 max-h-[400px]">
+                            <canvas id="roiChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="vision" class="mb-12">
+            <div class="section-card bg-gradient-to-r from-[#003366] to-[#004080] text-white">
+                <h2 class="text-3xl font-bold text-center mb-2">The Vision for the Future</h2>
+                <p class="text-center text-slate-200 max-w-3xl mx-auto mb-8">By executing this digital strategy, ALS DNK will not only fix its current vulnerabilities but will transform its digital presence into its most powerful asset, securing a leadership position in the future of Pakistani education.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-4">
+                        <p class="text-5xl font-black text-[#F9D423]">3x</p>
+                        <p class="text-lg mt-2 text-slate-100">Projected Return on Investment</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <p class="text-5xl font-black text-[#F9D423]">$4.5M+</p>
+                        <p class="text-lg mt-2 text-slate-100">Cumulative Revenue from Digital Channels</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <p class="text-5xl font-black text-[#F9D423]">>25%</p>
+                        <p class="text-lg mt-2 text-slate-100">Reduction in Cost-Per-Enrollment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#4A5568',
+                        font: {
+                            family: "'Inter', sans-serif",
+                            size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#1E293B',
+                    titleFont: {
+                        size: 14,
+                        family: "'Inter', sans-serif"
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: "'Inter', sans-serif"
+                    },
+                    padding: 10,
+                    cornerRadius: 4
+                }
+            },
+            scales: {
+                r: {
+                     angleLines: {
+                        color: '#E2E8F0'
+                    },
+                    grid: {
+                        color: '#E2E8F0'
+                    },
+                    pointLabels: {
+                        color: '#4A5568',
+                        font: {
+                           size: 12,
+                           weight: 'bold'
+                        }
+                    },
+                    ticks: {
+                        backdropColor: 'rgba(255, 255, 255, 0.75)',
+                        color: '#64748B'
+                    }
+                },
+                x: {
+                   grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: '#4A5568',
+                         font: {
+                            family: "'Inter', sans-serif",
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#E2E8F0'
+                    },
+                    ticks: {
+                        color: '#4A5568',
+                        font: {
+                            family: "'Inter', sans-serif",
+                        },
+                        callback: function(value) {
+                            if (value >= 1000000) return '$' + (value / 1000000) + 'M';
+                            if (value >= 1000) return '$' + (value / 1000) + 'K';
+                            return '$' + value;
+                        }
+                    }
+                }
+            }
+        };
+
+        const competitorData = {
+            labels: ['Brand Equity', 'Digital Presence', 'Curriculum Diversity', ['Strategic', 'USP (TVET)'], 'Network Scale'],
+            datasets: [{
+                label: 'ALS DNK',
+                data: [6, 3, 7, 9, 8],
+                backgroundColor: 'rgba(252, 145, 58, 0.2)',
+                borderColor: '#FC913A',
+                pointBackgroundColor: '#FC913A',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#FC913A'
+            }, {
+                label: 'Beaconhouse',
+                data: [10, 9, 9, 5, 10],
+                backgroundColor: 'rgba(0, 51, 102, 0.2)',
+                borderColor: '#003366',
+                pointBackgroundColor: '#003366',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#003366'
+            }, {
+                label: 'The City School',
+                data: [9, 8, 7, 4, 9],
+                backgroundColor: 'rgba(217, 83, 79, 0.2)',
+                borderColor: '#D9534F',
+                pointBackgroundColor: '#D9534F',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#D9534F'
+            }]
+        };
+        new Chart(document.getElementById('competitorRadarChart'), {
+            type: 'radar',
+            data: competitorData,
+            options: { ...sharedChartOptions }
+        });
+
+        const budgetData = {
+            labels: ['Phase 1 (0-6m)', 'Phase 2 (6-18m)', 'Phase 3 (18-36m)'],
+            datasets: [
+                {
+                    label: 'Technical & SEO',
+                    data: [175000, 250000, 390000],
+                    backgroundColor: '#003366',
+                },
+                {
+                    label: 'Paid Media',
+                    data: [60000, 250000, 300000],
+                    backgroundColor: '#FC913A',
+                },
+                {
+                    label: 'Content Marketing',
+                    data: [0, 120000, 200000],
+                    backgroundColor: '#5CB85C',
+                }
+            ]
+        };
+        new Chart(document.getElementById('budgetAllocationChart'), {
+            type: 'bar',
+            data: budgetData,
+            options: {
+                ...sharedChartOptions,
+                scales: {
+                    x: { ...sharedChartOptions.scales.x, stacked: true },
+                    y: { ...sharedChartOptions.scales.y, stacked: true }
+                }
+            }
+        });
+
+        const roiData = {
+            labels: ['Start', 'Year 1', 'Year 2', 'Year 3'],
+            datasets: [{
+                label: 'Cumulative Investment',
+                data: [0, 235000, 855000, 1500000],
+                borderColor: '#D9534F',
+                backgroundColor: 'rgba(217, 83, 79, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#D9534F',
+            }, {
+                label: 'Cumulative Revenue',
+                data: [0, 625000, 2125000, 4500000],
+                borderColor: '#5CB85C',
+                backgroundColor: 'rgba(92, 184, 92, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#5CB85C',
+            }]
+        };
+        new Chart(document.getElementById('roiChart'), {
+            type: 'line',
+            data: roiData,
+            options: { ...sharedChartOptions }
+        });
+
+    </script>
+</body>
+</html>

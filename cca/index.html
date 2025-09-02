@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Report: Collaborative Counselling Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#002654]">Market Research & Strategy Report</h1>
+            <p class="text-xl text-[#0073BC] mt-2">Collaborative Counselling Academy</p>
+        </header>
+
+        <main>
+            <section id="executive-summary" class="mb-16">
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Executive Summary</h2>
+                    <p class="text-lg text-gray-600">
+                        This report provides a comprehensive analysis of the Collaborative Counselling Academy's (CCA) current market position, technical performance, and competitive landscape. While CCA holds a strong position in a specialized niche, significant opportunities for growth exist through technical optimization, strategic marketing, and expansion of course offerings. Key weaknesses in website performance must be addressed to improve user experience and search engine visibility, unlocking greater revenue potential in the growing online therapy education market.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-5xl font-extrabold text-[#00A1E4]">$75M</h3>
+                        <p class="text-lg font-semibold text-[#005A9E] mt-2">Estimated Niche Market Size</p>
+                        <p class="text-gray-500 mt-1">Annual estimate for online collaborative & dialogic practice training.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-5xl font-extrabold text-[#00A1E4]">F (32%)</h3>
+                        <p class="text-lg font-semibold text-[#005A9E] mt-2">Website Performance Grade</p>
+                        <p class="text-gray-500 mt-1">Critical technical issues impacting user experience and SEO.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-5xl font-extrabold text-[#00A1E4]">5%</h3>
+                        <p class="text-lg font-semibold text-[#005A9E] mt-2">Estimated Market Share</p>
+                        <p class="text-gray-500 mt-1">Indicates a specialized player with significant room for growth.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="business-overview" class="mb-16">
+                 <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Business & Market Overview</h2>
+                     <p class="text-lg text-gray-600">
+                        CCA operates within the professional development sector of the mental health industry, offering specialized training. The market is expanding as more professionals seek flexible, high-quality online education to enhance their skills.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#005A9E] mb-4">Core Business Analysis</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <p><strong class="text-[#003D7A]">Business Category:</strong> Online Education & Professional Development for Therapists.</p>
+                            <p><strong class="text-[#003D7A]">Primary Services:</strong> Diploma programs, workshops, and individual courses in Collaborative-Dialogic Practices.</p>
+                            <p><strong class="text-[#003D7A]">Target Audience:</strong> Practicing counsellors, therapists, social workers, and students seeking specialized training.</p>
+                            <p><strong class="text-[#003D7A]">Primary Keywords:</strong> "collaborative counselling", "dialogic practice", "counselling diploma", "online therapy training", "narrative therapy".</p>
+                            <p><strong class="text-[#003D7A]">Target Locations:</strong> Global, with a focus on English-speaking markets like Canada, USA, UK, and Australia.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-center text-[#005A9E] mb-4">Online Counselling Education Market</h3>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="technical-analysis" class="mb-16">
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Technical & Performance Analysis</h2>
+                    <p class="text-lg text-gray-600">
+                       The technical foundation of the website shows critical performance issues that directly impact user engagement, conversion rates, and search engine ranking. The site is built on WordPress with WPBakery, a common but often slow combination if not heavily optimized.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                     <h3 class="text-2xl font-bold text-[#005A9E] mb-6">Website Performance Vitals</h3>
+                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="p-4 border border-red-200 rounded-lg bg-red-50">
+                            <p class="text-sm text-red-500 font-semibold">LCP</p>
+                            <p class="text-3xl font-bold text-red-700">4.1s</p>
+                            <p class="text-xs text-gray-500">Target: < 2.5s</p>
+                        </div>
+                        <div class="p-4 border border-red-200 rounded-lg bg-red-50">
+                            <p class="text-sm text-red-500 font-semibold">Total Blocking Time</p>
+                            <p class="text-3xl font-bold text-red-700">2,059ms</p>
+                             <p class="text-xs text-gray-500">Target: < 200ms</p>
+                        </div>
+                        <div class="p-4 border border-red-200 rounded-lg bg-red-50">
+                            <p class="text-sm text-red-500 font-semibold">CLS</p>
+                            <p class="text-3xl font-bold text-red-700">0.63</p>
+                             <p class="text-xs text-gray-500">Target: < 0.1</p>
+                        </div>
+                         <div class="p-4 border border-gray-200 rounded-lg bg-gray-50">
+                            <p class="text-sm text-gray-500 font-semibold">Technology Stack</p>
+                            <p class="text-3xl font-bold text-gray-700">WordPress</p>
+                             <p class="text-xs text-gray-500">with WPBakery & Nginx</p>
+                        </div>
+                     </div>
+                </div>
+            </section>
+            
+            <section id="competitive-landscape" class="mb-16">
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Competitive Landscape</h2>
+                    <p class="text-lg text-gray-600">
+                        CCA operates in a competitive space with large continuing education providers, specialized institutes, and mass-market online course platforms. Key differentiators are niche specialization and community focus.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-center text-[#005A9E] mb-4">Competitor Feature Matrix</h3>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="competitorChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-center text-[#005A9E] mb-4">Estimated Market Share Distribution</h3>
+                         <div class="chart-container h-80 md:h-96">
+                            <canvas id="marketDistributionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="swot-analysis" class="mb-16">
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">SWOT Analysis</h2>
+                    <p class="text-lg text-gray-600">
+                        A strategic overview of CCA's internal strengths and weaknesses, alongside external opportunities and threats, provides a clear path for future planning and growth initiatives.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
+                        <h3 class="text-2xl font-bold text-green-600 mb-3">Strengths</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Strong specialization in a sought-after niche (Collaborative-Dialogic).</li>
+                            <li>Emphasis on community and relational learning.</li>
+                            <li>Experienced and reputable faculty.</li>
+                            <li>Clear and focused curriculum structure.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-red-600 mb-3">Weaknesses</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Critically poor website performance (Grade F, slow LCP, high TBT/CLS).</li>
+                            <li>Lower brand recognition compared to major competitors.</li>
+                            <li>Limited course diversity outside of the core niche.</li>
+                            <li>Potentially outdated technology stack (WPBakery) hindering performance.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Opportunities</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Growing global demand for online professional development in mental health.</li>
+                            <li>Optimize website to drastically improve user experience and SEO rankings.</li>
+                            <li>Develop targeted digital marketing campaigns (content, social, PPC).</li>
+                            <li>Introduce subscription models or tiered access for recurring revenue.</li>
+                            <li>Partner with universities and professional organizations.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold text-yellow-600 mb-3">Threats</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Intense competition from established institutions with larger budgets.</li>
+                            <li>Low-cost or free courses on mass-market platforms (Udemy, Coursera).</li>
+                            <li>Rapid advancements in e-learning technology requiring investment.</li>
+                            <li>Shifts in certification and continuing education requirements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="logo-analysis" class="mb-16">
+                 <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Logo & Brand Messaging Analysis</h2>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                       <img src="https://collaborativecounselling.academy/wp-content/uploads/2020/02/CCA-Logo-final-horizontal-transparent.png" alt="Collaborative Counselling Academy Logo" class="h-24 object-contain">
+                    </div>
+                    <div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong class="text-[#005A9E]">Clarity:</strong> The logo is clean, professional, and easily legible, using a modern sans-serif typeface.</li>
+                            <li><strong class="text-[#005A9E]">Relevance:</strong> The design is professional but does not visually communicate the core concepts of "collaboration" or "dialogue" strongly.</li>
+                            <li><strong class="text-[#005A9E]">Memorability:</strong> The logo is somewhat generic and may lack the distinctiveness needed for strong brand recall in a competitive market.</li>
+                             <li><strong class="text-[#005A9E]">Recommendation:</strong> Consider a brand refresh to create a logo that visually embodies the collaborative and relational ethos of the academy, potentially using interconnected shapes or warmer colors to enhance its emotional connection with the audience.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recommendations">
+                <div class="text-center max-w-4xl mx-auto mb-10">
+                    <h2 class="text-3xl font-bold text-[#003D7A] mb-4">Strategic Growth Opportunities</h2>
+                    <p class="text-lg text-gray-600">
+                        Based on the analysis, the following strategic initiatives are recommended to address key weaknesses and leverage market opportunities, driving significant revenue growth.
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#00A1E4] mb-3">1. Foundational Technical Overhaul (High Priority)</h3>
+                        <p class="text-gray-600">The most critical barrier to growth is the website's performance. A full technical audit and optimization are required. Focus on improving Core Web Vitals (LCP, TBT, CLS) by optimizing images, leveraging modern caching, minimizing render-blocking scripts, and potentially moving away from heavy page builders like WPBakery towards a more lightweight solution. This will directly boost SEO, reduce bounce rates, and improve conversion rates.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#00A1E4] mb-3">2. Targeted Content & SEO Marketing</h3>
+                        <p class="text-gray-600">Leverage the academy's niche expertise to create high-value content (blog posts, whitepapers, webinars) around "collaborative-dialogic practices," "narrative therapy techniques," and other core keywords. This will attract organic traffic, establish authority, and build an email list for targeted course promotions. A technically sound website is a prerequisite for SEO success.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-[#00A1E4] mb-3">3. Curriculum Expansion & Pricing Model Innovation</h3>
+                        <p class="text-gray-600">Expand course offerings to include introductory-level courses to attract a wider audience and advanced workshops for returning students. Explore introducing a subscription model that provides access to a library of resources, webinars, and a community forum. This creates a predictable, recurring revenue stream and enhances student loyalty.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t">
+            <p class="text-sm text-gray-500">Market Research Report generated on September 3, 2025. This analysis is based on publicly available data and provided materials.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = ['#00A1E4', '#0073BC', '#005A9E', '#003D7A', '#002654'];
+        
+        const processLabels = (labels) => {
+            return labels.map(label => {
+                if (label.length > 16) {
+                    const words = label.split(' ');
+                    let currentLine = '';
+                    const lines = [];
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).trim().length > 16) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    });
+                    lines.push(currentLine.trim());
+                    return lines;
+                }
+                return label;
+            });
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#374151',
+                        font: {
+                           family: "'Inter', sans-serif"
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: '#374151' },
+                    grid: { color: '#E5E7EB' }
+                },
+                x: {
+                    ticks: { color: '#374151' },
+                    grid: { color: '#E5E7EB' }
+                }
+            }
+        };
+
+        const marketShareData = {
+            labels: ['Untapped Potential', 'CCA Current Share'],
+            datasets: [{
+                label: 'Market Share',
+                data: [95, 5],
+                backgroundColor: [brilliantBlues[2], brilliantBlues[0]],
+                borderColor: '#FFFFFF',
+                borderWidth: 2
+            }]
+        };
+        const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketShareCtx, {
+            type: 'doughnut',
+            data: marketShareData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                 plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#374151',
+                            font: { family: "'Inter', sans-serif" }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+        
+        const competitorData = {
+            labels: processLabels(['Course Diversity', 'Niche Specialization', 'Brand Recognition', 'Affordability', 'Community Support']),
+            datasets: [
+                {
+                    label: 'CCA',
+                    data: [6, 9, 5, 7, 8],
+                    backgroundColor: 'rgba(0, 161, 228, 0.2)',
+                    borderColor: brilliantBlues[0],
+                    pointBackgroundColor: brilliantBlues[0],
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues[0]
+                },
+                {
+                    label: 'Leading Competitor (Avg)',
+                    data: [8, 6, 8, 6, 7],
+                    backgroundColor: 'rgba(0, 90, 158, 0.2)',
+                    borderColor: brilliantBlues[2],
+                    pointBackgroundColor: brilliantBlues[2],
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues[2]
+                }
+            ]
+        };
+        const competitorCtx = document.getElementById('competitorChart').getContext('2d');
+        new Chart(competitorCtx, {
+            type: 'radar',
+            data: competitorData,
+            options: {
+                 responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                         labels: {
+                            color: '#374151',
+                            font: { family: "'Inter', sans-serif" }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#E5E7EB' },
+                        grid: { color: '#E5E7EB' },
+                        pointLabels: {
+                            font: { size: 12, family: "'Inter', sans-serif" },
+                            color: '#374151'
+                        },
+                        ticks: {
+                            backdropColor: 'transparent',
+                             color: '#6B7280'
+                        }
+                    }
+                }
+            }
+        });
+
+        const marketDistributionData = {
+            labels: processLabels(['Large Providers (PESI, etc.)', 'The Gottman Institute', 'Narrative Therapy Centre', 'CCA', 'Other Niche Providers']),
+            datasets: [{
+                label: 'Market Share %',
+                data: [60, 15, 10, 5, 10],
+                backgroundColor: brilliantBlues,
+                borderColor: '#FFFFFF',
+                borderWidth: 1
+            }]
+        };
+
+        const marketDistributionCtx = document.getElementById('marketDistributionChart').getContext('2d');
+        new Chart(marketDistributionCtx, {
+            type: 'bar',
+            data: marketDistributionData,
+            options: {
+                ...commonChartOptions,
+                indexAxis: 'y',
+                 scales: {
+                    y: {
+                        ticks: { color: '#374151', font: { family: "'Inter', sans-serif" } },
+                        grid: { display: false }
+                    },
+                    x: {
+                        ticks: { color: '#374151', callback: function(value) { return value + '%' } },
+                        grid: { color: '#E5E7EB' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback,
+                           label: function(context) {
+                                return ` Market Share: ${context.raw}%`;
+                           }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

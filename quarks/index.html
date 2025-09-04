@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quarks: Strategic Market Analysis & Growth Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #1a202c;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .brand-gradient {
+            background: linear-gradient(90deg, #FF4E50, #FC913A);
+        }
+        .swot-grid > div {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-3xl font-extrabold text-gray-800">QUARKS</h1>
+            <p class="text-sm font-medium text-gray-500">Strategic Market Analysis & Growth Roadmap</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-8 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Powering Narratives, Engineering Experiences</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-6">An in-depth analysis of Quarks' market position, identifying key opportunities for strategic growth in the integrated communications sector. This report benchmarks Quarks against the industry and provides a roadmap for future expansion.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="brand-gradient text-white p-6 rounded-lg">
+                    <p class="text-4xl font-extrabold">3</p>
+                    <p class="font-semibold">Core Integrated Services</p>
+                </div>
+                <div class="brand-gradient text-white p-6 rounded-lg">
+                    <p class="text-4xl font-extrabold">15+</p>
+                    <p class="font-semibold">Years of Collective Experience</p>
+                </div>
+                <div class="brand-gradient text-white p-6 rounded-lg">
+                    <p class="text-4xl font-extrabold">2</p>
+                    <p class="font-semibold">Key Markets: Pakistan & UAE</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Core Service Portfolio</h3>
+                <p class="text-gray-600 mb-4">Quarks' business is structured around three synergistic pillars, enabling end-to-end solutions for high-profile government and corporate clients. This integrated model is a key competitive advantage, with a primary focus on large-scale events.</p>
+                <div class="chart-container">
+                    <canvas id="servicePortfolioChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Estimated Market Size (Pakistan)</h3>
+                <p class="text-gray-600 mb-4">The addressable market for Quarks' services in Pakistan is substantial and growing, driven by government initiatives and corporate marketing spend. The events sector represents the largest single opportunity.</p>
+                <div class="chart-container">
+                    <canvas id="marketSizeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8 md:col-span-2">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Competitive Landscape</h3>
+            <p class="text-gray-600 mb-4">The market is fragmented with several key players. Quarks holds a strong position, particularly in government events. The chart below shows estimated market share among leading specialized agencies in Pakistan's event management and content production sectors.</p>
+            <div class="chart-container" style="max-width: 800px; height: 400px;">
+                <canvas id="competitorChart"></canvas>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Competitor Capabilities Matrix</h3>
+             <p class="text-gray-600 mb-4">Quarks' integrated model offers a distinct advantage over competitors who often specialize in only one or two areas. This matrix highlights the service focus of major players in the Pakistani market.</p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-3 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b">Competitor</th>
+                            <th class="py-2 px-3 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b text-center">Events</th>
+                            <th class="py-2 px-3 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b text-center">Content Production</th>
+                            <th class="py-2 px-3 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b text-center">Consulting</th>
+                            <th class="py-2 px-3 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b">Primary Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr class="bg-green-50">
+                            <td class="py-2 px-3 border-b font-semibold">Quarks</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b">Integrated G2B/B2B</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-3 border-b">Mindmap Comms</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-gray-400">─</td>
+                            <td class="py-2 px-3 border-b">Corporate Activations</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-3 border-b">TME</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-gray-400">─</td>
+                            <td class="py-2 px-3 border-b text-center text-gray-400">─</td>
+                            <td class="py-2 px-3 border-b">Large-Scale Events</td>
+                        </tr>
+                         <tr>
+                            <td class="py-2 px-3 border-b">Spectrum Events</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-gray-400">─</td>
+                            <td class="py-2 px-3 border-b">Corporate & Cultural</td>
+                        </tr>
+                         <tr>
+                            <td class="py-2 px-3 border-b">Walnut Comms</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b text-center text-gray-400">─</td>
+                            <td class="py-2 px-3 border-b text-center text-lg font-bold text-green-600">✔</td>
+                            <td class="py-2 px-3 border-b">PR & Digital</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">SWOT Analysis</h3>
+            <p class="text-gray-600 mb-6">A strategic evaluation of Quarks' internal strengths and weaknesses against external opportunities and threats reveals a strong foundation for growth, contingent on mitigating key market risks.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 swot-grid">
+                <div class="border-t-4 border-green-500">
+                    <h4 class="font-bold text-lg mb-2 text-green-600">Strengths</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Proven expertise in high-stakes government events.</li>
+                        <li>Fully integrated service model (Events, Content, Consulting).</li>
+                        <li>In-house production reduces third-party reliance.</li>
+                        <li>Strong relationships with government bodies.</li>
+                    </ul>
+                </div>
+                <div class="border-t-4 border-yellow-500">
+                    <h4 class="font-bold text-lg mb-2 text-yellow-600">Weaknesses</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Potential over-reliance on government contracts.</li>
+                        <li>Brand visibility in the corporate sector could be higher.</li>
+                        <li>Scalability may depend on a niche talent pool.</li>
+                         <li>International presence (UAE) is still developing.</li>
+                    </ul>
+                </div>
+                <div class="border-t-4 border-blue-500">
+                    <h4 class="font-bold text-lg mb-2 text-blue-600">Opportunities</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Expand corporate client base by leveraging government portfolio.</li>
+                        <li>Growth in digital content demand (OTT, Branded Content).</li>
+                        <li>Offer specialized consulting for public-private partnerships.</li>
+                        <li>Expand service offerings in the UAE market.</li>
+                    </ul>
+                </div>
+                <div class="border-t-4 border-red-500">
+                    <h4 class="font-bold text-lg mb-2 text-red-600">Threats</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>Economic instability impacting marketing budgets.</li>
+                        <li>Intense competition from specialized agencies.</li>
+                        <li>Changes in government spending priorities.</li>
+                        <li>Rapid technological shifts requiring continuous investment.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Strategic Growth Roadmap</h3>
+            <p class="text-gray-600 mb-6">To capitalize on market opportunities and mitigate threats, a phased growth strategy is recommended. This roadmap focuses on diversification and strengthening market leadership over the next three years.</p>
+            <div class="relative">
+                <div class="border-l-2 border-gray-300 absolute h-full top-0 left-4"></div>
+                <div class="mb-8 flex items-center w-full">
+                    <div class="z-10 bg-red-500 rounded-full h-8 w-8 flex items-center justify-center text-white font-bold">1</div>
+                    <div class="ml-6 w-full">
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold">Phase 1 (Year 1): Diversify & Digitize</h4>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Launch targeted marketing campaign for corporate sector.</li>
+                                <li>Develop packaged digital content solutions for SMEs.</li>
+                                <li>Strengthen UAE operations by securing 2-3 new anchor clients.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8 flex items-center w-full">
+                    <div class="z-10 bg-orange-500 rounded-full h-8 w-8 flex items-center justify-center text-white font-bold">2</div>
+                    <div class="ml-6 w-full">
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold">Phase 2 (Year 2): Consolidate & Specialize</h4>
+                             <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Establish a specialized public policy communication consulting wing.</li>
+                                <li>Invest in immersive event technologies (AR/VR).</li>
+                                <li>Achieve 30% revenue from non-government clients.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center w-full">
+                    <div class="z-10 bg-yellow-500 rounded-full h-8 w-8 flex items-center justify-center text-white font-bold">3</div>
+                    <div class="ml-6 w-full">
+                        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <h4 class="font-bold">Phase 3 (Year 3): Scale & Lead</h4>
+                            <ul class="list-disc list-inside text-gray-600 mt-2">
+                                <li>Explore strategic partnerships or acquisitions to enter new markets.</li>
+                                <li>Launch a training and development program for event/media professionals.</li>
+                                <li>Become the top-of-mind agency for large-scale integrated campaigns in Pakistan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-8 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm">&copy; 2025 Quarks Market Analysis. This report is based on market estimations and publicly available information.</p>
+            <p class="text-xs text-gray-400 mt-2">Logo Analysis: The 'Quarks' brand name and clean logo align with a message of getting to the fundamental, core components of a client's needs. It effectively communicates a strategic, intelligent approach which supports the company's positioning as more than just an execution agency but a strategic partner.</p>
+        </div>
+    </footer>
+
+<script>
+    const primaryColor = '#FF4E50';
+    const secondaryColor = '#FC913A';
+    const tertiaryColor = '#F9D423';
+    const accentColor1 = '#EDE574';
+    const accentColor2 = '#E1F5C4';
+    const textColor = '#374151';
+
+    function processLabels(labels) {
+        const maxLength = 16;
+        return labels.map(label => {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            let currentLine = '';
+            const newLabel = [];
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    newLabel.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                newLabel.push(currentLine.trim());
+            }
+            return newLabel;
+        });
+    }
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+
+    const defaultChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: textColor,
+                    font: {
+                        family: "'Inter', sans-serif"
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                bodyFont: {
+                     family: "'Inter', sans-serif"
+                },
+                titleFont: {
+                     family: "'Inter', sans-serif"
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColor,
+                     font: {
+                        family: "'Inter', sans-serif"
+                    }
+                },
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColor,
+                     font: {
+                        family: "'Inter', sans-serif"
+                    }
+                },
+                grid: {
+                    color: '#e5e7eb'
+                }
+            }
+        }
+    };
+    
+    const servicePortfolioCtx = document.getElementById('servicePortfolioChart').getContext('2d');
+    new Chart(servicePortfolioCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Events', 'Content & AV Production', 'Consulting'],
+            datasets: [{
+                label: 'Estimated Revenue Share',
+                data: [55, 30, 15],
+                backgroundColor: [primaryColor, secondaryColor, tertiaryColor],
+                borderColor: '#ffffff',
+                borderWidth: 4,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            cutout: '60%',
+            scales: { x: { display: false }, y: { display: false } }
+        }
+    });
+
+    const marketSizeCtx = document.getElementById('marketSizeChart').getContext('2d');
+    new Chart(marketSizeCtx, {
+        type: 'bar',
+        data: {
+            labels: processLabels(['Event Management', 'Content Production', 'Strategic Comms Consulting']),
+            datasets: [{
+                label: 'Estimated Market Size (PKR Billions)',
+                data: [45, 30, 22],
+                backgroundColor: [primaryColor, secondaryColor, tertiaryColor],
+                borderColor: [primaryColor, secondaryColor, tertiaryColor],
+                borderWidth: 1,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            plugins: { ...defaultChartOptions.plugins, legend: { display: false } },
+            scales: { ...defaultChartOptions.scales, y: { ...defaultChartOptions.scales.y, title: { display: true, text: 'PKR (Billions)'}}}
+        }
+    });
+
+    const competitorCtx = document.getElementById('competitorChart').getContext('2d');
+    new Chart(competitorCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Quarks', 'Mindmap Comms', 'TME', 'Spectrum', 'Walnut Comms'],
+            datasets: [{
+                label: 'Estimated Market Share (%)',
+                data: [18, 15, 12, 10, 8],
+                backgroundColor: [primaryColor, secondaryColor, tertiaryColor, accentColor1, accentColor2],
+                borderWidth: 1,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            ...defaultChartOptions,
+            indexAxis: 'y',
+            plugins: { ...defaultChartOptions.plugins, legend: { display: false } },
+            scales: { ...defaultChartOptions.scales, x: { ...defaultChartOptions.scales.x, title: { display: true, text: 'Estimated Market Share (%)'}}}
+        }
+    });
+
+</script>
+</body>
+</html>

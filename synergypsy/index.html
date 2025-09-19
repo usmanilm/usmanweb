@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synergy Psychotherapy: Strategic Growth Blueprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F0F4F8]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#00446B] mb-2">Synergy Psychotherapy</h1>
+            <p class="text-lg md:text-xl text-[#006097]">A Strategic Blueprint for Market Leadership & Growth</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="market-landscape">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">The UK Mental Health Market Landscape</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <p class="text-lg text-[#006097] mb-2">UK Private Psychotherapy & Counselling Market Size (2024)</p>
+                        <p class="text-6xl font-extrabold text-[#0079C1]">£1.2bn</p>
+                        <p class="text-md text-[#4097D1] mt-4">The market has demonstrated consistent growth, driven by increasing mental health awareness and a rising demand for accessible, high-quality therapeutic services.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-[#00446B] text-center mb-4">Common Client Concerns</h3>
+                        <p class="text-center text-[#006097] mb-4">This chart illustrates the primary reasons individuals seek therapy, highlighting key areas for service focus. Anxiety and depression represent the largest segments.</p>
+                        <div class="chart-container">
+                            <canvas id="concernsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="target-audience">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">Core Target Markets</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center flex flex-col items-center">
+                        <div class="text-4xl mb-4">👤</div>
+                        <h3 class="text-2xl font-bold text-[#0079C1] mb-2">Young Adults</h3>
+                        <p class="text-[#006097]">Navigating identity, career transitions, anxiety, and relational challenges. Seek authenticity and personal growth in a non-judgmental space.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center flex flex-col items-center">
+                        <div class="text-4xl mb-4">👥</div>
+                        <h3 class="text-2xl font-bold text-[#0079C1] mb-2">Couples</h3>
+                        <p class="text-[#006097]">Facing communication breakdowns, attachment issues, or intimacy struggles. Require specialized support to rebuild connection and understanding.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center flex flex-col items-center">
+                         <div class="text-4xl mb-4">🎓</div>
+                        <h3 class="text-2xl font-bold text-[#0079C1] mb-2">Trainee Therapists</h3>
+                        <p class="text-[#006097]">Seeking professional and personal development support. Need guidance on clinical practice, self-awareness, and navigating the profession.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="competitors">
+                 <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">Competitive Arena</h2>
+                 <div class="bg-white rounded-lg shadow-lg p-6 overflow-x-auto">
+                    <p class="text-center text-[#006097] mb-6">The market consists of diverse players. Synergy Psychotherapy's unique advantage lies in its blend of high-level qualifications, integrative approach, and specialized experience, positioning it strongly against all competitor types.</p>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-[#7DB5DE]">
+                                <th class="p-4 text-lg font-bold text-[#00446B]">Competitor Type</th>
+                                <th class="p-4 text-lg font-bold text-[#00446B]">Primary Strength</th>
+                                <th class="p-4 text-lg font-bold text-[#00446B]">Key Weakness</th>
+                                <th class="p-4 text-lg font-bold text-[#00446B]">Strategic Angle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[#E1E8ED]">
+                                <td class="p-4 font-semibold text-[#0079C1]">Large Online Platforms</td>
+                                <td class="p-4 text-[#006097]">Brand recognition & convenience</td>
+                                <td class="p-4 text-[#006097]">Impersonal, variable quality</td>
+                                <td class="p-4 text-[#006097]">Highlight bespoke, high-quality, and deeply personal therapeutic relationships.</td>
+                            </tr>
+                             <tr class="border-b border-[#E1E8ED]">
+                                <td class="p-4 font-semibold text-[#0079C1]">Local Private Practices</td>
+                                <td class="p-4 text-[#006097]">Community presence</td>
+                                <td class="p-4 text-[#006097]">Limited digital reach & specialization</td>
+                                <td class="p-4 text-[#006097]">Leverage superior digital marketing and showcase specialized qualifications (e.g., Harvard training).</td>
+                            </tr>
+                             <tr>
+                                <td class="p-4 font-semibold text-[#0079C1]">Niche Modality Specialists</td>
+                                <td class="p-4 text-[#006097]">Clear expertise in one area</td>
+                                <td class="p-4 text-[#006097]">Less flexible for complex needs</td>
+                                <td class="p-4 text-[#006097]">Promote the integrative approach as a comprehensive, adaptable solution for the whole person.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+            </section>
+
+            <section id="swot">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">SWOT Analysis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-green-600 mb-3 flex items-center"><span>👍</span><span class="ml-2">Strengths</span></h3>
+                        <ul class="list-disc list-inside space-y-2 text-[#006097]">
+                            <li>High-level UK (Level 5) & Harvard qualifications.</li>
+                            <li>8+ years of diverse clinical experience.</li>
+                            <li>Flexible integrative approach (Person-Centred, Gestalt, Psychodynamic).</li>
+                            <li>Experience training other therapists enhances authority.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-red-500 mb-3 flex items-center"><span>👎</span><span class="ml-2">Weaknesses</span></h3>
+                         <ul class="list-disc list-inside space-y-2 text-[#006097]">
+                            <li>Limited client capacity as a solo practitioner.</li>
+                            <li>New brand identity requires building from scratch.</li>
+                            <li>Marketing and business operations may need development.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-blue-500 mb-3 flex items-center"><span>💡</span><span class="ml-2">Opportunities</span></h3>
+                         <ul class="list-disc list-inside space-y-2 text-[#006097]">
+                            <li>Growing global demand for online therapy services.</li>
+                            <li>Increasing public dialogue around mental health reduces stigma.</li>
+                            <li>Develop and market workshops or courses for trainee therapists.</li>
+                             <li>Create content (blogs, videos) to build authority and reach.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-yellow-500 mb-3 flex items-center"><span>⚠️</span><span class="ml-2">Threats</span></h3>
+                         <ul class="list-disc list-inside space-y-2 text-[#006097]">
+                            <li>High competition from established online platforms.</li>
+                            <li>Market saturation with individual practitioners.</li>
+                            <li>Navigating international regulations for online therapy.</li>
+                            <li>Potential for client burnout without strategic self-care.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roadmap">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">18-Month Digital Growth Roadmap</h2>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                     <div class="relative border-l-4 border-[#7DB5DE] ml-4">
+                        <div class="mb-10 ml-8">
+                            <div class="absolute -left-5 mt-2 w-8 h-8 bg-[#0079C1] rounded-full border-4 border-white"></div>
+                            <h4 class="text-sm font-bold text-white bg-[#0079C1] rounded-full px-3 py-1 inline-block mb-2">Phase 1: Foundation (Months 1-3)</h4>
+                            <h3 class="text-xl font-bold text-[#00446B]">Establish Professional Presence</h3>
+                            <p class="text-[#006097]">Launch a professional website with clear service offerings and SEO basics. Create profiles on LinkedIn and key UK therapy directories (e.g., Psychology Today, Counselling Directory).</p>
+                        </div>
+                         <div class="mb-10 ml-8">
+                            <div class="absolute -left-5 mt-2 w-8 h-8 bg-[#0079C1] rounded-full border-4 border-white"></div>
+                            <h4 class="text-sm font-bold text-white bg-[#0079C1] rounded-full px-3 py-1 inline-block mb-2">Phase 2: Authority (Months 4-9)</h4>
+                            <h3 class="text-xl font-bold text-[#00446B]">Build Trust Through Content</h3>
+                            <p class="text-[#006097]">Begin a blog targeting key client concerns. Share valuable, non-jargon insights on social media to build an audience and demonstrate expertise. Aim for initial client acquisition through organic channels.</p>
+                        </div>
+                        <div class="ml-8">
+                            <div class="absolute -left-5 mt-2 w-8 h-8 bg-[#0079C1] rounded-full border-4 border-white"></div>
+                            <h4 class="text-sm font-bold text-white bg-[#0079C1] rounded-full px-3 py-1 inline-block mb-2">Phase 3: Growth (Months 10-18)</h4>
+                            <h3 class="text-xl font-bold text-[#00446B]">Scale Client Acquisition</h3>
+                            <p class="text-[#006097]">Introduce targeted Google Ads for high-intent keywords. Develop a lead magnet (e.g., a free guide) to build an email list. Explore offering paid workshops to diversify revenue streams.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="financials">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">Financial Projections & KPIs</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-8">
+                        <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                            <p class="text-lg text-[#006097] mb-2">Estimated Year 1 Digital Spend</p>
+                            <p class="text-5xl font-extrabold text-[#0079C1]">~£3,500</p>
+                            <p class="text-md text-[#4097D1] mt-4">Includes website, directory listings, and initial targeted advertising budget.</p>
+                        </div>
+                         <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                            <p class="text-lg text-[#006097] mb-2">Potential Year 1 Revenue</p>
+                            <p class="text-5xl font-extrabold text-[#0079C1]">£19,200+</p>
+                            <p class="text-md text-[#4097D1] mt-4">Based on a conservative goal of 5 weekly clients at an £80/session rate.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-[#00446B] text-center mb-4">Projected Revenue Growth</h3>
+                        <p class="text-center text-[#006097] mb-4">With consistent digital marketing efforts, client acquisition is projected to scale steadily over the first three years, supported by growing reputation and client referrals.</p>
+                        <div class="chart-container" style="max-width: 600px; height: 350px;">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="keywords-branding">
+                <h2 class="text-3xl font-bold text-center text-[#00446B] mb-8">Keywords & Brand Identity</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-8">
+                        <h3 class="text-xl font-bold text-[#00446B] text-center mb-4">Top SEO Keywords</h3>
+                        <p class="text-center text-[#006097] mb-6">These terms are crucial for attracting the right clients through search engines and content marketing.</p>
+                        <div class="text-center leading-relaxed">
+                            <span class="text-2xl font-bold text-[#00446B] p-2">integrative psychotherapist</span>
+                            <span class="text-lg text-[#006097] p-1">couples counselling</span>
+                            <span class="text-xl font-semibold text-[#0079C1] p-2">online therapy UK</span>
+                            <span class="text-md text-[#4097D1] p-1">gestalt therapist</span>
+                            <span class="text-2xl font-bold text-[#006097] p-2">trauma therapy</span>
+                            <span class="text-lg text-[#4097D1] p-1">anxiety counselling</span>
+                            <span class="text-xl font-semibold text-[#0079C1] p-2">therapist for trainees</span>
+                             <span class="text-md text-[#7DB5DE] p-1">person-centred therapy</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#00446B] rounded-lg shadow-lg p-8 text-center text-white">
+                        <h3 class="text-2xl font-bold mb-3">Suggested Brand Name</h3>
+                        <p class="text-5xl font-extrabold text-[#7DB5DE] mb-4">Synergy</p>
+                        <p class="text-3xl font-bold text-white mb-4">Psychotherapy</p>
+                        <p class="text-[#D3EAFB]">This name reflects the core of the integrative approach—the powerful, collaborative synergy between different therapeutic modalities, and between the therapist and client, working together to create something greater than the sum of its parts.</p>
+                    </div>
+                 </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-[#7DB5DE]">
+            <p class="text-[#006097]">&copy; 2025 Synergy Psychotherapy. Strategic analysis and infographic for planning purposes.</p>
+        </footer>
+    </div>
+
+<script>
+    function wrapLabels(label, maxWidth) {
+        const words = label.split(' ');
+        let lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+            if ((currentLine + ' ' + word).length > maxWidth) {
+                lines.push(currentLine.trim());
+                currentLine = word;
+            } else {
+                currentLine += ' ' + word;
+            }
+        });
+        if (currentLine.length > 0) {
+            lines.push(currentLine.trim());
+        }
+        return lines;
+    }
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+
+    const commonOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: '#00446B',
+                    font: {
+                        size: 14
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        }
+    };
+
+    const concernsData = {
+        labels: [
+            wrapLabels('Anxiety & Emotional Regulation', 16),
+            wrapLabels('Depression & Mood Disorders', 16),
+            wrapLabels('Relationship & Attachment Issues', 16),
+            wrapLabels('Trauma & Inner Child Work', 16),
+            'Grief & Loss',
+            wrapLabels('Self-Esteem & Identity', 16),
+            wrapLabels('Other Personal Development', 16)
+        ],
+        datasets: [{
+            label: 'Client Concerns',
+            data: [28, 22, 18, 12, 8, 7, 5],
+            backgroundColor: [
+                '#00446B',
+                '#006097',
+                '#0079C1',
+                '#4097D1',
+                '#7DB5DE',
+                '#A8CCE8',
+                '#D3EAFB'
+            ],
+            borderColor: '#FFFFFF',
+            borderWidth: 2,
+            hoverOffset: 4
+        }]
+    };
+
+    const concernsCtx = document.getElementById('concernsChart').getContext('2d');
+    new Chart(concernsCtx, {
+        type: 'doughnut',
+        data: concernsData,
+        options: commonOptions
+    });
+
+    const revenueData = {
+        labels: ['Year 1', 'Year 2', 'Year 3'],
+        datasets: [{
+            label: 'Projected Revenue (£)',
+            data: [19200, 38400, 62000],
+            backgroundColor: '#0079C1',
+            borderColor: '#00446B',
+            borderWidth: 2,
+            borderRadius: 5
+        }]
+    };
+
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(revenueCtx, {
+        type: 'bar',
+        data: revenueData,
+        options: {
+            ...commonOptions,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '£' + value / 1000 + 'k';
+                        },
+                        color: '#006097'
+                    },
+                    grid: {
+                        color: '#E1E8ED'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#006097'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                ...commonOptions.plugins,
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Revenue: £${context.raw.toLocaleString()}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

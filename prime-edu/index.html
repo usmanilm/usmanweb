@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime EDU Career - Digital Growth Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#C4DFE6]">
+    <!-- Chosen Palette: Brilliant Blues -->
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003B46]">Prime EDU Career: Digital Growth Strategy</h1>
+            <p class="text-lg text-[#07575B] mt-2">A data-driven roadmap for market leadership in education and immigration consultancy.</p>
+        </header>
+
+        <main class="space-y-12">
+            <!-- Section 1: Market Opportunity -->
+            <section id="market-opportunity" class="text-center bg-white p-8 rounded-2xl shadow-xl border-4 border-[#66A5AD]">
+                <h2 class="text-3xl font-bold text-[#003B46] mb-4">The Global Education Market Is Booming</h2>
+                <p class="text-md text-[#07575B] max-w-3xl mx-auto mb-6">The international education and immigration sector is experiencing unprecedented growth. For Pakistan, the demand for overseas opportunities is at an all-time high, representing a significant market for specialized consultancies.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-[#EAF6F6] p-6 rounded-lg">
+                        <p class="text-6xl font-extrabold text-[#003B46]">15,000+</p>
+                        <p class="text-lg font-semibold text-[#07575B] mt-2">Average Monthly Searches</p>
+                        <p class="text-sm text-[#07575B]">for top consultancy keywords in Pakistan.</p>
+                    </div>
+                    <div class="bg-[#EAF6F6] p-6 rounded-lg">
+                        <p class="text-6xl font-extrabold text-[#003B46]">$5.1B</p>
+                        <p class="text-lg font-semibold text-[#07575B] mt-2">Projected Market Size</p>
+                        <p class="text-sm text-[#07575B]">for Education Consultants globally by 2030.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2: Market Demand Analysis -->
+            <section id="market-demand">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">What Are Your Customers Searching For?</h2>
+                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                    <p class="text-center text-md text-[#07575B] mb-6">Analysis of search trends in Pakistan reveals high intent for specific consultancy services. "Study Abroad" and "Student Visa" services lead the demand, indicating a strong primary market. "Work Visa" services represent a significant and growing secondary market.</p>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="demandChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Top International Destinations -->
+            <section id="top-destinations">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">Top Searched Destinations from Pakistan</h2>
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                     <p class="text-center text-md text-[#07575B] mb-6">Students and professionals from Pakistan are primarily targeting developed countries for education and work opportunities. The UK and Canada are leading for students, while Gulf countries and European nations are popular for work visas. Marketing efforts should be geo-targeted to these high-demand regions.</p>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="countryChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: SWOT Analysis -->
+            <section id="swot">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">SWOT Analysis: Prime EDU Career</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                        <h3 class="text-xl font-bold text-[#003B46] mb-2">Strengths</h3>
+                        <ul class="list-disc list-inside text-[#07575B] space-y-1">
+                            <li>Comprehensive service portfolio</li>
+                            <li>Established web presence</li>
+                            <li>Clear call-to-actions on site</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                        <h3 class="text-xl font-bold text-[#003B46] mb-2">Weaknesses</h3>
+                        <ul class="list-disc list-inside text-[#07575B] space-y-1">
+                            <li>Low organic search visibility</li>
+                            <li>Limited social media engagement</li>
+                            <li>Website design could be modernized</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-[#003B46] mb-2">Opportunities</h3>
+                        <ul class="list-disc list-inside text-[#07575B] space-y-1">
+                            <li>High search demand for services</li>
+                            <li>Emerging markets (Kuwait, Romania)</li>
+                            <li>Content marketing to build authority</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+                        <h3 class="text-xl font-bold text-[#003B46] mb-2">Threats</h3>
+                        <ul class="list-disc list-inside text-[#07575B] space-y-1">
+                            <li>Highly competitive local market</li>
+                            <li>Changing international visa policies</li>
+                            <li>Larger competitors with bigger budgets</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 5: Competitor Matrix -->
+            <section id="competitors">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">Competitive Landscape</h2>
+                <div class="bg-white p-4 md:p-8 rounded-2xl shadow-lg overflow-x-auto">
+                    <p class="text-center text-md text-[#07575B] mb-6">The market includes global players and strong local consultancies. Key competitors have a strong digital footprint, particularly in SEO and paid advertising. Prime EDU Career can compete by focusing on niche destinations and providing superior, personalized service promoted through targeted digital channels.</p>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#07575B] text-white">
+                                <th class="p-3 font-bold uppercase">Competitor</th>
+                                <th class="p-3 font-bold uppercase">Services</th>
+                                <th class="p-3 font-bold uppercase">Digital Strength</th>
+                                <th class="p-3 font-bold uppercase">Target Audience</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-gray-50">
+                                <td class="p-3 font-semibold text-[#003B46]">IDP Education</td>
+                                <td class="p-3 text-[#07575B]">Study Abroad, IELTS</td>
+                                <td class="p-3 text-[#07575B]">Very High (Global SEO)</td>
+                                <td class="p-3 text-[#07575B]">Students (Global)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-[#003B46]">AECC Global</td>
+                                <td class="p-3 text-[#07575B]">Study Abroad, Visas</td>
+                                <td class="p-3 text-[#07575B]">High (Strong Local SEO)</td>
+                                <td class="p-3 text-[#07575B]">Students (Pakistan)</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="p-3 font-semibold text-[#003B46]">Times Consultant</td>
+                                <td class="p-3 text-[#07575B]">Study & Work Visas</td>
+                                <td class="p-3 text-[#07575B]">Medium (Growing Presence)</td>
+                                <td class="p-3 text-[#07575B]">Students & Professionals</td>
+                            </tr>
+                             <tr>
+                                <td class="p-3 font-semibold text-[#003B46] bg-blue-100">Prime EDU Career</td>
+                                <td class="p-3 text-[#07575B] bg-blue-100">Study, Work, Immigrate</td>
+                                <td class="p-3 text-[#07575B] bg-blue-100">Low (Opportunity to Grow)</td>
+                                <td class="p-3 text-[#07575B] bg-blue-100">Students & Professionals</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 6: Digital Strategy -->
+            <section id="strategy">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">The Digital Growth Blueprint</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <p class="text-center text-md text-[#07575B] mb-8">A phased, multi-channel approach will build brand authority, generate leads, and drive conversions. The strategy focuses on capturing existing demand while building a long-term asset through organic search.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-[#66A5AD] text-white rounded-full w-24 h-24 flex items-center justify-center text-4xl font-bold">1</div>
+                            <h3 class="text-2xl font-bold text-[#003B46] mt-4">Foundation (Months 1-3)</h3>
+                            <p class="text-[#07575B] mt-2">On-Page SEO, Keyword Optimization, Website UX/UI Improvements, Google Analytics & Ads Setup.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                             <div class="text-5xl text-[#66A5AD] my-auto hidden md:block">→</div>
+                        </div>
+                         <div class="flex flex-col items-center">
+                            <div class="bg-[#07575B] text-white rounded-full w-24 h-24 flex items-center justify-center text-4xl font-bold">2</div>
+                            <h3 class="text-2xl font-bold text-[#003B46] mt-4">Growth (Months 4-9)</h3>
+                            <p class="text-[#07575B] mt-2">Launch Google Ads Campaigns, Content Marketing (Blogs, Guides), Social Media Engagement, Link Building.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                             <div class="text-5xl text-[#66A5AD] my-auto hidden md:block">→</div>
+                        </div>
+                         <div class="flex flex-col items-center">
+                            <div class="bg-[#003B46] text-white rounded-full w-24 h-24 flex items-center justify-center text-4xl font-bold">3</div>
+                            <h3 class="text-2xl font-bold text-[#003B46] mt-4">Scale (Months 10-12+)</h3>
+                            <p class="text-[#07575B] mt-2">Optimize Ad Spend, Video Marketing (Testimonials), Expand to New Keywords, Marketing Automation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 7: Budget & Projections -->
+            <section id="projections">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">Financial Projections: The First Year</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#003B46] mb-4">Investment & Return</h3>
+                        <p class="text-md text-[#07575B] mb-6">Based on an average monthly digital marketing spend of 150,000 PKR, we project a significant return driven by high-quality lead generation.</p>
+                         <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-lg font-semibold text-[#003B46]">Estimated Annual Spend</p>
+                                <p class="text-3xl font-bold text-[#07575B]">1,800,000 PKR</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <p class="text-lg font-semibold text-[#003B46]">Projected Annual Revenue</p>
+                                <p class="text-3xl font-bold text-[#07575B]">6,750,000 PKR</p>
+                                <p class="text-sm text-gray-600">(Based on 45 clients @ 150,000 PKR avg. value)</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                        <p class="text-center text-md text-[#07575B] mb-6">The chart below illustrates the projected growth in revenue against a consistent marketing investment, with returns accelerating as SEO efforts mature and ad campaigns are optimized.</p>
+                        <div class="chart-container h-80 md:h-[350px]">
+                            <canvas id="projectionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 8: KPIs & ROI -->
+            <section id="kpis-roi">
+                 <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">Measuring What Matters</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                        <h3 class="text-2xl font-bold text-[#003B46] mb-4">Projected 12-Month ROI</h3>
+                        <p class="text-md text-[#07575B] mb-6">The primary financial goal is to achieve a strong return on investment, demonstrating the direct business impact of the digital strategy.</p>
+                        <p class="text-8xl font-extrabold text-[#003B46]">275%</p>
+                         <p class="text-md text-gray-600 mt-2">(Profit: 4,950,000 PKR / Investment: 1,800,000 PKR)</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-[#003B46] mb-4">Key Performance Indicators (KPIs)</h3>
+                        <p class="text-md text-[#07575B] mb-6">We will track these metrics monthly to ensure the campaign is on track and to make data-driven adjustments.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><span class="text-blue-500 mr-3 text-2xl font-bold">●</span><span class="text-[#07575B]">Website Traffic Growth (20% MoM)</span></li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-3 text-2xl font-bold">●</span><span class="text-[#07575B]">Leads Generated (Target: 150/month by Q4)</span></li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-3 text-2xl font-bold">●</span><span class="text-[#07575B]">Cost Per Lead (CPL) (Target: < 1,500 PKR)</span></li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-3 text-2xl font-bold">●</span><span class="text-[#07575B]">Keyword Rankings (Top 5 for 10 keywords)</span></li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-3 text-2xl font-bold">●</span><span class="text-[#07575B]">Lead-to-Client Conversion Rate (Target: 5%)</span></li>
+                        </ul>
+                    </div>
+                 </div>
+            </section>
+            
+            <!-- Section 9: Top Keywords -->
+            <section id="keywords">
+                <h2 class="text-3xl font-bold text-[#003B46] text-center mb-8">Keywords to Conquer</h2>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                     <p class="text-center text-md text-[#07575B] mb-8">Our SEO and PPC efforts will target these high-value keywords to attract qualified traffic and generate leads. The focus will be on a mix of broad, high-volume terms and specific, high-intent long-tail keywords.</p>
+                    <div class="flex flex-wrap justify-center items-center gap-4">
+                        <span class="bg-[#003B46] text-white px-5 py-2 rounded-full text-lg font-semibold">study abroad</span>
+                        <span class="bg-[#07575B] text-white px-4 py-2 rounded-full text-md">education consultant</span>
+                        <span class="bg-[#66A5AD] text-white px-3 py-1 rounded-full text-sm">student visa pakistan</span>
+                        <span class="bg-[#07575B] text-white px-4 py-2 rounded-full text-md">uk work visa</span>
+                        <span class="bg-[#003B46] text-white px-5 py-2 rounded-full text-lg">canada student visa</span>
+                         <span class="bg-[#66A5AD] text-white px-3 py-1 rounded-full text-sm">work permit visa</span>
+                        <span class="bg-[#07575B] text-white px-4 py-2 rounded-full text-md">study in australia</span>
+                        <span class="bg-[#003B46] text-white px-5 py-2 rounded-full text-lg">work in dubai</span>
+                        <span class="bg-[#66A5AD] text-white px-3 py-1 rounded-full text-sm">consultants in lahore</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            darkJungle: '#003B46',
+            midnightGreen: '#07575B',
+            ocean: '#66A5AD',
+            sky: '#C4DFE6'
+        };
+
+        const processLabels = (labels) => {
+            const charLimit = 16;
+            return labels.map(label => {
+                if (typeof label !== 'string' || label.length <= charLimit) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const newLabels = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > charLimit) {
+                        newLabels.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    newLabels.push(currentLine.trim());
+                }
+                return newLabels;
+            });
+        };
+        
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        const demandCtx = document.getElementById('demandChart').getContext('2d');
+        const demandChart = new Chart(demandCtx, {
+            type: 'bar',
+            data: {
+                labels: processLabels(['Education Consultant', 'Study Abroad', 'Student Visa', 'Work Visa', 'Immigration Consultant']),
+                datasets: [{
+                    label: 'Avg. Monthly Searches in Pakistan',
+                    data: [5000, 5000, 5000, 2500, 1500],
+                    backgroundColor: [brilliantBlues.ocean, brilliantBlues.midnightGreen, brilliantBlues.darkJungle, brilliantBlues.ocean, brilliantBlues.midnightGreen],
+                    borderColor: brilliantBlues.darkJungle,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: brilliantBlues.darkJungle },
+                        grid: { color: '#e0e0e0' }
+                    },
+                    x: {
+                        ticks: { color: brilliantBlues.darkJungle },
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                     ...tooltipTitleCallback.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        const countryCtx = document.getElementById('countryChart').getContext('2d');
+        const countryChart = new Chart(countryCtx, {
+            type: 'bar',
+            data: {
+                labels: ['UK', 'Canada', 'Dubai (UAE)', 'Saudi Arabia', 'Australia', 'Italy', 'Germany'],
+                datasets: [{
+                    label: 'Relative Search Interest',
+                    data: [100, 95, 80, 75, 70, 60, 58],
+                    backgroundColor: [brilliantBlues.darkJungle, brilliantBlues.midnightGreen, brilliantBlues.ocean, brilliantBlues.darkJungle, brilliantBlues.midnightGreen, brilliantBlues.ocean, brilliantBlues.darkJungle],
+                    borderColor: brilliantBlues.darkJungle,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...tooltipTitleCallback,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                 scales: {
+                    y: { ticks: { color: brilliantBlues.darkJungle }, grid: { display: false } },
+                    x: { ticks: { color: brilliantBlues.darkJungle }, grid: { color: '#e0e0e0' } }
+                },
+                plugins: {
+                     ...tooltipTitleCallback.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        const projectionCtx = document.getElementById('projectionChart').getContext('2d');
+        const projectionChart = new Chart(projectionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Projected Revenue (PKR)',
+                    data: [450000, 1350000, 2250000, 2700000],
+                    backgroundColor: 'rgba(7, 87, 91, 0.2)',
+                    borderColor: brilliantBlues.midnightGreen,
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Marketing Spend (PKR)',
+                    data: [450000, 450000, 450000, 450000],
+                    backgroundColor: 'rgba(102, 165, 173, 0.2)',
+                    borderColor: brilliantBlues.ocean,
+                    fill: false,
+                    borderDash: [5, 5]
+                }]
+            },
+             options: {
+                ...tooltipTitleCallback,
+                responsive: true,
+                maintainAspectRatio: false,
+                 scales: {
+                    y: { beginAtZero: true, ticks: { color: brilliantBlues.darkJungle }, grid: { color: '#e0e0e0' } },
+                    x: { ticks: { color: brilliantBlues.darkJungle }, grid: { display: false } }
+                },
+                plugins: {
+                    ...tooltipTitleCallback.plugins,
+                    legend: {
+                        position: 'top',
+                         labels: {
+                            color: brilliantBlues.darkJungle
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

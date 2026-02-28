@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahat Group | Market Research & Digital Strategy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40vh;
+    max-height: 450px;
+}
+@media (min-width: 768px) {
+    .chart-container { height: 50vh; }
+}
+.org-node {
+    background: #ffffff;
+    border-top: 4px solid #1E3A8A;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+.org-line-vertical {
+    width: 2px;
+    height: 2rem;
+    background-color: #cbd5e1;
+    margin: 0 auto;
+}
+.org-line-horizontal {
+    height: 2px;
+    background-color: #cbd5e1;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<!-- Palette Chosen: Vibrant Corporate (Deep Blue #1E3A8A, Bright Orange #F97316, Teal #14B8A6) -->
+<!-- Plan Summary: Exec Summary -> Linkage Explanation -> Org Structure -> Competitor Tech/Worth -> Keyword Trends -> SWOT -> Scale-up Strategy -->
+<!-- Visual Choices: Radar (Tech Comparison), Bar (Worth), Horizontal Bar (Keywords), Line (Search Trends). NO SVG or Mermaid used. -->
+
+<nav class="bg-[#1E3A8A] text-white p-4 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tight">RAHAT GROUP <span class="text-[#F97316]">INTELLIGENCE</span></div>
+        <div class="hidden md:flex space-x-6 text-sm font-semibold">
+            <a href="#overview" class="hover:text-[#14B8A6]">Overview</a>
+            <a href="#structure" class="hover:text-[#14B8A6]">Digital Structure</a>
+            <a href="#market" class="hover:text-[#14B8A6]">Market & Competitors</a>
+            <a href="#keywords" class="hover:text-[#14B8A6]">SEO & Trends</a>
+            <a href="#swot" class="hover:text-[#14B8A6]">SWOT & Strategy</a>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-7xl mx-auto p-4 md:p-8">
+
+    <section id="overview" class="mb-16">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] p-8 md:p-12 text-white">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Market Research & Digital Audit Report</h1>
+                <p class="text-lg md:text-xl text-blue-100 max-w-3xl">Comprehensive analysis of Rahat Marketing, Rahat Developments, digital infrastructure benchmarks, competitor landscape, and scale-up roadmap.</p>
+            </div>
+            
+            <div class="p-8 md:p-12">
+                <h2 class="text-2xl font-bold text-[#1E3A8A] mb-4 border-b-2 border-[#14B8A6] pb-2 inline-block">Economic Impact & Strategic Pivot</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                    <div>
+                        <p class="text-slate-600 mb-4 leading-relaxed">
+                            The Rahat Group has successfully evolved from its 1947 roots in the bakery business into a formidable real estate powerhouse. By facilitating land for DHA and launching flagship projects like Etihad Town Phase 1, Signature Villas, and Signature Townhouses, the group is capitalizing on high-yield real estate economics.
+                        </p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl border-l-4 border-[#F97316]">
+                        <h3 class="font-bold text-lg mb-2 text-slate-800">Understanding Construction Multipliers</h3>
+                        <p class="text-sm text-slate-600 mb-3">The statement <i>"The construction sector's economic impact is further highlighted by its high multipliers in backward (2.29) and forward (1.80) linkages"</i> means:</p>
+                        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-2">
+                            <li><b>Backward Linkage (2.29):</b> Every Rs. 1 invested in construction generates Rs. 2.29 of demand in upstream supplier industries (cement, steel, labor, transport).</li>
+                            <li><b>Forward Linkage (1.80):</b> The completed construction project enables Rs. 1.80 of downstream economic activity (real estate services, commercial retail, residential utility).</li>
+                        </ul>
+                        <p class="text-sm font-semibold text-[#1E3A8A] mt-3">Takeaway: Real estate development is a massive macroeconomic driver, validating Rahat Group's strategic diversification.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="structure" class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Proposed Digital Infrastructure & Organogram</h2>
+        <p class="text-slate-600 mb-8 max-w-4xl">To scale effectively, Rahat Group requires a unified digital presence utilizing a Parent-Child domain architecture. Consolidating under a primary <code>.pk</code> domain will centralize domain authority, improve SEO rankings, and create a cohesive brand ecosystem incorporating new verticals like "R World".</p>
+        
+        <div class="bg-white p-8 rounded-2xl shadow-lg overflow-x-auto">
+            <div class="min-w-[800px] py-4">
+                
+                <div class="flex justify-center mb-0">
+                    <div class="org-node w-64 border-t-4 border-[#1E3A8A] bg-blue-50">
+                        <div class="text-2xl mb-2">🏢</div>
+                        <h3 class="font-bold text-lg text-[#1E3A8A]">Rahat Group</h3>
+                        <p class="text-xs font-mono text-slate-500 bg-white inline-block px-2 py-1 rounded mt-2">rahatgroup.pk</p>
+                        <p class="text-xs text-slate-500 mt-1">Parent Entity</p>
+                    </div>
+                </div>
+                
+                <div class="org-line-vertical"></div>
+                
+                <div class="relative w-full h-8">
+                    <div class="absolute top-1/2 left-[12.5%] right-[12.5%] h-[2px] bg-slate-300"></div>
+                    <div class="absolute top-1/2 left-[12.5%] w-[2px] h-4 bg-slate-300"></div>
+                    <div class="absolute top-1/2 left-[37.5%] w-[2px] h-4 bg-slate-300"></div>
+                    <div class="absolute top-1/2 left-[62.5%] w-[2px] h-4 bg-slate-300"></div>
+                    <div class="absolute top-1/2 left-[87.5%] w-[2px] h-4 bg-slate-300"></div>
+                </div>
+
+                <div class="flex justify-between w-full mt-0">
+                    
+                    <div class="org-node w-[22%] border-t-4 border-[#F97316]">
+                        <div class="text-xl mb-1">🏗️</div>
+                        <h4 class="font-bold text-sm">Rahat Developments</h4>
+                        <p class="text-xs font-mono text-slate-500 mt-1 truncate">developments.rahatgroup.pk</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="text-xs font-semibold text-slate-700 mb-1">Projects (Sub-folders/domains)</div>
+                            <div class="bg-slate-50 p-1 rounded text-xs mb-1">/signature-villas</div>
+                            <div class="bg-slate-50 p-1 rounded text-xs">/signature-townhouses</div>
+                        </div>
+                    </div>
+
+                    <div class="org-node w-[22%] border-t-4 border-[#14B8A6]">
+                        <div class="text-xl mb-1">📈</div>
+                        <h4 class="font-bold text-sm">Rahat Marketing</h4>
+                        <p class="text-xs font-mono text-slate-500 mt-1 truncate">marketing.rahatgroup.pk</p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="text-xs text-slate-500">Sales, Dealership, & Client Acquisition Engine</div>
+                        </div>
+                    </div>
+
+                    <div class="org-node w-[22%] border-t-4 border-amber-500">
+                        <div class="text-xl mb-1">🥐</div>
+                        <h4 class="font-bold text-sm">Rahat Bakery</h4>
+                        <p class="text-xs font-mono text-slate-500 mt-1 truncate">bakery.rahatgroup.pk</p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="text-xs text-slate-500">Legacy Business & FMCG Division</div>
+                        </div>
+                    </div>
+
+                    <div class="org-node w-[22%] border-t-4 border-purple-500 bg-purple-50">
+                        <div class="text-xl mb-1">🌐</div>
+                        <h4 class="font-bold text-sm">R World</h4>
+                        <p class="text-xs font-mono text-slate-500 mt-1 truncate">rworld.rahatgroup.pk</p>
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="text-xs text-purple-700 font-semibold">New Proposed Brand</div>
+                            <div class="text-xs text-slate-500 mt-1">Lifestyle, Community Management & Tech</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="market" class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">Market Share & Competitor Benchmarking</h2>
+        <p class="text-slate-600 mb-8 max-w-4xl">Analyzing the digital infrastructure and estimated business share of competitors reveals a gap in the market. While entities like Park View City dominate in tech optimization and web valuation, Rahat Group's current associated projects (like Etihad Town) possess significant room for digital growth to capture a larger market share.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="font-bold text-xl text-[#1E3A8A] mb-2">Digital Tech Audit Comparison</h3>
+                <p class="text-sm text-slate-500 mb-4">Comparing web infrastructure metrics across top competitors. A larger area indicates stronger overall digital hygiene and capability.</p>
+                <div class="chart-container">
+                    <canvas id="techRadarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <h3 class="font-bold text-xl text-[#1E3A8A] mb-2">Estimated Website Valuation (USD)</h3>
+                <p class="text-sm text-slate-500 mb-4">Based on global ranking data, representing relative digital business share and online authority.</p>
+                <div class="chart-container">
+                    <canvas id="valuationBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="keywords" class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">SEO Analysis & Keyword Strategy</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Declining (Old) Keywords</h3>
+                    <p class="text-sm text-slate-600 mb-3">Legacy terms that are losing search velocity. Budgets should be shifted away from these.</p>
+                    <ul class="text-sm space-y-2">
+                        <li class="flex justify-between"><span>etihad town phase 2</span> <span class="text-red-500 font-bold">-30%</span></li>
+                        <li class="flex justify-between"><span>etihad town phase 1</span> <span class="text-red-500 font-bold">-40%</span></li>
+                        <li class="flex justify-between"><span>house for sale in lahore</span> <span class="text-red-500 font-bold">-20%</span></li>
+                        <li class="flex justify-between"><span>saima arabian villas</span> <span class="text-red-500 font-bold">-20%</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-[#14B8A6]">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Target (New) Keywords</h3>
+                    <p class="text-sm text-slate-600 mb-3">High-growth terms to target immediately for upcoming projects and lead generation.</p>
+                    <ul class="text-sm space-y-2">
+                        <li class="flex justify-between"><span>etihad town phase 3</span> <span class="text-[#14B8A6] font-bold">+1,650%</span></li>
+                        <li class="flex justify-between"><span>phase 3 payment plan</span> <span class="text-[#14B8A6] font-bold">+300%</span></li>
+                        <li class="flex justify-between"><span>union town</span> <span class="text-[#14B8A6] font-bold">+60%</span></li>
+                        <li class="flex justify-between"><span>house for sale near me</span> <span class="text-[#14B8A6] font-bold">+20%</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
+                <h3 class="font-bold text-xl text-[#1E3A8A] mb-2">Search Trend Trajectory (2025-2026)</h3>
+                <p class="text-sm text-slate-500 mb-4">Time-series data tracking major real estate queries in Pakistan.</p>
+                <div class="chart-container">
+                    <canvas id="trendLineChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="swot" class="mb-16">
+        <h2 class="text-3xl font-bold text-slate-800 mb-6">SWOT Analysis: Rahat Group</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-[#14B8A6]">
+                <h3 class="text-xl font-bold text-[#14B8A6] mb-4 flex items-center"><span class="text-2xl mr-2">💪</span> Strengths</h3>
+                <ul class="list-none space-y-3 text-slate-600">
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span> Decades of legacy trust and brand recognition (since 1947).</li>
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span> Diversified portfolio across retail, land acquisition, and gated community development.</li>
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span> Proven delivery capability (Etihad Town Phase 1, Signature Villas).</li>
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span> Direct ownership of development and marketing arms.</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-red-400">
+                <h3 class="text-xl font-bold text-red-500 mb-4 flex items-center"><span class="text-2xl mr-2">⚠️</span> Weaknesses</h3>
+                <ul class="list-none space-y-3 text-slate-600">
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✗</span> Fragmented digital presence; lack of a consolidated master domain structure.</li>
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✗</span> Lower overall digital tech audit scores compared to top-tier competitors like Park View City.</li>
+                    <li class="flex items-start"><span class="text-red-400 mr-2">✗</span> SEO dependence on older project phases experiencing negative search momentum.</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-[#F97316]">
+                <h3 class="text-xl font-bold text-[#F97316] mb-4 flex items-center"><span class="text-2xl mr-2">🎯</span> Opportunities</h3>
+                <ul class="list-none space-y-3 text-slate-600">
+                    <li class="flex items-start"><span class="text-amber-500 mr-2">★</span> Massive breakout search volume (+1650%) for "Etihad Town Phase 3" - immediate lead gen capability.</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2">★</span> Launching "R World" to capture lifestyle and community management market share.</li>
+                    <li class="flex items-start"><span class="text-amber-500 mr-2">★</span> Utilizing high economic linkage multipliers to attract major institutional investors.</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-slate-600">
+                <h3 class="text-xl font-bold text-slate-700 mb-4 flex items-center"><span class="text-2xl mr-2">🛡️</span> Threats</h3>
+                <ul class="list-none space-y-3 text-slate-600">
+                    <li class="flex items-start"><span class="text-slate-500 mr-2">!</span> Aggressive digital dominance by competitors (Lahore Smart City, Park View).</li>
+                    <li class="flex items-start"><span class="text-slate-500 mr-2">!</span> General market decline for broad keywords (e.g., "-20% for house for sale in lahore") indicating economic tightening.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <div class="bg-[#1E3A8A] rounded-2xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Digital Scale-up Strategy</h2>
+                <p class="text-blue-100 mb-8 max-w-3xl text-lg">Actionable roadmap to increase revenue and dominate the digital real estate landscape.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <div class="text-3xl mb-4">1️⃣</div>
+                        <h4 class="font-bold text-xl mb-2 text-[#14B8A6]">Consolidate & Replatform</h4>
+                        <p class="text-sm text-blue-50">Deploy the <code>rahatgroup.pk</code> master structure. Move all existing disparate websites into subdomains to pool Domain Authority and improve organic SEO worth.</p>
+                    </div>
+                    
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <div class="text-3xl mb-4">2️⃣</div>
+                        <h4 class="font-bold text-xl mb-2 text-[#F97316]">Capitalize on 'Phase 3'</h4>
+                        <p class="text-sm text-blue-50">Launch aggressive Performance Marketing campaigns targeting "Etihad Town Phase 3 payment plan" to capture the +1650% breakout traffic immediately.</p>
+                    </div>
+                    
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <div class="text-3xl mb-4">3️⃣</div>
+                        <h4 class="font-bold text-xl mb-2 text-white">Launch 'R World'</h4>
+                        <p class="text-sm text-blue-50">Introduce the R World brand as a lifestyle app/portal. Transition from just selling land to providing a digital lifestyle ecosystem, increasing customer Lifetime Value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    function processLabels(labels) {
+        return labels.map(label => {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        });
+    }
+
+    const tooltipConfig = {
+        callbacks: {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            }
+        }
+    };
+
+    const ctxRadar = document.getElementById('techRadarChart').getContext('2d');
+    const radarLabelsRaw = ['Mobile Score', 'Desktop Score', 'Accessibility', 'Best Practices', 'SEO'];
+    new Chart(ctxRadar, {
+        type: 'radar',
+        data: {
+            labels: processLabels(radarLabelsRaw),
+            datasets: [
+                {
+                    label: 'Park View City',
+                    data: [33, 90, 95, 96, 85],
+                    backgroundColor: 'rgba(30, 58, 138, 0.2)',
+                    borderColor: '#1E3A8A',
+                    pointBackgroundColor: '#1E3A8A',
+                },
+                {
+                    label: 'Lahore Smart City',
+                    data: [2, 22, 52, 67, 86],
+                    backgroundColor: 'rgba(249, 115, 22, 0.2)',
+                    borderColor: '#F97316',
+                    pointBackgroundColor: '#F97316',
+                },
+                {
+                    label: 'Urban City',
+                    data: [81, 86, 87, 54, 92],
+                    backgroundColor: 'rgba(20, 184, 166, 0.2)',
+                    borderColor: '#14B8A6',
+                    pointBackgroundColor: '#14B8A6',
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { tooltip: tooltipConfig },
+            scales: { r: { angleLines: { display: false }, suggestedMin: 0, suggestedMax: 100 } }
+        }
+    });
+
+    const ctxBar = document.getElementById('valuationBarChart').getContext('2d');
+    const barLabelsRaw = ['Park View City', 'Lahore Smart City', 'Etihad Town', 'Lake City'];
+    new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: processLabels(barLabelsRaw),
+            datasets: [{
+                label: 'Estimated Worth ($)',
+                data: [27301, 16069, 2829, 1778],
+                backgroundColor: ['#1E3A8A', '#3B82F6', '#14B8A6', '#F97316'],
+                borderWidth: 0,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { tooltip: tooltipConfig, legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    const ctxLine = document.getElementById('trendLineChart').getContext('2d');
+    new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [
+                {
+                    label: 'house for sale',
+                    data: [66, 74, 86, 69, 86],
+                    borderColor: '#1E3A8A',
+                    tension: 0.3,
+                    fill: false
+                },
+                {
+                    label: 'Etihad Town',
+                    data: [6, 5, 7, 6, 6],
+                    borderColor: '#F97316',
+                    tension: 0.3,
+                    fill: false
+                },
+                {
+                    label: 'Buy property',
+                    data: [0, 3, 0, 2, 3],
+                    borderColor: '#14B8A6',
+                    tension: 0.3,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { tooltip: tooltipConfig },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+</script>
+</body>
+</html>

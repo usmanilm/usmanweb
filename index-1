@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Muhammad Usman - Technology Leader, IT Consultant & Digital Transformation Expert</title>
+  <meta name="description" content="Explore Muhammad Usman's profile: a visionary technology leader, IT consultant, and Chief Marketing Officer specializing in web design, app development, SEO, and digital transformation. With 20+ years of experience, Usman drives innovation in governmental and private sectors.">
+  <meta name="keywords" content="Muhammad Usman, Technology Consultant, Chief Technology Officer, Chief Marketing Officer, Web Design Expert, App Development Specialist, SEO Professional, Content Creator, Digital Marketing Strategist, IT Solutions Expert, Cloud Computing, Cybersecurity Consultant, Network Infrastructure, Digital Transformation, Business Optimization, Tech Innovator, Lahore, Pakistan">
+  
+  <link rel="manifest" href="/manifest.json">
+  <link rel="canonical" href="https://usman.biztrax.uk/" />
+  
+
+  <meta property="og:title" content="Muhammad Usman - Personal Website & Portfolio" />
+  <meta property="og:description" content="Explore Muhammad Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation." />
+  <meta property="og:image" content="assets/img/profile2.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="500" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:url" content="https://usman.biztrax.uk" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muhammad Usman - Personal Website & Portfolio">
+  <meta name="twitter:description" content="Explore Muhammad Usman's profile, a visionary technology leader and consultant specializing in web design, app development, SEO, and digital transformation.">
+  <meta name="twitter:image" content="assets/img/profile2.png">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    @media (max-width: 767.98px) {
+      .section-title h2 {
+        font-size: 1.8rem;
+        word-break: break-word;
+      }
+      .section-title p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+<div id="preloader"></div>
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center"></a>
+
+      <nav id="navmenu" class="navmenu">
+        <div class="profile-img">
+          <img src="assets/img/profile2.png" alt="Muhammad Usman Profile Picture" class="img-fluid rounded-circle">
+        </div>
+
+        <a href="index.html" class="logo d-flex align-items-center justify-content-center active">
+          <h1 class="sitename">Muhammad Usman</h1>
+        </a>
+
+        <div class="social-links text-center">
+          <a href="https://x.com/usmanilm" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.facebook.com/usman.ilm" class="facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/usman.ilm/" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/@MuhammadUsmanILM/videos" class="youtube" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+          <a href="https://www.linkedin.com/in/usmanilm" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+        </div>
+
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Experience</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-delay="100">
+            <div class="content-wrapper">
+              <h1 class="hero-title">Muhammad Usman - <span class="typed" data-typed-items="Technology Leader, IT Consultant, Digital Transformation Expert, Chief Marketing Officer"></span></h1>
+              <p class="lead">With nearly two decades of experience, I specialize in pioneering technology-driven innovations and strategic marketing efforts to elevate brand presence and streamline operations.</p>
+
+              <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="2">0</span>
+                  <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="2">0</span>
+                  <span class="stat-label">Projects Impacted</span>
+                </div>
+                <div class="stat-item">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="2">0</span>
+                  <span class="stat-label">Client Satisfaction</span>
+                </div>
+              </div>
+
+              <div class="hero-actions" data-aos="fade-up" data-aos-delay="300">
+                <a href="#portfolio" class="btn btn-primary">View My Portfolio</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+              </div>
+
+              <div class="social-links" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://x.com/usmanilm" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/usmanilm" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/usman.ilm" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/usman.ilm/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hero-image" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-container">
+              <div class="floating-elements">
+                <div class="floating-card card-1" data-aos="zoom-in" data-aos-delay="300">
+                  <i class="bi bi-lightbulb"></i>
+                  <span>Digital Strategy</span>
+                </div>
+                <div class="floating-card card-2" data-aos="zoom-in" data-aos-delay="400">
+                  <i class="bi bi-code-slash"></i>
+                  <span>Software Development</span>
+                </div>
+                <div class="floating-card card-3" data-aos="zoom-in" data-aos-delay="500">
+                  <i class="bi bi-cloud"></i>
+                  <span>IT Consulting</span>
+                </div>
+              </div>
+              <img src="assets/img/profile2.png" alt="Muhammad Usman - Technology Consultant" class="img-fluid hero-main-image">
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about section">
+      <div class="container section-title">
+        <h2>About Me</h2>
+        <p>A Visionary Technology Leader & Digital Transformation Expert</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <img src="assets/img/profile2.png" alt="Muhammad Usman Profile" class="img-fluid">
+              </div>
+              <div class="signature-section">
+                <img src="assets/img/misc/signature-1.webp" alt="Usman Signature" class="signature">
+                <p class="quote">Driving digital innovation and strategic growth for businesses.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-content">
+              <div class="intro">
+                <h2>Hi, I'm Muhammad Usman - an IT Aficionado & Digital Strategist</h2>
+                <p>With nearly two decades of experience in the tech industry, I am a seasoned IT aficionado. As a Chief Marketing Officer and IT Consultant, I specialize in data-driven strategies and technology innovations. My expertise spans Google Workspace, Databases, and Software Development, with projects significantly impacting both governmental and private sectors. I am passionate about optimizing business processes, enhancing efficiency, and driving digital transformation.</p>
+              </div>
+
+              <div class="skills-grid">
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="skill-icon"><i class="bi bi-briefcase"></i></div>
+                  <h4>Technology Leadership</h4>
+                  <p>Leading teams and initiatives to achieve technological excellence.</p>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="450">
+                  <div class="skill-icon"><i class="bi bi-bar-chart"></i></div>
+                  <h4>Digital Marketing Strategy</h4>
+                  <p>Developing and executing data-driven marketing campaigns.</p>
+                </div>
+                <div class="skill-item" data-aos="zoom-in" data-aos-delay="500">
+                  <div class="skill-icon"><i class="bi bi-cloud-check"></i></div>
+                  <h4>Cloud & Database Solutions</h4>
+                  <p>Implementing robust cloud infrastructure and database systems.</p>
+                </div>
+              </div>
+
+              <div class="journey-timeline" data-aos="fade-up" data-aos-delay="300">
+                <div class="timeline-item">
+                  <div class="year">2005</div>
+                  <div class="description">Began career in the IT industry, building foundational expertise.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="year">2019</div>
+                  <div class="description">Started consulting for Glamp Pakistan, revolutionizing hospitality with tech.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="year">2024</div>
+                  <div class="description">Appointed CTO & CMO at Neon Nova, pioneering tech-driven innovations.</div>
+                </div>
+              </div>
+
+              <div class="cta-section" data-aos="fade-up" data-aos-delay="400">
+                <div class="fun-fact">
+                  <span class="emoji">💡</span>
+                  <span class="text">Innovating and transforming businesses from Lahore, Pakistan.</span>
+                </div>
+                <div class="action-buttons">
+                  <a href="https://usman.biztrax.uk/timeline" class="btn btn-primary">Career Timeline</a>
+                  <a href="https://www.linkedin.com/in/usmanilm/" class="btn btn-outline">Linkedin Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio section">
+      <div class="container section-title">
+        <h2>My Portfolio</h2>
+        <p>Showcasing key projects in web design, app development, and digital solutions.</p>
+      </div>
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
+            <li data-filter="*" class="filter-active"><i class="bi bi-grid-3x3"></i> All Projects</li>
+            <li data-filter=".filter-design">Web Design</li>
+            <li data-filter=".filter-development">App Development</li>
+            <li data-filter=".filter-digital">Digital Solutions</li>
+            <li data-filter=".filter-marketing">Marketing</li>
+          </ul>
+
+          <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/digital-marketing-strategy.jpg" class="img-fluid" alt="Mindcraft Pakistan">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Marketing</div>
+                      <h3 class="entry-title">Mindcraft Pakistan</h3>
+                      <div class="entry-links">
+                        <a href="https://mindcraft.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="Glamp Pakistan">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Glamp Pakistan</h3>
+                      <div class="entry-links">
+                        <a href="https://www.glamp.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/custom-software-development.jpg" class="img-fluid" alt="BizTrax UK">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">App Development</div>
+                      <h3 class="entry-title">BizTrax UK</h3>
+                      <div class="entry-links">
+                        <a href="https://www.biztrax.uk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/portfolio-6.webp" class="img-fluid" alt="Neon Nova Canada">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Neon Nova Canada</h3>
+                      <div class="entry-links">
+                        <a href="https://neonnova.ca/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="Gas Safety Manchester">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Gas Safety Manchester</h3>
+                      <div class="entry-links">
+                        <a href="https://gassafetymanchester.co.uk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/e-commerce-platform.jpg" class="img-fluid" alt="Toys and Stuff UK">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Toys and Stuff UK</h3>
+                      <div class="entry-links">
+                        <a href="https://toysandstuff.uk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-development">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/custom-software-development.jpg" class="img-fluid" alt="AMGOC US LLC">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">App Development</div>
+                      <h3 class="entry-title">AMGOC US LLC</h3>
+                      <div class="entry-links">
+                        <a href="https://www.amgoc.us/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="Prime EduCareer">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Prime EduCareer</h3>
+                      <div class="entry-links">
+                        <a href="https://primeeducareer.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="Salford EPC">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Salford EPC</h3>
+                      <div class="entry-links">
+                        <a href="https://salfordepc.uk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="Sahha Circle">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Sahha Circle Therapy</h3>
+                      <div class="entry-links">
+                        <a href="https://sahhacircle.com/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/e-commerce-platform.jpg" class="img-fluid" alt="HS Organics">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">HS Organics</h3>
+                      <div class="entry-links">
+                        <a href="https://hsorganics.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="Physical & Nutrition">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Physical & Nutrition</h3>
+                      <div class="entry-links">
+                        <a href="https://pandn.uk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/e-commerce-platform.jpg" class="img-fluid" alt="99 by Inna">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">99 by Inna</h3>
+                      <div class="entry-links">
+                        <a href="https://99byinna.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="Mehreen Syed Portfolio">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Mehreen Syed Portfolio</h3>
+                      <div class="entry-links">
+                        <a href="https://mehreensyed.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="iFAP Pakistan">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">iFAP Pakistan</h3>
+                      <div class="entry-links">
+                        <a href="https://ifap.edu.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="iCARE Pakistan">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">iCARE Pakistan</h3>
+                      <div class="entry-links">
+                        <a href="https://icare.org.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/e-commerce-platform.jpg" class="img-fluid" alt="Mehreen Syed Jewellery">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Mehreen Syed Jewellery</h3>
+                      <div class="entry-links">
+                        <a href="https://mehreensyed.com/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-digital">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/it-consulting.jpg" class="img-fluid" alt="Boomerangtours">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Digital Solutions</div>
+                      <h3 class="entry-title">Boomerangtours Pakistan</h3>
+                      <div class="entry-links">
+                        <a href="https://boomerangtours.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-marketing">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/digital-marketing-strategy.jpg" class="img-fluid" alt="Rahat Marketing">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Marketing</div>
+                      <h3 class="entry-title">Rahat Marketing</h3>
+                      <div class="entry-links">
+                        <a href="https://rahatmarketing.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <article class="portfolio-entry">
+                <figure class="entry-image">
+                  <img src="assets/img/portfolio/portfolio-4.webp" class="img-fluid" alt="Rahat Developments">
+                  <div class="entry-overlay">
+                    <div class="overlay-content">
+                      <div class="entry-meta">Web Design</div>
+                      <h3 class="entry-title">Rahat Developments</h3>
+                      <div class="entry-links">
+                        <a href="https://rahatdevelopments.pk/" target="_blank"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </figure>
+              </article>
+            </div>
+
+          </div></div>
+      </div>
+    </section><section id="services" class="services section">
+      <div class="container section-title">
+        <h2>My Services</h2>
+        <p>Delivering comprehensive IT and digital marketing solutions for business growth.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item">
+              <div class="icon"><i class="bi bi-code-slash"></i></div>
+              <h3>Web Design & Development</h3>
+              <p>Crafting visually appealing, user-friendly, and responsive websites tailored to enhance brand identity and drive user engagement.</p>
+              <div class="card-links">
+                <a href="#portfolio" class="link-item">View Web Projects <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item">
+              <div class="icon"><i class="bi bi-phone"></i></div>
+              <h3>Mobile & Web Apps Development</h3>
+              <p>Delivering innovative, feature-rich mobile and web applications designed to optimize user experiences and meet diverse business needs.</p>
+              <div class="card-links">
+                <a href="#portfolio" class="link-item">Explore App Solutions <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item">
+              <div class="icon"><i class="bi bi-search"></i></div>
+              <h3>Search Engine Optimization (SEO)</h3>
+              <p>Boosting online visibility and driving organic traffic through data-driven search engine optimization strategies.</p>
+              <div class="card-links">
+                <a href="#contact" class="link-item">Get SEO Consultation <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section light-background">
+      <div class="container section-title">
+        <h2>Contact Me</h2>
+        <p>Let's connect and discuss your next project or digital transformation needs.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+              <h3>Contact Information</h3>
+              <p>Feel free to reach out via the following channels:</p>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box"><i class="bi bi-geo-alt"></i></div>
+                <div class="content">
+                  <h4>Location</h4>
+                  <p>Lahore, Pakistan</p>
+                </div>
+              </div>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box"><i class="bi bi-telephone"></i></div>
+                <div class="content">
+                  <h4>Phone Number</h4>
+                  <p><a href="tel:+923134781876">+92 313 4781876</a></p>
+                </div>
+              </div>
+              <div class="info-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box"><i class="bi bi-envelope"></i></div>
+                <div class="content">
+                  <h4>Email Address</h4>
+                  <p><a href="mailto:usman@biztrax.uk">usman@biztrax.uk</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+              <h3>Send Me a Message</h3>
+              <form action="mailto:usman@biztrax.uk" method="post" enctype="text/plain" class="php-email-form">
+                <div class="row gy-4">
+                  <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
+                  <div class="col-md-6"><input type="email" class="form-control" name="email" placeholder="Your Email" required></div>
+                  <div class="col-12"><input type="text" class="form-control" name="subject" placeholder="Subject" required></div>
+                  <div class="col-12"><textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea></div>
+                  <div class="col-12 text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Muhammad Usman</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://x.com/usmanilm" target="_blank"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/usman.ilm" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/usman.ilm/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/usmanilm" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
